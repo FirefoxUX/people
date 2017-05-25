@@ -1,0 +1,8 @@
+{
+	"panels":
+	[
+	[{"id":"recently_bookmarked","size":6, "name": "Recently Bookmarked", "icon": "idk"}],
+	[{"id":"downloads","size":3, "name": "Downloads", "icon": "idk"}, {"id":"topsites","size":3, "name": "Topsites", "icon": "idk"}]
+	]
+
+}

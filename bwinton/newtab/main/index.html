@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html snippetsURL='https://snippets.mozilla.com/3/newtab-mockup/19.0a1/20121203143002/Darwin_x86_64-gcc3/en-US/default/Darwin%2012.2.0/default/default/'>
+  
+  <head>
+    <base href="https://people.mozilla.com/~bwinton/newtab/">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="shared/styles/reset.css">
+    <link rel="stylesheet" href="main/styles/styles.css">
+    <link rel="stylesheet" href="shared/styles/app_styles.css">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <div id="header">
+        <div id='top'>
+          <div id='search'>
+            <form id="searchForm" name="searchForm">
+              <img id="searchEngineLogo" class="button">
+              <input id='searchText' type='text' name='q' value='' maxlength='256'></input>
+              <input id='searchSubmit' type='submit' value='Search'></input>
+            </form>
+            <div id="searchEngineContainer">
+              <div class="arrowPanelArrowTop"></div>
+              <div id="searchEngines"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <button class="slider_button" id="prev_button"></button>
+
+      <div id="middle">
+        
+        
+        <div id="slider_div" class="sliding_transition">
+          <!-- <div class="clearfix"></div> -->
+        </div>
+      </div>
+
+      <button class="slider_button" id="next_button"></button>
+    
+      <div id="footer">
+        <div id="footer_buttons">
+          <button id='downloads' class='' title='Downloads'></button>
+          <button id='bookmarks' class='' title='Bookmarks'></button>
+          <button id='history' class='' title='History'></button>
+          <button id='sync' class='' title='Sync'></button>
+          <a href="about:newtab-config">
+            <button id='settings' class='' title='Settings'></button>
+          </a>
+        </div>
+<!--         <div id='snippetContainer'>
+          <div id='defaultSnippets' hidden='true'>
+            <span id='defaultSnippet1'>Thanks for choosing Firefox! To get the most out of your browser, learn more about the <a>latest features</a>.</span>
+            <span id='defaultSnippet2'>It's easy to customize your Firefox exactly the way you want it. <a>Choose from thousands of add-ons</a>.</span>
+          </div>
+          <div id='snippets'></div>
+        </div>
+        <div class="clearfix"></div>
+      </div> -->
+
+      <div id="snippetArrow"></div>
+      <img id="firefox_logo" src="chrome://branding/content/about-logo.png" alt="firefox">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAyCAYAAAAus5mQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMTgwMTE3NDA3MjA2ODExOEMxNEFBN0YwQzM0QTAxNCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2MjM1NTM4MEE5ODkxMUUyQkEyMkFBRDAxODhFMDQ0RCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2MjM1NTM3RkE5ODkxMUUyQkEyMkFBRDAxODhFMDQ0RCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDc4MDExNzQwNzIwNjgxMThDMTRBQTdGMEMzNEEwMTQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDE4MDExNzQwNzIwNjgxMThDMTRBQTdGMEMzNEEwMTQiLz4gPC9yZGY6RGVzY3Jp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" alt="" id="snippet_image">
+      <div id="snippetContainer">
+        <div id="snippet">
+          This is a snippet. Snippets are cool because they let Mozilla talk to the user directly.
+          <button onclick="hide_snippet()" id="snippet_dismiss">awesome</button>
+          <button>pretty cool</button>
+
+          <script type='text/javascript'>
+            function hide_snippet(){
+              $('#snippetContainer').hide();
+              $('#snippetArrow').hide();
+              $('#snippet_image').hide();
+            }
+          </script>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div id="templates">
+      
+      <!-- the template for each individual app -->
+      <div class="app_wrapper">
+        <div class="app_header">
+          <img src="" alt="" class="app_icon">
+          <span class="app_title">App Title</span>
+        </div>
+        <div class="app_container"></div>
+      </div>
+
+      <!-- each line in the app -->
+      <div class="app_line">
+        <a href="" class="line_link">
+          <img src="" alt="" class="line_img">
+          <div class="line_text">
+            <span class="line_bigtext"></span><br>
+            <span class="line_smalltext"></span>
+          </div>
+        </a>
+        <div class="clearfix"></div>
+      </div>
+
+    </div>
+
+
+  </body>
+ 
+  <script type="text/javascript" src='shared/scripts/easy-templates.js'></script>
+
+  <!--<script type='text/javascript;version=1.8' src='../scripts/snippets.js'></script> -->
+
+
+  <script type="text/javascript" src='main/scripts/Header.js'></script>
+  <script type="text/javascript" src='main/scripts/Footer.js'></script>
+  <script type="text/javascript" src='main/scripts/Slider.js'></script>
+  <script type="text/javascript" src='main/scripts/Panel.js'></script>
+  <script type="text/javascript" src='main/scripts/App.js'></script>
+  <script type="text/javascript" src='main/scripts/main.js'></script>
+
+
+
+</html>

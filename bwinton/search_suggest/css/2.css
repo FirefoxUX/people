@@ -1,0 +1,18 @@
+.suggestions.defaults .item {
+  padding-bottom: 19px;
+}
+
+.suggestions.defaults {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+}
+
+.suggestions.others {
+  position: relative;
+  left: 50%;
+  width: 50%;
+  top: 0;
+  border: none;
+}

@@ -1,0 +1,551 @@
+diff --git a/mobile/android/base/AwesomeBar.java b/mobile/android/base/AwesomeBar.java
+--- a/mobile/android/base/AwesomeBar.java
++++ b/mobile/android/base/AwesomeBar.java
+@@ -1,18 +1,20 @@
+ /* -*- Mode: Java; c-basic-offset: 4; tab-width: 20; indent-tabs-mode: nil; -*-
+  * This Source Code Form is subject to the terms of the Mozilla Public
+  * License, v. 2.0. If a copy of the MPL was not distributed with this
+  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+ 
+ package org.mozilla.gecko;
+ 
+ import org.mozilla.gecko.db.BrowserDB;
++import org.mozilla.gecko.db.BrowserDB.URLColumns;
+ import org.mozilla.gecko.db.BrowserContract.Combined;
+ import org.mozilla.gecko.util.GeckoAsyncTask;
++import org.mozilla.gecko.util.GeckoEventListener;
+ 
+ import android.app.Activity;
+ import android.app.AlertDialog;
+ import android.content.ContentResolver;
+ import android.content.Context;
+ import android.content.DialogInterface;
+ import android.content.Intent;
+ import android.content.res.Configuration;
+@@ -23,36 +25,42 @@ import android.os.AsyncTask;
+ import android.os.Build;
+ import android.os.Bundle;
+ import android.text.Editable;
+ import android.text.InputType;
+ import android.text.Spanned;
+ import android.text.TextUtils;
+ import android.text.TextWatcher;
+ import android.util.Log;
++import android.util.Pair;
+ import android.view.ContextMenu;
+ import android.view.ContextMenu.ContextMenuInfo;
+ import android.view.KeyEvent;
+ import android.view.LayoutInflater;
+ import android.view.MenuItem;
+ import android.view.View;
+ import android.view.inputmethod.EditorInfo;
+ import android.view.inputmethod.InputMethodManager;
++import android.webkit.WebView;
+ import android.widget.Button;
+ import android.widget.EditText;
+ import android.widget.ImageButton;
+ import android.widget.ListView;
+ import android.widget.TabWidget;
+ import android.widget.Toast;
+ 
+ import java.net.URLEncoder;
+ import java.util.Arrays;
+ import java.util.Collection;
+ 
+-public class AwesomeBar extends GeckoActivity {
++import org.json.JSONObject;
++import org.json.JSONException;
++
++
++public class AwesomeBar extends GeckoActivity implements GeckoEventListener {
+     private static final String LOGTAG = "GeckoAwesomeBar";
+ 
+     private static final Collection<String> sSwypeInputMethods = Arrays.asList(new String[] {
+                                                                  InputMethods.METHOD_SWYPE,
+                                                                  InputMethods.METHOD_SWYPE_BETA,
+                                                                  });
+ 
+     static final String URL_KEY = "url";
+@@ -60,21 +68,23 @@ public class AwesomeBar extends GeckoAct
+     static final String TARGET_KEY = "target";
+     static final String SEARCH_KEY = "search";
+     static final String USER_ENTERED_KEY = "user_entered";
+     static final String READING_LIST_KEY = "reading_list";
+     public static enum Target { NEW_TAB, CURRENT_TAB };
+ 
+     private String mTarget;
+     private AwesomeBarTabs mAwesomeTabs;
++    private WebView mWebView;
+     private CustomEditText mText;
+     private ImageButton mGoButton;
+     private ContentResolver mResolver;
+     private ContextMenuSubject mContextMenuSubject;
+     private boolean mIsUsingSwype;
++    private String cachedHistory;
+ 
+     @Override
+     public void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+ 
+         Log.d(LOGTAG, "creating awesomebar");
+ 
+         mResolver = Tabs.getInstance().getContentResolver();
+@@ -106,16 +116,51 @@ public class AwesomeBar extends GeckoAct
+                         mText.requestFocus();
+                         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                         imm.showSoftInput(mText, InputMethodManager.SHOW_IMPLICIT);
+                     }
+                 });
+             }
+         });
+ 
++        mWebView = (WebView) findViewById(R.id.webview);
++
++        if (GeckoApp.mAppContext.getSearchPage() == null) {
++            mAwesomeTabs.setVisibility(View.VISIBLE);
++            mWebView.setVisibility(View.GONE);
++        } else {
++            mAwesomeTabs.setVisibility(View.GONE);
++            mWebView.clearCache(true);
++            mWebView.getSettings().setJavaScriptEnabled(true);
++            mWebView.setVisibility(View.VISIBLE);
++            mWebView.addJavascriptInterface(new Object() {
++                public void onClickSuggestion(String arg0, String arg1) {
++                    GeckoEvent e = GeckoEvent.createBroadcastEvent("Suggestion:Clicked",
++                        "[\"" + arg0 + "\", \"" + arg1 + "\"]");
++                    GeckoAppShell.sendEventToGecko(e);
++                }
++                public void onClickHistory(String arg) {
++                   openUrlAndFinish(arg);
++                }
++                public void log(String arg) {
++                    Log.i("BWINTON ", "Websayz - " + arg);
++                }
++                public String getHistory() {
++                    return AwesomeBar.this.cachedHistory;
++                }
++            }, "nativeBrowser");
++            Log.e("BWINTON ", "Loading " + GeckoApp.mAppContext.getSearchPage() + " into " + mWebView);
++            mWebView.loadUrl(GeckoApp.mAppContext.getSearchPage());
++            this.registerEventListener("History:Changed");
++            this.registerEventListener("SearchPage:GotSuggestions");
++            this.registerEventListener("SearchPage:GotClick");
++            HistoryTab.HistoryQueryTask task = mAwesomeTabs.getHistoryTab().new HistoryQueryTask();
++            task.execute();
++        }
++
+         mGoButton.setOnClickListener(new Button.OnClickListener() {
+             public void onClick(View v) {
+                 openUserEnteredAndFinish(mText.getText().toString());
+             }
+         });
+ 
+         Intent intent = getIntent();
+         String currentUrl = intent.getStringExtra(CURRENT_URL_KEY);
+@@ -174,16 +219,22 @@ public class AwesomeBar extends GeckoAct
+ 
+                 return false;
+             }
+         });
+ 
+         mText.addTextChangedListener(new TextWatcher() {
+             public void afterTextChanged(Editable s) {
+                 String text = s.toString();
++                if (GeckoApp.mAppContext.getSearchPage() != null) {
++                    GeckoEvent e = GeckoEvent.createBroadcastEvent("Terms:Changed", text);
++                    GeckoAppShell.sendEventToGecko(e);
++                    //mWebView.loadUrl("javascript:onInputChanged('"+text+"')");
++                }
++
+                 mAwesomeTabs.filter(text);
+ 
+                 // If the AwesomeBar has a composition string, don't call updateGoButton().
+                 // That method resets IME and composition state will be broken.
+                 if (!hasCompositionString(s)) {
+                     updateGoButton(text);
+                 }
+ 
+@@ -262,16 +313,54 @@ public class AwesomeBar extends GeckoAct
+         boolean showReadingList = intent.getBooleanExtra(READING_LIST_KEY, false);
+         if (showReadingList) {
+             BookmarksTab bookmarksTab = mAwesomeTabs.getBookmarksTab();
+             bookmarksTab.setShowReadingList(true);
+             mAwesomeTabs.setCurrentTabByTag(bookmarksTab.getTag());
+         }
+     }
+ 
++    public void handleMessage(String event, final JSONObject message) {
++        Log.e("BWINTON ", event);
++        if (event.equals("History:Changed")) {
++            try {
++                Log.e("BWINTON ", "Got History:Changed" + message.get("result").toString());
++                AwesomeBar.this.cachedHistory = message.get("result").toString();
++            } catch (JSONException e) {
++                Log.e("BWINTON ", "Got JSONException" + e);
++            }
++            GeckoApp.mAppContext.runOnUiThread(new Runnable() {
++                public void run() {
++                    try {
++                        mWebView.loadUrl("javascript:onHistoryChanged("+message.get("result").toString()+")");
++                    } catch (JSONException e) {
++                        Log.e("BWINTON ", "Got JSONException" + e);
++                    }
++                }
++            });
++        } else if (event.equals("SearchPage:GotSuggestions")) {
++            GeckoApp.mAppContext.runOnUiThread(new Runnable() {
++                public void run() {
++                    try {
++                        mWebView.loadUrl("javascript:onSuggestions("+message.get("suggestions").toString()+")");
++                    } catch (JSONException e) {
++                        Log.e("BWINTON ", "Got JSONException" + e);
++                    }
++                }
++            });
++        } else if (event.equals("SearchPage:GotClick")) {
++            try {
++               openUrlAndFinish(message.get("url").toString());
++            } catch (JSONException e) {
++                Log.e("BWINTON ", "Got JSONException" + e);
++            }
++        }
++    }
++
++
+     @Override
+     public void onWindowFocusChanged(boolean hasFocus) {
+         super.onWindowFocusChanged(hasFocus);
+ 
+         // The Awesome Bar will receive focus when the Awesome Screen first opens or after the user
+         // closes the "Select Input Method" window. If the input method changes to or from Swype,
+         // then toggle the URL mode flag. Swype's URL mode disables the automatic word spacing that
+         // Swype users expect when entering search queries, but does not add any special VKB keys
+@@ -709,9 +798,17 @@ public class AwesomeBar extends GeckoAct
+                 if ((content.getSpanFlags(span) & Spanned.SPAN_COMPOSING) != 0) {
+                     // Found composition string.
+                     return true;
+                 }
+             }
+         }
+         return false;
+     }
++
++    private void registerEventListener(String event) {
++        GeckoAppShell.getEventDispatcher().registerEventListener(event, this);
++    }
++
++    private void unregisterEventListener(String event) {
++        GeckoAppShell.getEventDispatcher().unregisterEventListener(event, this);
++    }
+ }
+diff --git a/mobile/android/base/GeckoApp.java b/mobile/android/base/GeckoApp.java
+--- a/mobile/android/base/GeckoApp.java
++++ b/mobile/android/base/GeckoApp.java
+@@ -162,16 +162,18 @@ abstract public class GeckoApp
+     private static GeckoThread sGeckoThread;
+     public Handler mMainHandler;
+     private GeckoProfile mProfile;
+     public static int mOrientation;
+     private boolean mIsRestoringActivity;
+     private String mCurrentResponse = "";
+     public static boolean sIsUsingCustomProfile = false;
+ 
++    private String mSearchPage;
++
+     private PromptService mPromptService;
+     private Favicons mFavicons;
+     private TextSelection mTextSelection;
+ 
+     protected DoorHangerPopup mDoorHangerPopup;
+     protected FormAssistPopup mFormAssistPopup;
+     protected TabsPanel mTabsPanel;
+ 
+@@ -826,16 +828,19 @@ abstract public class GeckoApp
+     }
+ 
+     public void handleMessage(String event, JSONObject message) {
+         try {
+             if (event.equals("Toast:Show")) {
+                 final String msg = message.getString("message");
+                 final String duration = message.getString("duration");
+                 handleShowToast(msg, duration);
++            } else if (event.equals("SearchPage:Set")) {
++                final String page = message.getString("page");
++                handleSetSearchPage(page);
+             } else if (event.equals("DOMContentLoaded")) {
+                 final int tabId = message.getInt("tabID");
+                 final String backgroundColor = message.getString("bgColor");
+                 handleContentLoaded(tabId);
+                 Tab tab = Tabs.getInstance().getTab(tabId);
+                 if (backgroundColor != null) {
+                     tab.setCheckerboardColor(backgroundColor);
+                 } else {
+@@ -1178,16 +1183,25 @@ abstract public class GeckoApp
+                     toast = Toast.makeText(mAppContext, message, Toast.LENGTH_LONG);
+                 else
+                     toast = Toast.makeText(mAppContext, message, Toast.LENGTH_SHORT);
+                 toast.show();
+             }
+         });
+     }
+ 
++    void handleSetSearchPage(final String page) {
++        mSearchPage = page;
++    }
++
++    public String getSearchPage() {
++        Log.i("BWINTON ", "Getting search page of " + mSearchPage);
++        return mSearchPage;
++    }
++
+     void handleContentLoaded(int tabId) {
+         final Tab tab = Tabs.getInstance().getTab(tabId);
+         if (tab == null)
+             return;
+ 
+         Tabs.getInstance().notifyListeners(tab, Tabs.TabEvents.LOADED);
+     }
+ 
+@@ -1710,16 +1724,18 @@ abstract public class GeckoApp
+         registerEventListener("WebApps:Install");
+         registerEventListener("WebApps:Uninstall");
+         registerEventListener("DesktopMode:Changed");
+         registerEventListener("Share:Text");
+         registerEventListener("Share:Image");
+         registerEventListener("Sanitize:ClearHistory");
+         registerEventListener("Update:Check");
+         registerEventListener("PrivateBrowsing:Data");
++        registerEventListener("SearchPage:Set");
++        registerEventListener("SearchPage:GotSuggestions");
+ 
+         if (SmsManager.getInstance() != null) {
+           SmsManager.getInstance().start();
+         }
+ 
+         mPromptService = new PromptService();
+ 
+         mTextSelection = new TextSelection((TextSelectionHandle) findViewById(R.id.start_handle),
+@@ -2160,16 +2176,18 @@ abstract public class GeckoApp
+         unregisterEventListener("WebApps:Install");
+         unregisterEventListener("WebApps:Uninstall");
+         unregisterEventListener("DesktopMode:Changed");
+         unregisterEventListener("Share:Text");
+         unregisterEventListener("Share:Image");
+         unregisterEventListener("Sanitize:ClearHistory");
+         unregisterEventListener("Update:Check");
+         unregisterEventListener("PrivateBrowsing:Data");
++        unregisterEventListener("SearchPage:Set");
++        unregisterEventListener("SearchPage:GotSuggestions");
+ 
+         deleteTempFiles();
+ 
+         if (mLayerView != null)
+             mLayerView.destroy();
+         if (mDoorHangerPopup != null)
+             mDoorHangerPopup.destroy();
+         if (mFormAssistPopup != null)
+diff --git a/mobile/android/base/awesomebar/HistoryTab.java b/mobile/android/base/awesomebar/HistoryTab.java
+--- a/mobile/android/base/awesomebar/HistoryTab.java
++++ b/mobile/android/base/awesomebar/HistoryTab.java
+@@ -15,16 +15,17 @@ import android.content.ContentResolver;
+ import android.content.Context;
+ import android.content.res.Resources;
+ import android.database.ContentObserver;
+ import android.database.Cursor;
+ import android.graphics.Bitmap;
+ import android.graphics.BitmapFactory;
+ import android.os.AsyncTask;
+ import android.text.TextUtils;
++import android.util.Base64;
+ import android.util.Log;
+ import android.util.Pair;
+ import android.view.ContextMenu;
+ import android.view.ContextMenu.ContextMenuInfo;
+ import android.view.LayoutInflater;
+ import android.view.MenuInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+@@ -32,20 +33,27 @@ import android.widget.ExpandableListView
+ import android.widget.ImageView;
+ import android.widget.ListView;
+ import android.widget.SimpleExpandableListAdapter;
+ import android.widget.TabHost.TabContentFactory;
+ import android.widget.TextView;
+ 
+ import java.util.Date;
+ import java.util.HashMap;
++import java.util.Iterator;
+ import java.util.LinkedList;
+ import java.util.List;
+ import java.util.Map;
+ 
++
++import org.json.JSONArray;
++import org.json.JSONException;
++import org.json.JSONObject;
++
++
+ public class HistoryTab extends AwesomeBarTab {
+     public static final String LOGTAG = "HISTORY_TAB";
+     public static final String TAG = "history";
+     private static enum HistorySection { TODAY, YESTERDAY, WEEK, OLDER };
+     private ContentObserver mContentObserver;
+     private ContentResolver mContentResolver;
+     private HistoryQueryTask mQueryTask = null;
+     private HistoryListAdapter mCursorAdapter = null;
+@@ -181,25 +189,25 @@ public class HistoryTab extends AwesomeB
+ 
+             viewHolder.bookmarkIconView.setVisibility(visibility);
+             viewHolder.bookmarkIconView.setImageResource(R.drawable.ic_awesomebar_star);
+ 
+             return convertView;
+         }
+     }
+ 
+-    private static class GroupList extends LinkedList<Map<String,String>> {
++    public static class GroupList extends LinkedList<Map<String,String>> {
+         private static final long serialVersionUID = 0L;
+     }
+ 
+-    private static class ChildrenList extends LinkedList<Map<String,Object>> {
++    public static class ChildrenList extends LinkedList<Map<String,Object>> {
+         private static final long serialVersionUID = 0L;
+     }
+ 
+-    private class HistoryQueryTask extends AsyncTask<Void, Void, Pair<GroupList,List<ChildrenList>>> {
++    public class HistoryQueryTask extends AsyncTask<Void, Void, Pair<GroupList,List<ChildrenList>>> {
+         private static final long MS_PER_DAY = 86400000;
+         private static final long MS_PER_WEEK = MS_PER_DAY * 7;
+ 
+         protected Pair<GroupList,List<ChildrenList>> doInBackground(Void... arg0) {
+             Cursor cursor = BrowserDB.getRecentHistory(getContentResolver(), MAX_RESULTS);
+ 
+             Date now = new Date();
+             now.setHours(0);
+@@ -358,18 +366,55 @@ public class HistoryTab extends AwesomeB
+ 
+             // Hack: force this to the main thread, even though it should already be on it
+             GeckoApp.mAppContext.mMainHandler.post(new Runnable() {
+                 public void run() {
+                     historyList.setAdapter(mCursorAdapter);
+                     expandAllGroups(historyList);
+                 }
+             });
++            GeckoAppShell.handleGeckoMessage(formatResult(result).toString());
++            mQueryTask = null;
++        }
++        private JSONObject formatResult(Pair<HistoryTab.GroupList,List<HistoryTab.ChildrenList>> result) {
++            JSONObject rv = new JSONObject();
++            JSONObject gecko = new JSONObject();
++            try {
++                gecko.put("type", "History:Changed");
++                JSONArray rvResult = new JSONArray();
++                Iterator<Map<String,String>> firstIter = result.first.iterator();
++                Iterator<HistoryTab.ChildrenList> secondIter = result.second.iterator();
++                while (firstIter.hasNext() && secondIter.hasNext()) {
++                    JSONObject group = new JSONObject();
+ 
+-            mQueryTask = null;
++                    String title = firstIter.next().get(URLColumns.TITLE);
++
++                    HistoryTab.ChildrenList children = secondIter.next();
++                    JSONArray childrenArray = new JSONArray();
++                    Iterator<Map<String,Object>> childrenIter = children.iterator();
++                    while (childrenIter.hasNext()) {
++                        Map<String,Object> child = childrenIter.next();
++                        JSONObject childObject = new JSONObject();
++                        childObject.put("url", (String)child.get(URLColumns.URL));
++                        childObject.put("title", (String)child.get(URLColumns.TITLE));
++                        byte[] favicon = (byte[])child.get(URLColumns.FAVICON);
++                        if (favicon != null) {
++                            childObject.put("favicon", "data:image/png;base64," + Base64.encodeToString(favicon, Base64.DEFAULT));
++                        }
++                        childrenArray.put(childObject);
++                    }
++                    group.put(title, childrenArray);
++                    rvResult.put(group);
++                }
++                gecko.put("result", rvResult);
++                rv.put("gecko", gecko);
++            } catch (JSONException e) {
++                Log.e("BWINTON ", "JSON = Error!  " + e);
++            }
++            return rv;
+         }
+     }
+ 
+     public boolean handleItemClick(int groupPosition, int childPosition) {
+         HistoryListAdapter adapter = getCursorAdapter();
+         if (adapter == null)
+             return false;
+ 
+diff --git a/mobile/android/base/resources/layout/awesomebar.xml b/mobile/android/base/resources/layout/awesomebar.xml
+--- a/mobile/android/base/resources/layout/awesomebar.xml
++++ b/mobile/android/base/resources/layout/awesomebar.xml
+@@ -6,9 +6,14 @@
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+               android:id="@+id/awesome_screen"
+               style="@style/Screen">
+ 
+     <include layout="@layout/awesomebar_search"/>
+ 
+     <include layout="@layout/awesomebar_tabs"/>
+ 
++    <WebView xmlns:android="http://schemas.android.com/apk/res/android"
++             android:id="@+id/webview"
++             android:layout_width="fill_parent"
++             android:layout_height="fill_parent"/>
++
+ </LinearLayout>
+diff --git a/mobile/android/chrome/content/browser.js b/mobile/android/chrome/content/browser.js
+--- a/mobile/android/chrome/content/browser.js
++++ b/mobile/android/chrome/content/browser.js
+@@ -1594,16 +1594,48 @@ var NativeWindow = {
+     _shareStringWithDefault: function(aSharedString, aTitle) {
+       let sharing = Cc["@mozilla.org/uriloader/external-sharing-app-service;1"].getService(Ci.nsIExternalSharingAppService);
+       sharing.shareWithDefault(aSharedString, "text/plain", aTitle);
+     },
+ 
+     _stripScheme: function(aString) {
+       return aString.slice(aString.indexOf(":") + 1);
+     }
++  },
++  setSearchPage: function(aArgs) {
++    sendMessageToJava({
++      gecko: {
++        type: "SearchPage:Set",
++        page: aArgs.page
++      }
++    });
++    Services.obs.addObserver({observe: function dl_observe(aSubject, aTopic, aData) {
++      aArgs.onTerms(aData);
++      },
++    }, "Terms:Changed", false);
++    Services.obs.addObserver({observe: function dl_observe(aSubject, aTopic, aData) {
++      aArgs.onClick(aData);
++      },
++    }, "Suggestion:Clicked", false);
++  },
++  onSuggestions: function(suggestions) {
++    sendMessageToJava({
++      gecko: {
++        type: "SearchPage:GotSuggestions",
++        suggestions: suggestions
++      }
++    });
++  },
++  onSearchClicked: function(url) {
++    sendMessageToJava({
++      gecko: {
++        type: "SearchPage:GotClick",
++        url: url
++      }
++    });
+   }
+ };
+ 
+ var SelectionHandler = {
+   HANDLE_TYPE_START: "START",
+   HANDLE_TYPE_MIDDLE: "MIDDLE",
+   HANDLE_TYPE_END: "END",
+ 

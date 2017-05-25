@@ -1,0 +1,155 @@
+/* Style guide aimed at screen about 7-10 inches across, generally tablets in landscape mode */
+
+@media screen and (max-width: 980px){
+	.container {
+		width: 100%;
+	}
+
+	.shadow {
+		display: hide;
+	}
+
+	.footer {
+		width: 68%;
+		margin: 0 18%;
+		/* border: 1px solid; */
+	}
+}
+
+@media screen and (max-width: 800px){
+	.section {
+		padding: 3.076923% 6%;
+		width: 88%;
+	}
+
+	.graphic-container {
+		width: 100%;
+		margin: 0;
+		margin-bottom: 6%;
+		text-align: center;
+		/* border: solid 1px black; */
+	}
+	 
+	.text-container {
+		vertical-align: middle;
+		float: inline;
+		/*border: solid 1px black;*/
+	}
+
+	.subsection {
+		padding: 2.708559% 14% 1% 14%; 
+		width: 71.5%;
+		/* border: solid 1px black; */
+	}
+
+	.imperative-container {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 4%;
+		/* border: solid 1px black; */
+	}
+
+	.imperative-container-last {
+		width: 100%;
+		float: left;
+		/* border: solid 1px black; */
+	}
+
+	.three-column {
+		width: 46%;
+	}
+
+	#posts {
+		width: 100%;
+		float: left;
+	}
+
+	.footer {
+		width: 75%;
+		margin: 0 13%;
+		/* border: 1px solid; */
+	}
+
+	h1 {
+		font-size: 2em;
+	}
+
+	h2 {
+		font-size: 1.5em;
+	}
+
+	h3 {
+		font-size: 1.35em;
+	}
+
+	h4 {
+		font-size: 1.2em;
+	}
+
+	p {
+		font-size: 1.2em;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.graphic-container {
+		margin: 5% 14%;
+		width: 70%;
+	}
+
+	.more-text{
+		display: none;
+	}
+
+	.subsection {
+		padding: 7% 7% 4% 7%;
+		width: 84%;
+	}
+
+	.imperative-container {
+		margin-bottom: 12%;
+	}
+
+	#imperatives li{
+		font-size: 1em;
+	}	
+
+	.three-column {
+		width: 65%;
+		margin: 4% 17%;
+		/*border: 1px solid;*/
+	}
+
+	#posts {
+		margin: 4%;
+	}
+
+	#contact {
+		font-size: .9em;
+	}
+
+	.footer {
+		margin: 0 10%;
+		width: 90%;
+	}
+
+	#contact ul li {
+		margin-right: 17%;
+	}
+
+	h1 {
+		font-size: 1.7em;
+	}
+
+	h2 {
+		font-size: 1.4em;
+	}
+
+	h3 {
+		font-size: 1.25em;
+	}
+	p {
+		font-size: 1.1em;
+	}
+
+}

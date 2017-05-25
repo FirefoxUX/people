@@ -1,0 +1,531 @@
+
+/* Base stuff */
+
+body {
+  font: 15px/16px Lucida Grande, Segoe UI, Verdana, sans-serif;
+  background-color: #E5E5E5;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5) 85%,
+      rgba(150, 210, 255, 0.6));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 20px;
+  height: calc(100vh - 40px);
+}
+
+#container {
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #525c66;
+}
+
+
+/* Utils */
+
+/* Debug
+
+#container > div {
+  border: 1px solid red;
+}
+#container > div > * {
+  border: 1px solid red;
+}
+*/
+
+
+/* ====== media ====== */
+.media {
+  margin: 20px;
+  white-space: nowrap;
+}
+.media, .bd {
+  overflow: hidden;
+  _overflow: visible;
+}
+.media .img {
+  float: left;
+  margin-right: 10px;
+}
+.media .img img {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.media .imgExt {
+  float: right;
+  margin-left: 10px;
+}
+.media .title {
+  font-size: 120%;
+}
+.media .url {
+  color: #888;
+  font-size: 80%;
+}
+
+
+
+/* Buttons */
+
+button {
+  background-repeat: no-repeat;
+  background-position: left top;
+
+  margin: 10px 1px;
+  vertical-align: top;
+}
+
+.button {
+  padding: 6px;
+  white-space: normal;
+  background: transparent padding-box;
+  border: 1px solid transparent;
+  border-radius: 2.5px;
+  cursor: pointer;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 150ms;
+}
+
+.button:hover {
+  background-color: hsla(211,79%,6%,.03);
+  border-color: hsla(210,54%,20%,.15) hsla(210,54%,20%,.17) hsla(210,54%,20%,.2);
+}
+
+.button:hover:active,
+#searchEngineLogo.expanded {
+  background-image: -moz-linear-gradient(hsla(211,79%,6%,.02), hsla(211,79%,6%,.05));
+  border-color: hsla(210,54%,20%,.2) hsla(210,54%,20%,.23) hsla(210,54%,20%,.25);
+  box-shadow: 0 1px 1px hsla(211,79%,6%,.05) inset,
+              0 0 1px hsla(211,79%,6%,.1) inset;
+  transition-duration: 0ms;
+}
+
+.separator {
+    width: 3px;
+    min-width: 3px;
+    margin: 0px 10px;
+    background-image: linear-gradient(rgba(255, 255, 255, 0),
+                                      rgba(255, 255, 255, 0.3) 30%,
+                                      rgba(255, 255, 255, 0.3) 70%,
+                                      rgba(255, 255, 255, 0)),
+                      linear-gradient(rgba(23, 51, 78, 0),
+                                      rgba(23, 51, 78, 0.3) 30%,
+                                      rgba(23, 51, 78, 0.3) 70%,
+                                      rgba(23, 51, 78, 0)),
+                      linear-gradient(rgba(255, 255, 255, 0),
+                                      rgba(255, 255, 255, 0.3) 30%,
+                                      rgba(255, 255, 255, 0.3) 70%,
+                                      rgba(255, 255, 255, 0));
+    background-size: 1px auto, 1px auto, 1px auto;
+    background-position: left top, center top, right top;
+    background-repeat: no-repeat;
+}
+
+#downloads::before {
+  content: url("chrome://browser/content/abouthome/downloads.png");
+}
+#bookmarks::before {
+  content: url("chrome://browser/content/abouthome/bookmarks.png");
+}
+#history::before {
+  content: url("chrome://browser/content/abouthome/history.png");
+}
+#apps::before {
+  content: url("chrome://browser/content/abouthome/apps.png");
+}
+#addons::before {
+  content: url("chrome://browser/content/abouthome/addons.png");
+}
+#sync::before {
+  content: url("chrome://browser/content/abouthome/sync.png");
+}
+#settings::before {
+  content: url("chrome://browser/content/abouthome/settings.png");
+}
+
+
+
+/* Top stuff */
+
+
+/* Search */
+
+#search {
+  width: 48vw;
+  font-size: 14px;
+  margin: 6px 30vw;
+}
+
+#searchEngineLogo {
+  display: inline-block;
+  height: 28px;
+  width: 70px;
+  min-width: 70px;
+  vertical-align: bottom;
+  margin-bottom: -6px;
+}
+
+#searchEngineContainer {
+  display: none;
+  position: absolute;
+  top: 72px;
+  left: 30vw;
+  z-index: 5;
+}
+
+#clickjack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  z-index: 3;
+}
+
+.arrowPanelArrowTop {
+    position: relative;
+    margin-left: 48px;
+    padding: 0px;
+    height: 20px;
+    background-image: url("../images/panel-arrowTop.png");
+    background-repeat: no-repeat;
+    background-position: left top;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+#searchEngines {
+  white-space: normal;
+  border-radius: 3px;
+  background-color: #E5E5E5;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7));
+  border-color: hsla(210,54%,20%,.15) hsla(210,54%,20%,.17) hsla(210,54%,20%,.2);
+  box-shadow: 1px 1px 5px hsla(211,79%,6%,.6);
+  margin-top: -4px;
+}
+
+.engine {
+  padding: .5em;
+  border-bottom: 1px solid hsla(210,54%,20%,.2);
+  padding-right: 2em;
+}
+
+.engine.manage {
+  padding: 12px 2em;
+}
+
+.engine:hover {
+  background-color: #EEE;
+}
+
+#searchEngines img {
+  vertical-align: middle;
+  padding-left: 1.5em;
+  padding-right: 1em;
+}
+
+#searchText {
+  font-size: 17px;
+  padding: 6px 8px;
+  background: hsla(0,0%,100%,.9) padding-box;
+  border: 1px solid;
+  border-color: hsla(210,54%,20%,.15) hsla(210,54%,20%,.17) hsla(210,54%,20%,.2);
+  box-shadow: 0 1px 0 hsla(210,65%,9%,.02) inset,
+              0 0 2px hsla(210,65%,9%,.1) inset,
+              0 1px 0 hsla(0,0%,100%,.2);
+  border-radius: 2.5px 0 0 2.5px;
+  width: calc(58% - 70px);
+}
+
+#searchText:-moz-dir(rtl) {
+  border-radius: 0 2.5px 2.5px 0;
+}
+
+#searchText:focus,
+#searchText[autofocus] {
+  border-color: hsla(206,100%,60%,.6) hsla(206,76%,52%,.6) hsla(204,100%,40%,.6);
+}
+
+#searchSubmit {
+  font-size: 17px;
+  -moz-margin-start: -7px;
+  background: -moz-linear-gradient(hsla(0,0%,100%,.8), hsla(0,0%,100%,.1)) padding-box;
+  padding: 5px 9px;
+  border: 1px solid;
+  border-color: hsla(210,54%,20%,.15) hsla(210,54%,20%,.17) hsla(210,54%,20%,.2);
+  -moz-border-start: 1px solid transparent;
+  border-radius: 0 2.5px 2.5px 0;
+  box-shadow: 0 0 2px hsla(0,0%,100%,.5) inset,
+              0 1px 0 hsla(0,0%,100%,.2);
+  cursor: pointer;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 150ms;
+  width: 17%;
+}
+
+#searchSubmit:-moz-dir(rtl) {
+  border-radius: 2.5px 0 0 2.5px;
+}
+
+#searchText:focus + #searchSubmit,
+#searchText + #searchSubmit:hover,
+#searchText[autofocus] + #searchSubmit {
+  border-color: #59b5fc #45a3e7 #3294d5;
+  color: white;
+}
+
+#searchText:focus + #searchSubmit,
+#searchText[autofocus] + #searchSubmit {
+  background-image: -moz-linear-gradient(#4cb1ff, #1793e5);
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.2) inset,
+              0 0 0 1px hsla(0,0%,100%,.1) inset,
+              0 1px 0 hsla(210,54%,20%,.03);
+}
+
+#searchText + #searchSubmit:hover {
+  background-image: -moz-linear-gradient(#66bdff, #0d9eff);
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.2) inset,
+              0 0 0 1px hsla(0,0%,100%,.1) inset,
+              0 1px 0 hsla(210,54%,20%,.03),
+              0 0 4px hsla(206,100%,20%,.2);
+}
+
+#searchText + #searchSubmit:hover:active {
+  box-shadow: 0 1px 1px hsla(211,79%,6%,.1) inset,
+              0 0 1px hsla(211,79%,6%,.2) inset;
+  transition-duration: 0ms;
+}
+
+
+/* Middle stuff */
+
+#middle {
+  -moz-box-flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+#middle > div {
+  height: 65vh;
+  flex: 0 0 20vw;
+  min-width: 20vw;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#middle > #topsites {
+  flex: 0 0;
+  min-width: 70vw;
+  overflow: hidden;
+  transition: min-width 400ms;
+}
+
+#middle > #topsites.collapsed {
+  min-width: 0px;
+}
+
+#topsites > h3 {
+  margin: 1%;
+  padding-left: 24px;
+  background: url("../images/icon-topsites.png") no-repeat 0px -1px transparent;
+}
+
+#middle > div > .scrollingContainer {
+  height: 100%;
+  font: message-box;
+  color: -moz-dialogtext;
+  max-width: 100em;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#middle > .next {
+  padding-right: 10vw;
+  height: 1em;
+  flex: 0 0 auto;
+  min-width: auto;
+  transition: transform 400ms;
+}
+
+#middle > .next.collapsed {
+  transform:rotate(180deg);
+  min-width: 2vw;
+  padding: 1vw;
+}
+
+history {
+  cursor: pointer;
+}
+
+history .title,
+history .url {
+  text-overflow: ellipsis;
+}
+
+.newtab-link.blank {
+  border: 1px dashed #AAA;
+  background-color: rgba(255, 255, 255, 0.7);
+  cursor: default;
+}
+
+.newtab-link {
+  cursor: pointer;
+  border: 1px solid #AAA;
+  float: left;
+  margin: 1%;
+  width: 30%;
+  height: calc(30% - 1em);
+  min-width: 185px;
+  min-height: 118px;
+
+  background-origin: padding-box;
+  background-clip: padding-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  font: message-box;
+  color: -moz-dialogtext;
+}
+
+.newtab-thumbnail {
+  width: 100%;
+  height: calc(100% - 1em - 14px);
+}
+
+.newtab-title {
+  width: calc(100% - 14px);
+  height: 1em;
+  padding: 7px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* Bottom stuff */
+
+#bottom {
+  padding: 2vh 4vw 0vh;
+}
+
+#bottom > div {
+  height: 10vh;
+}
+
+#weather {
+  margin-left: 2%;
+  width: 30%;
+}
+
+#weather img {
+  position: absolute;
+}
+
+#weather div {
+  margin-left: 50px;
+  padding: 5px 5px 0px;
+}
+
+#weather .temperature {
+  font-weight: bolder;
+  font-size: larger;
+}
+
+#weather .city {
+  color: #888;
+  font-size: smaller;
+}
+
+#snippetContainer {
+  position: absolute;
+  left: 60vw;
+  bottom: 1em;
+  width: 40%;
+  min-width: 300px;
+  margin-right: 2%;
+}
+
+#snippetContainer .snippet .icon {
+  right: 35vw;
+  margin-top: 0;
+}
+
+#snippetContainer .snippet p {
+  width: 100%;
+}
+
+#defaultSnippet1,
+#defaultSnippet2 {
+  display: block;
+  min-height: 38px;
+  background: 30px center no-repeat;
+  padding: 6px 0;
+}
+
+#defaultSnippet1 {
+  background-image: url("chrome://browser/content/abouthome/snippet1.png");
+}
+
+#defaultSnippet2 {
+  background-image: url("chrome://browser/content/abouthome/snippet2.png");
+}
+
+/* Flicks Snippet Fix! */
+
+.flicks-2012-snippet .message .icon {
+  position:absolute !important;
+  right: 35vw !important;
+  top: 5px !important;
+  padding-left: 0px !important;
+  float: left !important;
+}
+
+.flicks-2012-snippet .message p {
+  display: table-cell !important;
+  height: 40px;
+  padding-left: 80px !important;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Telemetry Snippet Styling! */
+
+div.telemetry-note-1,
+div.telemetry-note-2,
+div.telemetry-note-3 {
+  display: table-cell;
+  height: 40px;
+  padding-left: 80px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+div.telemetry-note-2,
+#telemetry-icon-2,
+div.telemetry-note-3 {
+  display: none;
+}
+
+div.telemetry-note-1 span,
+div.telemetry-note-2 span,
+div.telemetry-note-3 span {
+  color: #0B6CDA;
+  border: 1px solid #AAA;
+  background: #fff;
+  padding: 2px 6px;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.snippet .buttons {
+  margin-top: 8px;
+  margin-left: -2px;
+}

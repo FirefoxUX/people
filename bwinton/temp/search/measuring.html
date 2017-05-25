@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!--[if lt IE 7]>    <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>     <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>     <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Search Measurement Plan.</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+  <div class="container">
+
+    <div class="center-block">
+      <h1>Search Measurement Plan</h1>
+      <a href="https://firefox-ux.etherpad.mozilla.org/areas-to-measure-for-33-3-sprint"
+      target="_blank">Notes</a>
+    </div>
+
+    <div class="project">
+      <h3>Overview</h3>
+      <p>The objective of this study is descriptive, not a hypothesis test. What’s the
+        difference? Essentially, we are not dividing our users to groups where some get
+        the treatment (search suggestion) and control (as it is now).  Therefore, it is
+        okay to use Telemetry data.</p>
+      <p>With telemetry, we cannot measure things on a per-user basis (only
+        per-session or per-hour), so the data is going to be noisy, but it should
+        hopefully be enough to show trends.</p>
+      <p>To have something to compare against, we need to be recording the following
+        things now (before we launch search suggestions):</p>
+      <ul>
+        <li>Total number of searches</li>
+        <li>Total number of searches from new tab</li>
+        <li>Total number of searches from about:home</li>
+        <li>Total number of searches from urlbar</li>
+      </ul>
+      <p>Once we land search suggestions, we will add the following probes:</p>
+      <ul>
+        <li>Total number of searches from new tab that used search suggestion</li>
+        <li>Total number of searches from about:home that used search suggestion</li>
+        <li>Total number of searches from urlbar that used search suggestion</li>
+      </ul>
+      </div>
+
+      <div class="project">
+      <h3>Analysis</h3>
+      <ol>
+        <li>We will look the total searches / total session by BuildID
+          <ul>
+            <li>This will answer “Did the total number of searches change?”</li>
+            <li>Looking at BuildID will control of day effect \o/</li>
+          </ul>
+        </li>
+        <li>We will look at search locations / total session
+          <ul>
+            <li>This will answer “Where did people search?”</li>
+            <li>Also, we can see if the search location changed over BuildID</li>
+          </ul>
+        </li>
+        <li>We will look at search suggestions
+          <ul>
+            <li>This will answer “Did people use the search suggestion feature?”</li>
+            <li>We don't have historical data to compare, so we will show
+              something like “x% of searches from new tab used search
+              suggestion”</li>
+          </ul>
+        </li>
+        <li>We will look at bogus protocols
+          <ul>
+            <li>This will answer “Did people use the bogus protocol feature?”</li>
+            <li>We don't have historical data to compare, so we will show
+              something like “x% of searches from the urlbar had a bogus
+              protocol”</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <div class="project">
+      <div class="aside">(Landed June 19th, BuildID 20140718030202.)</div>
+      <h3>Urls with bogus protocols.</h3>
+      <img src="images/bogus-url.png">
+      <p>To measure the number of searches we get from this change, we will rely on
+        UITelemetry and FHR. We are measuring the number of searches from the urlbar
+        in both, and we are
+        <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1038248">measuring the
+          number of keyword searches</a> from the urlbar in UITelemetry. From
+        the UITelemetry measurements, we can calculate the added number of searches
+        due to the keyword search feature for Nightly, Aurora, and Beta, and then
+        map that to FHR to approximate the number of extra searches on Release.</p>
+      <p>Christina ran an analysis on the data we have from FHR, and it showed no
+        statistically significant changes to the number of searches. This is somewhat
+        expected, since keyword searches are a bit of an wizard-level feature, and
+        the people who would have used them in the past will have learned that they
+        didn’t work.</p>
+    </div>
+
+    <div class="project">
+      <div class="aside">(Landed September 9th, BuildID 20140910030204.)</div>
+      <h3>Search suggest on newtab.</h3>
+      <img src="images/newtab-suggest.png">
+      <p>Once we land
+        <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1028985">bug 1028985</a>,
+        we’ll
+        <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1036912">add UITelemetry
+        probes</a> to track the number of clicks on entries in the search
+        suggestion list. This will tell us how often the search suggest is being
+        used.</p>
+    </div>
+
+    <div class="project">
+      <div class="aside">(Landed September 9th, BuildID 20140910030204.)</div>
+      <h3>Search suggest on about:home.</h3>
+      <img src="images/home-suggest.png">
+      <p>Once we land
+        <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=612453">bug 612453</a>,
+        we’ll
+        <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1036908">add UITelemetry
+        probes</a> to track the number of clicks on entries in the search
+        suggestion list. This will tell us how often the search suggest is being
+        used.</p>
+      <p>This might seem very similar to the previous bug. That’s because it is doing
+        much the same thing, but for a different page.</p>
+    </div>
+
+    <div class="project">
+      <div class="aside">(Landed September 9th, BuildID 20140910030204.)</div>
+      <h3>Search results in the urlbar.</h3>
+      <img src="images/urlbar-results.png">
+      <p>Once we land
+        <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1040721">bug 1040721</a>,
+        we’ll
+        <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1036914">add UITelemetry
+        probes</a> to track the number of clicks on entries in the autocomplete
+        list if the API considers it to be a search. We will compare this to the
+        number of searches clicked, to see if more people are using the new search
+        functionality in the autocomplete, or if they are repeating autocompleted
+        searches.</p>
+    </div>
+
+  </div>
+</body>
+</html>

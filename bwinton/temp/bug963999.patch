@@ -1,0 +1,181 @@
+# vim: se ft=diff :
+# HG changeset patch
+# Parent 879038dcacb75ad174b6323517c71b7b500ac012
+# User Blake Winton <bwinton@latte.ca>
+# Date 2014-01-30 11:16
+Bug 963999 - Make the background a more similar shade of grey. r=mconley
+
+diff --git a/browser/base/content/browser.css b/browser/base/content/browser.css
+--- a/browser/base/content/browser.css
++++ b/browser/base/content/browser.css
+@@ -244,16 +244,17 @@ toolbar[customizing] > .overflow-button 
+ toolbarpaletteitem > toolbaritem[sdkstylewidget="true"] > .toolbarbutton-text {
+   display: -moz-box;
+ }
+ 
+ toolbarpaletteitem > toolbaritem[sdkstylewidget="true"] > iframe {
+   display: none;
+ }
+ 
++#main-window[customizing] #urlbar,
+ toolbarpaletteitem[removable="false"] {
+   opacity: 0.5;
+   cursor: default;
+ }
+ 
+ #bookmarks-toolbar-placeholder,
+ toolbarpaletteitem > #personal-bookmarks > #PlacesToolbar,
+ #personal-bookmarks[cui-areatype="menu-panel"] > #PlacesToolbar,
+@@ -395,17 +396,18 @@ panel[noactions] > richlistbox > richlis
+ #identity-icon-country-label {
+   direction: ltr;
+ }
+ 
+ #identity-box.verifiedIdentity > #identity-icon-labels > #identity-icon-label {
+   -moz-margin-end: 0.25em !important;
+ }
+ 
+-#wrapper-search-container > #search-container > #searchbar > .searchbar-textbox > .autocomplete-textbox-container > .textbox-input-box > html|*.textbox-input {
++#main-window[customizing] #urlbar html|*.textbox-input,
++#main-window[customizing] #searchbar html|*.textbox-input {
+   visibility: hidden;
+ }
+ 
+ /* ::::: Unified Back-/Forward Button ::::: */
+ #back-button > .toolbarbutton-menu-dropmarker,
+ #forward-button > .toolbarbutton-menu-dropmarker {
+   display: none;
+ }
+diff --git a/browser/components/customizableui/src/CustomizeMode.jsm b/browser/components/customizableui/src/CustomizeMode.jsm
+--- a/browser/components/customizableui/src/CustomizeMode.jsm
++++ b/browser/components/customizableui/src/CustomizeMode.jsm
+@@ -200,16 +200,18 @@ CustomizeMode.prototype = {
+       let panelHolder = document.getElementById("customization-panelHolder");
+       panelHolder.appendChild(mainView);
+ 
+       let customizeButton = document.getElementById("PanelUI-customize");
+       customizeButton.setAttribute("enterLabel", customizeButton.getAttribute("label"));
+       customizeButton.setAttribute("label", customizeButton.getAttribute("exitLabel"));
+       customizeButton.setAttribute("enterTooltiptext", customizeButton.getAttribute("tooltiptext"));
+       customizeButton.setAttribute("tooltiptext", customizeButton.getAttribute("exitTooltiptext"));
++      document.getElementById("PanelUI-help").setAttribute("disabled", true);
++      document.getElementById("PanelUI-quit").setAttribute("disabled", true);
+ 
+       this._transitioning = true;
+ 
+       let customizer = document.getElementById("customization-container");
+       customizer.parentNode.selectedPanel = customizer;
+       customizer.hidden = false;
+ 
+       yield this._doTransition(true);
+@@ -230,19 +232,16 @@ CustomizeMode.prototype = {
+       this.visiblePalette.addEventListener("dragstart", this, true);
+       this.visiblePalette.addEventListener("dragover", this, true);
+       this.visiblePalette.addEventListener("dragexit", this, true);
+       this.visiblePalette.addEventListener("drop", this, true);
+       this.visiblePalette.addEventListener("dragend", this, true);
+ 
+       window.gNavToolbox.addEventListener("toolbarvisibilitychange", this);
+ 
+-      document.getElementById("PanelUI-help").setAttribute("disabled", true);
+-      document.getElementById("PanelUI-quit").setAttribute("disabled", true);
+-
+       this._updateResetButton();
+ 
+       this._skipSourceNodeCheck = Services.prefs.getPrefType(kSkipSourceNodePref) == Ci.nsIPrefBranch.PREF_BOOL &&
+                                   Services.prefs.getBoolPref(kSkipSourceNodePref);
+ 
+       let customizableToolbars = document.querySelectorAll("toolbar[customizable=true]:not([autohide=true]):not([collapsed=true])");
+       for (let toolbar of customizableToolbars)
+         toolbar.setAttribute("customizing", true);
+diff --git a/browser/themes/linux/browser.css b/browser/themes/linux/browser.css
+--- a/browser/themes/linux/browser.css
++++ b/browser/themes/linux/browser.css
+@@ -1986,16 +1986,20 @@ chatbox {
+   border-top-left-radius: 2.5px;
+   border-top-right-radius: 2.5px;
+ }
+ 
+ /* Customization mode */
+ 
+ %include ../shared/customizableui/customizeMode.inc.css
+ 
++#main-window[customizing] {
++  background: linear-gradient(to bottom, #bcbcbc, #b5b5b5);
++}
++
+ #main-window[customize-entered] #tab-view-deck {
+   background-image: url("chrome://browser/skin/customizableui/customizeMode-gridTexture.png"),
+                     url("chrome://browser/skin/customizableui/background-noise-toolbar.png"),
+                     linear-gradient(to bottom, #bcbcbc, #b5b5b5);
+   background-attachment: fixed;
+ }
+ 
+ #main-window[customize-entered] #navigator-toolbox > toolbar:not(#toolbar-menubar):not(#TabsToolbar),
+diff --git a/browser/themes/osx/browser.css b/browser/themes/osx/browser.css
+--- a/browser/themes/osx/browser.css
++++ b/browser/themes/osx/browser.css
+@@ -4118,16 +4118,20 @@ window > chatbox {
+   margin-bottom: 5px;
+ }
+ 
+ #main-window[tabsintitlebar]:-moz-lwtheme > #titlebar > #titlebar-content {
+   margin-top: 11px;
+   margin-bottom: 11px;
+ }
+ 
++#main-window[customizing] {
++  background: linear-gradient(to bottom, rgb(233,233,233), rgb(178,178,178) 21px);
++}
++
+ #main-window[customize-entered] #tab-view-deck {
+   background-image: url("chrome://browser/skin/customizableui/customizeMode-gridTexture.png"),
+                     url("chrome://browser/skin/customizableui/background-noise-toolbar.png"),
+                     linear-gradient(to bottom, rgb(233,233,233), rgb(178,178,178) 21px);
+   background-attachment: fixed;
+ }
+ 
+ #main-window[customize-entered] #navigator-toolbox > toolbar:not(#TabsToolbar),
+diff --git a/browser/themes/shared/customizableui/panelUIOverlay.inc.css b/browser/themes/shared/customizableui/panelUIOverlay.inc.css
+--- a/browser/themes/shared/customizableui/panelUIOverlay.inc.css
++++ b/browser/themes/shared/customizableui/panelUIOverlay.inc.css
+@@ -248,17 +248,17 @@ toolbaritem[cui-areatype="menu-panel"][s
+   background-color: hsla(210,4%,10%,.1) !important;
+   border-radius: 0 0 0 2px;
+ }
+ 
+ .panelUI-grid .toolbarbutton-1:not([buttonover])@buttonStateHover@ > .toolbarbutton-menubutton-dropmarker:-moz-locale-dir(rtl) {
+   border-radius: 0 0 2px 0;
+ }
+ 
+-.panel-combined-button[disabled] > .toolbarbutton-icon {
++#main-window:not([customizing]) .panel-combined-button[disabled] > .toolbarbutton-icon {
+   opacity: .5;
+ }
+ 
+ toolbaritem[cui-areatype="menu-panel"][sdkstylewidget="true"] {
+   width: calc(@menuPanelButtonWidth@);
+   margin: 0 !important;
+ }
+ 
+@@ -674,18 +674,18 @@ toolbarpaletteitem[place="palette"] > #s
+   max-width: calc(@menuPanelButtonWidth@ - 2px);
+   /* We'd prefer to use height: auto here but it leads to layout bugs in the panel. Cope:
+      1.2em for line height + 2 * .5em padding + margin on the label (2 * 2px) */
+   height: calc(2.2em + 4px);
+   max-height: none;
+   -moz-box-orient: horizontal;
+ }
+ 
+-#edit-controls@inAnyPanel@ > toolbarbutton[disabled] > .toolbarbutton-icon,
+-#zoom-controls@inAnyPanel@ > toolbarbutton[disabled] > .toolbarbutton-icon {
++#main-window:not([customizing]) #edit-controls@inAnyPanel@ > toolbarbutton[disabled] > .toolbarbutton-icon,
++#main-window:not([customizing]) #zoom-controls@inAnyPanel@ > toolbarbutton[disabled] > .toolbarbutton-icon {
+   opacity: .25;
+ }
+ 
+ #zoom-controls[cui-areatype="toolbar"] > #zoom-reset-button > .toolbarbutton-text {
+ %ifdef XP_MACOSX
+   min-width: 6ch;
+ %else
+   min-width: 7ch;

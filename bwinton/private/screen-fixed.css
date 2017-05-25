@@ -1,0 +1,113 @@
+/*	Resets
+	------	*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
+img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figure, figcaption, hgroup, 
+menu, footer, header, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+	display: block;
+}
+
+
+html {margin: 0px; padding: 0px;}
+
+body {
+	font-family: Time;
+	margin: 0px auto;
+	padding: 40px;
+	color: rgb(60,60,60);
+	background: rgb(20,20,20) url('wallpaper.png') repeat top center;
+}
+
+@font-face {
+	font-family: Time;
+	src: url("ds-ital.ttf") format("truetype");
+	}
+	
+	@font-face {
+	font-family: Label;
+	src: url("Aldrich-Regular.ttf") format("truetype");
+	}
+
+#console {
+	width: 780px;
+	margin: 0px auto;
+	padding: 10px;
+	text-align: center;
+}
+
+.timeline {margin:10px 20px; padding: 20px 20px 80px 20px; min-height: 60px; border-bottom: 1px solid rgba(0,0,0,0.15); text-align: center;
+
+	background: -moz-linear-gradient(top, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.1)), color-stop(100%,rgba(255,255,255,0.05))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.05) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.05) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.05) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.05) 100%); /* W3C */
+
+-webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0, 0.2), 0px 0px 2px 0px rgba(0,0,0, 0.2);
+-moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0, 0.2), 0px 0px 2px 0px rgba(0,0,0, 0.2);
+box-shadow: 0px 0px 12px 0px rgba(0,0,0, 0.2), 0px 0px 2px 0px rgba(0,0,0, 0.2);
+
+}
+
+.timeline p  {font-family: Label, sans; font-size: 14px; position: relative; right: 0px; top: 100px; display: block; background-color: rgba(0,0,0,0.5); padding: 2px; width: 200px; height: 12px; text-transform: uppercase; text-shadow: 0px 1px 0px rgba(0,0,0,0.3); color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.2); margin: 0px auto;
+
+-webkit-box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.3);
+-moz-box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.3);
+box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.3); 
+
+}
+
+.month, .year, .day, .hour, .minute {margin:0px 10px; padding: 0px 6px 0px 2px; background-color: rgba(0,0,0,0.5); float: left; border: 1px solid rgba(255,255,255,0.2); border-radius: 3px; 
+
+-webkit-box-shadow: 0px 0px 24px 0px rgba(255,255,255, 0.1), 0px 0px 6px 0px rgba(255,255,255, 0.1), 0px 1px 0px 0px rgba(255,255,255, 0.2), inset 0px 1px 2px 2px rgba(0, 0, 0, 1), inset 0px 1px 0px 0px rgba(255,255,255,0.2);
+-moz-box-shadow: 0px 0px 24px 0px rgba(255,255,255, 0.1), 0px 0px 6px 0px rgba(255,255,255, 0.1), 0px 1px 0px 0px rgba(255,255,255, 0.2), inset 0px 1px 2px 2px rgba(0, 0, 0, 1), inset 0px 1px 0px 0px rgba(255,255,255,0.2);
+box-shadow: 0px 0px 24px 0px rgba(255,255,255, 0.1), 0px 0px 6px 0px rgba(255,255,255, 0.1), 0px 1px 0px 0px rgba(255,255,255, 0.2), inset 0px 1px 2px 2px rgba(0, 0, 0, 1), inset 0px 1px 0px 0px rgba(255,255,255,0.2); 
+
+}
+
+.month {max-width: 120px;}
+.month p {font-family: Label, sans; font-size: 14px; position: relative; right: -30px; top: -16px; display: block; background-color: rgba(124,26,0,0.8); padding: 2px; width: 60px; height: 12px; text-transform: uppercase; text-shadow: 0px 1px 0px rgba(0,0,0,0.3); color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.2);}
+
+.day p {font-family: Label, sans; font-size: 14px; position: relative; right: -20px; top: -16px; display: block; background-color: rgba(124,26,0,0.8); padding: 2px; width: 40px; height: 12px; text-transform: uppercase; text-shadow: 0px 1px 0px rgba(0,0,0,0.3); color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.2);}
+
+.year p {font-family: Label, sans; font-size: 14px; position: relative; right: -50px; top: -16px; display: block; background-color: rgba(124,26,0,0.8); padding: 2px; width: 60px; height: 12px; text-transform: uppercase; text-shadow: 0px 1px 0px rgba(0,0,0,0.3); color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.2);}
+
+.hour p {font-family: Label, sans; font-size: 14px; position: relative; right: -15px; top: -16px; display: block; background-color: rgba(124,26,0,0.8); padding: 2px; width: 50px; height: 12px; text-transform: uppercase; text-shadow: 0px 1px 0px rgba(0,0,0,0.3); color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.2);}
+
+.minute p {font-family: Label, sans; font-size: 14px; position: relative; right: -20px; top: -16px; display: block; background-color: rgba(124,26,0,0.8); padding: 2px; width: 40px; height: 12px; text-transform: uppercase; text-shadow: 0px 1px 0px rgba(0,0,0,0.3); color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.2);}
+
+
+.year {max-width: 160px;}
+.day, .hour, .minute {max-width: 80px;}
+
+.digit {position: relative; width: 40px; height: 80px; margin: -8px 0px; padding: 0px; float: left; clear: right; }
+.dots {width: 16px; font-family: sans; text-align: center; text-shadow: 0px 2px 0px rgba(0,0,0,0.3), 0px -1px 0px rgba(255,255,255,0.8); margin-top: -16px;}
+
+.am {position: relative; top: -26px; right: -14px; width: 0px;}
+.am p {font-family: Label, sans; font-size: 14px; position: relative; right: 20px; top: 38px; display: block; background-color: rgba(124,26,0,0.8); padding: 2px; width: 24px; height: 12px; text-transform: uppercase; color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.2);}
+
+.pm {position: relative; top: 10px; right: 2px;}
+.pm p {font-family: Label, sans; font-size: 14px; position: relative; right: 4px; top: 38px; display: block; background-color: rgba(124,26,0,0.8); padding: 2px; width: 24px; height: 12px; text-transform: uppercase; text-shadow: 0px 1px 0px rgba(0,0,0,0.3); color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.2);}
+
+.colon {margin-right: -8px;}
+.dark {color: #666666;}
+
+.orange { color: #FF9900; text-shadow: 0px 0px 8px #FF3300;}
+.green { color: #33FF00; text-shadow: 0px 0px 8px #33CC00;}
+.yellow { color: #FFFF00; text-shadow: 0px 0px 8px #FF9900;}
+
+.char {position: absolute; top: 0px; right: 0px; font-size: 80px; margin: 0px; padding: 0px; font-weight: normal;}
+.blank {background-color: none; opacity: 0.15; margin: 0px; padding: 0px;}
+.one {margin-right: -3px;}

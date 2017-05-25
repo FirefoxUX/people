@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+]>
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="293px" height="289px" viewBox="251 467 293 289"
+	 overflow="visible" enable-background="new 251 467 293 289" xml:space="preserve">
+<defs>
+</defs>
+<g>
+	<defs>
+		<rect id="SVGID_2_" width="792" height="1224"/>
+	</defs>
+	<clipPath id="SVGID_3_">
+		<use xlink:href="#SVGID_2_"  overflow="visible"/>
+	</clipPath>
+	<path clip-path="url(#SVGID_3_)" fill="#EF4136" d="M396.954,755.707c-79.181,0-143.599-64.417-143.599-143.599h56.22
+		c0,48.181,39.198,87.38,87.379,87.38c48.181,0,87.379-39.199,87.379-87.38h56.22C540.553,691.29,476.136,755.707,396.954,755.707"
+		/>
+	<path clip-path="url(#SVGID_3_)" fill="#FBB040" d="M540.553,612.108h-56.22c0-48.181-39.198-87.379-87.379-87.379
+		s-87.379,39.198-87.379,87.379h-56.219c0-79.181,64.418-143.599,143.599-143.599C476.136,468.509,540.553,532.927,540.553,612.108"
+		/>
+</g>
+<text transform="matrix(1 0 0 1 363.1616 506.7295)" fill="#FFFFFF" font-family="'OpenSans-Extrabold'" font-size="20.9989">TRUST</text>
+<text transform="matrix(1 0 0 1 358.6963 595.1948)" font-family="'OpenSans'" font-size="20.9989">create a</text>
+<text transform="matrix(1 0 0 1 357.7271 620.3936)" font-family="'OpenSans'" font-size="20.9989">virtuous</text>
+<text transform="matrix(1 0 0 1 374.04 645.5928)" font-family="'OpenSans'" font-size="20.9989">cycle</text>
+<text transform="matrix(1 0 0 1 344.9766 730.8926)" fill="#FFFFFF" font-family="'OpenSans-Extrabold'" font-size="20.9989">CONTROL</text>
+<g>
+	<defs>
+		<rect id="SVGID_1_" width="792" height="1224"/>
+	</defs>
+	<clipPath id="SVGID_4_">
+		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+	</clipPath>
+	
+		<rect x="492.531" y="592.279" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -282.7824 541.6329)" clip-path="url(#SVGID_4_)" fill="#FBB040" width="39.772" height="39.773"/>
+	
+		<rect x="261.624" y="592.192" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -350.3276 378.2702)" clip-path="url(#SVGID_4_)" fill="#ED4734" width="39.639" height="39.641"/>
+</g>
+<rect id="_x3C_Slice_x3E__12_" y="755.957" fill="none" width="251.938" height="468.043"/>
+<rect id="_x3C_Slice_x3E__11_" x="251.938" y="755.957" fill="none" width="292.486" height="468.043"/>
+<rect id="_x3C_Slice_x3E__10_" y="466.471" fill="none" width="251.938" height="289.486"/>
+<rect id="_x3C_Slice_x3E__9_" x="251.938" y="466.471" fill="none" width="292.486" height="289.486"/>
+</svg>

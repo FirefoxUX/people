@@ -1,0 +1,54 @@
+body {
+  font-family: OpenSansRegular;
+}
+
+h1 {
+  font-family: OpenSansBold;
+}
+
+.center-block {
+  text-align: center;
+}
+
+.aside {
+  float: right;
+  font-size: 12px;
+  color: #444;
+  margin-right: 1em;
+  padding-top: .1em;
+}
+
+.project {
+  background: #EEE;
+  border-radius: 6px;
+  padding: 1px 10px;
+  margin: 10px 10%;
+  text-align: center;
+}
+
+.project > ol,
+.project > ul {
+  text-align: left;
+}
+
+p {
+  text-align: left;
+}
+
+img {
+  vertical-align: middle;
+  margin-bottom: 10px;
+  padding-right: 3px;
+}
+
+img.old {
+  border-right: 3px solid orange;
+}
+
+img.new {
+  border-right: 3px solid green;
+}
+
+.row {
+  margin-top: 1em;
+}

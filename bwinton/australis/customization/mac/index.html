@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="styles/general.css" type="text/css" rel="stylesheet" />
+    <link href="styles/toolbar.css" type="text/css" rel="stylesheet" />
+    <link href="styles/panel.css" type="text/css" rel="stylesheet" />
+    <link href="styles/contextMenu.css" type="text/css" rel="stylesheet" />
+    <link href="styles/customize.css" type="text/css" rel="stylesheet" />
+    <script data-main="js/app" src="js/lib/require.js"></script>
+  </head>
+
+  <body spellcheck="false">
+
+    <ul id="buttonContext" class="contextMenu">
+      <li><a href="#menu">Add to Menu</a></li>
+      <li><a href="#toolbar">Add to Toolbar</a></li>
+      <li><a href="#remove">Remove</a></li>
+      <li class="separator"><a href="#done">Done</a></li>
+    </ul>
+
+    <ul id="panelContext" class="contextMenu">
+      <li><a href="#customize">Customize</a></li>
+      <li><a href="#list">Toggle List View</a></li>
+    </ul>
+
+    <div class="outerContainer">
+      <!-- Window [Start] -->
+      <div class="window">
+
+        <div class="arrowPanelContainer" id="menuPanel">
+          <div class="arrowPanelArrowTop"></div>
+          <div class="arrowPanel">
+
+            <div class="panelToolbarIcons"></div>
+            <div class="panelSectionEdit">
+              <div class="panelSectionEditContainer">
+                <div class="panelSectionEditContainerButton" title="Ctrl+X">
+                  <div class="panelSectionEditContainerIcon"><img src="images/editIcon-cut.png" alt="editIcon-cut" width="16" height="16" /></div>
+                  <div class="panelSectionEditContainerLabel">Cut</div>
+                </div>
+                <div class="panelSectionEditContainerButton" title="Ctrl+C">
+                  <div class="panelSectionEditContainerIcon"><img src="images/editIcon-copy.png" alt="editIcon-cut" width="16" height="16" /></div>
+                  <div class="panelSectionEditContainerLabel">Copy</div>
+                </div>
+                <div class="panelSectionEditContainerButton" title="Ctrl+V">
+                  <div class="panelSectionEditContainerIcon"><img src="images/editIcon-paste.png" alt="editIcon-cut" width="16" height="16" /></div>
+                  <div class="panelSectionEditContainerLabel">Paste</div>
+                </div>
+              </div>
+
+              <div class="panelSectionEditContainer">
+                <div class="panelSectionEditContainerButton" title="Ctrl++">
+                  <div class="panelSectionEditContainerLabel">+</div>
+                </div>
+                <div class="panelSectionEditContainerButton" title="Ctrl+0">
+                  <div class="panelSectionEditContainerLabel">100%</div>
+                </div>
+                <div class="panelSectionEditContainerButton" title="Ctrl+-">
+                  <div class="panelSectionEditContainerLabel">-</div>
+                </div>
+              </div>
+
+              <div class="panelSectionEditContainer spacer"></div>
+              <div class="panelSectionEditContainer spacer"></div>
+              <div class="panelSectionEditContainer spacer"></div>
+
+            </div>
+            <div class="panelFooter">
+              <img id="help" src="images/button-help.png">
+              <div id="customize" class="normalButton">Customize</div>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- OuterContainer [Start] -->
+        <div class="windowOuterContainer">
+
+          <!-- NavBar [Start] -->
+          <div class="navBar"></div>
+
+          <!-- NavBar [End] -->
+
+          <div class="contentArea">
+            <div class="customizeContentContainer">
+              <x-tabbox tab-orient="left">
+                <x-tabs>
+                  <x-tab selected="true"><img src="images/tab-menu.png">Menu</x-tab>
+                  <x-tab><img src="images/tab-appearance.png">Appearance</x-tab>
+                  <x-tab><img src="images/tab-addons.png">Add-ons</x-tab>
+                </x-tabs>
+                <div class="tabPanelArrowLeft"></div>
+                <x-tabpanels>
+                  <x-tabpanel selected="true">
+                    <div class="customizeToolsArea">
+                      <!-- Extra Tools go here. -->
+                    </div>
+                    <div class="customizeMenuArea">
+                      <!-- Menu goes here. -->
+                    </div>
+                  </x-tabpanel>
+                  <x-tabpanel>
+                    <div>
+                      <div class="customizeCategoryHeader">Popular Themes
+                        <div style="float: right; font-size: 12px;">Up &amp; Coming | Popular | Just Added</div></div>
+                      <div class="tabContent">
+                        <img src="images/appearance.png">
+                      </div>
+                    </div>
+                  </x-tabpanel>
+                  <x-tabpanel>
+                    <div>
+                      <iframe class="tabContent" seamless="true" src="addons.html"><p>Your browser does not support iframes.</p></iframe>
+                    </div>
+                  </x-tabpanel>
+                </x-tabpanels>
+              </x-tabbox>
+              <div class="customizeGlobalFooter">
+                <span id="restore" class="normalButton">Restore Default Set</span>
+                <span id="done" class="normalButton">Done</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- OuterContainer [End] -->
+
+      </div>
+      <!-- Window [End] -->
+    </div>
+    <div class="imagePreloader"></div>
+
+  </body>
+</html>
+

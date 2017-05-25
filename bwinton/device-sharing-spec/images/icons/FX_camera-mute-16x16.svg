@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+<g enable-background="new    ">
+	<g>
+		<defs>
+			<rect id="SVGID_1_" x="-671" y="-313" width="22" height="22"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  overflow="visible"/>
+		</clipPath>
+		<g clip-path="url(#SVGID_2_)">
+			<defs>
+				<rect id="SVGID_3_" x="-1306" y="-612" width="2545" height="1280"/>
+			</defs>
+			<clipPath id="SVGID_4_">
+				<use xlink:href="#SVGID_3_"  overflow="visible"/>
+			</clipPath>
+		</g>
+		<g clip-path="url(#SVGID_2_)">
+			<defs>
+				<rect id="SVGID_9_" x="-1306" y="-612" width="2545" height="1280"/>
+			</defs>
+			<clipPath id="SVGID_6_">
+				<use xlink:href="#SVGID_9_"  overflow="visible"/>
+			</clipPath>
+		</g>
+	</g>
+</g>
+<g id="Facemute_14x14">
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M14.037,3.723l-3.041,2.689v-0.01l-7.207,6.583H9.7
+		c0.715,0,1.296-0.622,1.296-1.389V9.528l3.041,2.688c0.263,0.281,0.624,0.364,0.963,0.29V3.433
+		C14.661,3.359,14.3,3.442,14.037,3.723z"/>
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M14.294,2.634l-0.001-0.001l-0.944-1.032l-2.453,2.24
+		C10.702,3.338,10.239,2.985,9.7,2.985H2.296C1.581,2.985,1,3.607,1,4.374v7.223c0,0.371,0.137,0.708,0.357,0.958l-0.841,0.812
+		l0.944,1.032l0.001,0.001l1.5-1.414l8.035-7.339L14.294,2.634z"/>
+</g>
+</svg>

@@ -1,0 +1,122 @@
+diff --git a/browser/base/content/browser.css b/browser/base/content/browser.css
+--- a/browser/base/content/browser.css
++++ b/browser/base/content/browser.css
+@@ -879,27 +879,37 @@ chatbox:-moz-full-screen-ancestor > .cha
+   background: transparent;
+   border: none;
+   transition: opacity 300ms;
+   /* The popup inherits -moz-image-region from the button, must reset it */
+   -moz-image-region: auto;
+ }
+ 
+ /* Customize mode */
+-#tab-view-deck {
+-  transition-property: padding;
++toolbar:not(#TabsToolbar),
++#content-deck {
++  transition-property: margin;
+   transition-duration: 150ms;
+   transition-timing-function: ease-out;
+ }
+ 
+-#tab-view-deck[fastcustomizeanimation] {
++#tab-view-deck[fastcustomizeanimation] toolbar:not(#TabsToolbar),
++#tab-view-deck[fastcustomizeanimation] #content-deck {
+   transition-duration: 1ms;
+   transition-timing-function: linear;
+ }
+ 
++#main-window:-moz-any([customize-entering], [customize-entered]) #navigator-toolbox > toolbar:not(#TabsToolbar) {
++  margin: 0px 2em;
++}
++
++#main-window:-moz-any([customize-entering], [customize-entered]) #content-deck {
++  margin: 0px 2em 2em;
++}
++
+ #PanelUI-contents > .panel-customization-placeholder > .panel-customization-placeholder-child {
+   list-style-image: none;
+ }
+ 
+ #customization-panelHolder {
+   overflow-y: hidden;
+ }
+ 
+diff --git a/browser/components/customizableui/src/CustomizeMode.jsm b/browser/components/customizableui/src/CustomizeMode.jsm
+--- a/browser/components/customizableui/src/CustomizeMode.jsm
++++ b/browser/components/customizableui/src/CustomizeMode.jsm
+@@ -406,36 +406,38 @@ CustomizeMode.prototype = {
+    * order - customize-entered, customize-exiting, pre-customization mode.
+    *
+    * When in the customize-entering, customize-entered, or customize-exiting
+    * phases, there is a "customizing" attribute set on the main-window to simplify
+    * excluding certain styles while in any phase of customize mode.
+    */
+   _doTransition: function(aEntering) {
+     let deferred = Promise.defer();
+-    let deck = this.document.getElementById("tab-view-deck");
++    let deck = this.document.getElementById("content-deck");
+ 
+     let customizeTransitionEnd = function(aEvent) {
+       if (aEvent != "timedout" &&
+-          (aEvent.originalTarget != deck || aEvent.propertyName != "padding-bottom")) {
++          (aEvent.originalTarget != deck || aEvent.propertyName != "margin-bottom")) {
+         return;
+       }
+       this.window.clearTimeout(catchAllTimeout);
+-      deck.removeEventListener("transitionend", customizeTransitionEnd);
++      this.window.setTimeout(function () {
++        deck.removeEventListener("transitionend", customizeTransitionEnd);
+ 
+-      if (!aEntering) {
+-        this.document.documentElement.removeAttribute("customize-exiting");
+-        this.document.documentElement.removeAttribute("customizing");
+-      } else {
+-        this.document.documentElement.setAttribute("customize-entered", true);
+-        this.document.documentElement.removeAttribute("customize-entering");
+-      }
+-      this.dispatchToolboxEvent("customization-transitionend", aEntering);
++        if (!aEntering) {
++          this.document.documentElement.removeAttribute("customize-exiting");
++          this.document.documentElement.removeAttribute("customizing");
++        } else {
++          this.document.documentElement.setAttribute("customize-entered", true);
++          this.document.documentElement.removeAttribute("customize-entering");
++        }
++        this.dispatchToolboxEvent("customization-transitionend", aEntering);
+ 
+-      deferred.resolve();
++        deferred.resolve();
++      }.bind(this), 10);
+     }.bind(this);
+     deck.addEventListener("transitionend", customizeTransitionEnd);
+ 
+     if (gDisableAnimation) {
+       deck.setAttribute("fastcustomizeanimation", true);
+     }
+     if (aEntering) {
+       this.document.documentElement.setAttribute("customizing", true);
+diff --git a/browser/themes/osx/browser.css b/browser/themes/osx/browser.css
+--- a/browser/themes/osx/browser.css
++++ b/browser/themes/osx/browser.css
+@@ -3959,20 +3959,16 @@ window > chatbox {
+ /* Customization mode */
+ 
+ %include ../shared/customizableui/customizeMode.inc.css
+ 
+ #main-window[customize-entered] #titlebar {
+   padding-top: 0;
+ }
+ 
+-#main-window:-moz-any([customize-entering],[customize-entered]) #tab-view-deck {
+-  padding: 0 2em 2em;
+-}
+-
+ #main-window[customize-entered] #tab-view-deck {
+   background-image: url("chrome://browser/skin/customizableui/customizeMode-gridTexture.png"),
+                     url("chrome://browser/skin/customizableui/background-noise-toolbar.png"),
+                     linear-gradient(to bottom, rgb(233,233,233), rgb(178,178,178) 21px);
+   background-attachment: fixed;
+ }
+ 
+ #main-window[customize-entered] #navigator-toolbox > toolbar:not(#TabsToolbar),

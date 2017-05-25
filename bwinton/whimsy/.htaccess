@@ -1,0 +1,4 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+RewriteRule ^(.*)whimsy.xpi$ https://addons.mozilla.org/en-US/firefox/addon/whimsycorn/ [R=301,L]

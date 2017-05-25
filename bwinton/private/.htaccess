@@ -1,0 +1,3 @@
+SSLRequireSSL On
+AuthType Persona
+Require persona-idp login.mozilla.org

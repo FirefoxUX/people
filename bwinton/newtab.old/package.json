@@ -1,0 +1,24 @@
+{
+    "amd": {}, 
+    "author": "", 
+    "bugs": {}, 
+    "contributors": [], 
+    "description": "a basic add-on", 
+    "fullName": "New Tab/Home Tab Prototype", 
+    "id": "jid1-npryZKSevuJf5w", 
+    "license": "MPL 2.0", 
+    "name": "newtab", 
+    "repository": {}, 
+    "version": "0.1", 
+    "volo": {
+        "baseUrl": "data/js/lib", 
+        "dependencies": {}
+    },
+    "preferences": [{
+        "name" : "version",
+        "title": "Layout version",
+        "description": "Which layout version you would like to test",
+        "type": "integer",
+        "value": 1
+    }]
+}

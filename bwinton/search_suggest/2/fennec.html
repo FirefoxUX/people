@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+   - You can obtain one at http://mozilla.org/MPL/2.0/.  -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <script type="text/javascript" src="../js/underscore.js"></script>
+  <script type="text/javascript" src="../js/backbone.js"></script>
+
+  <title>Multi-Suggest Search for Android</title>
+
+  <link href="../css/normalize.css" rel="stylesheet">
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../css/2.css" rel="stylesheet">
+
+  <script type="text/template" id="suggestion-engine-template">
+      <% _.each(items.models, function(item) { %>
+        <span class="img"><img src="<%= get('favicon') %>"/></span>
+        <div class="bd">
+          <div class="item"><%= item.get('value') %></div>
+        </div>
+      <% }); %>
+  </script>
+
+  <script type="text/template" id="suggestion-others-template">
+    <li class="suggestions others"></li>
+  </script>
+
+  <script type="text/template" id="suggestion-default-template">
+    <div class="media">
+      <span class="img"><img src="<%= get('favicon') %>"/></span>
+      <div class="bd">
+      <% _.each(items.models, function(item) { %>
+        <div class="item"><%= item.get('value') %></div>
+      <% }); %>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/template" id="history-template">
+    <li>
+      <div class="media">
+        <div class="img"><img src="<%= get('favicon') %>"/></div>
+        <div class="bd">
+          <div class="title"><%= get('title') %></div>
+          <div class="url"><%= get('url') %></div>
+        </div>
+      </div>
+    </li>
+  </script>
+
+  <script type="text/javascript" src="../js/underscore.js"></script>
+  <script type="text/javascript" src="../js/base.js"></script>
+
+</head>
+<body>
+    <div id="content">
+        <ol class="results search"></ol>
+        <ol class="results history"></ol>
+    </div>
+</body>
+</html>

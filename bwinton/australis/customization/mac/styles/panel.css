@@ -1,0 +1,256 @@
+
+.arrowPanelContainer {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  display: none;
+  z-index: 9999;
+}
+.arrowPanelArrowTop {
+  position: relative;
+  margin-right: 14px;
+  padding: 0;
+  height: 20px;
+  background-image: url(../images/panel-arrowTop.png);
+  background-repeat: no-repeat;
+  background-position: right top;
+  z-index: 9999;
+  pointer-events: none;
+}
+.arrowPanel {
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  margin-top: -8px;
+  padding: 0;
+  height: 400px;
+  width: 262px;
+  border-width: 7px 9px 11px 9px;
+  border-style: solid;
+  -moz-border-image: url(../images/panel-borderImage.png) 7 9 11 9 fill repeat;
+}
+.panelToolbarIcons {
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  margin: 0 -4px;
+  padding: 6px;
+  height: 46px;
+  border-bottom: 1px solid hsla(0,0%,100%,.1);
+}
+.panelSectionEdit {
+  padding: 12px 20px;
+  margin: -4px -4px 0;
+  border-top: 1px solid hsla(0,0%,0%,.1);
+  border-bottom: 1px solid hsla(0,0%,100%,.1);
+}
+.panelAddons {
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  margin: 0 -4px;
+  padding: 6px;
+  border-top: 1px solid hsla(0,0%,0%,.1);
+  border-bottom: 1px solid hsla(0,0%,100%,.1);
+}
+.panelFooter {
+  -moz-box-flex: 1;
+  margin: 0 -4px;
+  padding: 9px;
+  padding-top: 16px;
+  background-color: hsla(0,0%,0%,.05);
+  border-top: 1px solid hsla(0,0%,0%,.1);
+}
+.panelToolbarIcons .spacer,
+.menuPanelButton {
+  float: left;
+  margin: 0;
+  padding: 8px 6px;
+  z-index: 5;
+  width: 72px;
+  cursor: default;
+  -moz-transition-property: background-color, border-color, box-shadow;
+  -moz-transition-duration: 150ms;
+  -moz-transition-timing-function: ease;
+}
+#menuPanel.listview .menuPanelButton {
+  width: 100%;
+  padding: 0;
+}
+.menuPanelButton {
+  border: 1px solid transparent;
+}
+.menuPanelButton:hover {
+  background-color: hsla(210,48%,90%,.1);
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.8), hsla(0,0%,100%,.1));
+  background-clip: padding-box;
+  border: 1px solid hsla(210,54%,20%,.2);
+  border-color: hsla(210,54%,20%,.13) hsla(210,54%,20%,.16) hsla(210,54%,20%,.2);
+  border-radius: 3px;
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.3) inset,
+              0 0 0 1px hsla(0,0%,100%,.3) inset,
+              0 1px 0 hsla(210,54%,20%,.03);
+}
+.menuPanelButton:hover:active {
+  background-color: hsla(210,48%,90%,.4);
+  border-color: #8acbf9 #7bbdea #6db0de;
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.3) inset,
+              0 0 0 1px hsla(0,0%,100%,.3) inset,
+              0 0 5px hsla(204,73%,70%,.5);
+  -moz-transition-property: background-color, border-color, box-shadow;
+  -moz-transition-duration: 10ms;
+  -moz-transition-timing-function: linear;
+}
+.menuPanelButton > .button {
+  margin: 3px 18px;
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+}
+#menuPanel.listview .menuPanelButton > .button {
+  width: 16px;
+  height: 16px;
+  margin: 3px;
+  display: inline-block;
+}
+.menuPanelButton > .label {
+  margin: 0;
+  width: 72px;
+  height: 16px;
+  color: hsl(218,10%,40%);
+  font-size: 11px;
+  line-height: 16px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#menuPanel.listview .menuPanelButton > .label {
+  height: 20px;
+  display: inline-block;
+  text-align: start;
+}
+.menuPanelButton > .shortcut {
+  display: none;
+}
+#menuPanel.listview .menuPanelButton > .shortcut {
+  display: inline-block;
+  height: 20px;
+  font-size: 11px;
+  line-height: 16px;
+  opacity: 0.5;
+  float: right;
+  padding-right: 3px;
+  padding-top: 1px;
+  text-align: end;
+}
+.spacer {
+  border: 1px dashed hsla(210,54%,20%,.2);
+  border-color: hsla(210,54%,20%,.13) hsla(210,54%,20%,.16) hsla(210,54%,20%,.2);
+  border-radius: 3px;
+}
+#menuPanel.listview .spacer {
+  width: 100%;
+  margin-left: -1px;
+  height: 20px;
+  padding: 0;
+}
+.panelToolbarIcons .spacer {
+  display: none;
+  height: 42px;
+  margin: 6px;
+}
+.panelToolbarIcons .spacer:nth-child(3n) {
+  width: 60px;
+}
+.panelToolbarIcons .spacer:nth-child(3n+1) {
+  width: 235px;
+}
+.panelToolbarIcons .spacer:nth-child(3n+2) {
+  width: 146px;
+}
+.panelSectionEditContainer.spacer {
+  display: none;
+  width: 231px;
+  height: 22px;
+}
+.panelSectionEditContainer.spacer:nth-child(n+4) {
+  display: none !important;
+}
+.panelSectionEditContainer {
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  width: 100%;
+  height: 20px;
+  border: 1px solid hsla(0,0%,0%,.15);
+  border-radius: 2.5px;
+  box-shadow: inset 0 1px 0 hsla(0,0%,100%,.5),
+              0 1px 0 hsla(0,0%,100%,.5);
+  margin: 10px 0px;
+}
+.customizeToolsArea .panelSectionEditContainer {
+  width: 231px;
+}
+.panelSectionEditContainerButton {
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-pack: center;
+  -moz-box-flex: 1;
+  border-right: 1px solid hsla(0,0%,0%,.15);
+  -moz-transition-property: background-color, border-color, box-shadow;
+  -moz-transition-duration: 150ms;
+  -moz-transition-timing-function: ease;
+  cursor: default;
+}
+.panelSectionEditContainerButton:last-child {
+  border-right: none;
+}
+.panelSectionEditContainerButton:hover {
+  background-color: hsla(0,0%,100%,.5);
+  box-shadow: 0 0 3px hsla(0,0%,0%,.2);
+}
+.panelSectionEditContainerIcon {
+  margin-right: 2px;
+  padding: 2px;
+  pointer-events: none;
+}
+.panelSectionEditContainerLabel {
+  font-size: 11px;
+  line-height: 18px;
+}
+#help {
+   float: left;
+   width: 24px;
+   height: 24px
+}
+.normalButton {
+  margin: 9px;
+  margin-top: 16px;
+  padding: 2px 6px;
+  background-color: hsla(0,0%,100%,.2);
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.5), hsla(0,0%,100%,.1));
+  border: 1px solid hsla(0,0%,0%,.2);
+  border-radius: 2.5px;
+  box-shadow: inset 0 1px 0 hsla(0,0%,100%,.5),
+              0 1px 0 hsla(0,0%,100%,.5);
+  font-size: 11px;
+  line-height: 18px;
+}
+.normalButton:hover {
+  background-color: hsla(0,0%,100%,.5);
+  border-color: hsla(0,0%,0%,.3);
+  box-shadow: inset 0 1px 0 hsla(0,0%,100%,.5),
+              0 0 3px hsla(0,0%,0%,.2),
+              0 1px 0 hsla(0,0%,100%,.5);
+}
+.normalButton:hover:active {
+  background-color: hsla(0,0%,0%,.2);
+  border-color: hsla(0,0%,0%,.3);
+  box-shadow: inset 0 1px 0 hsla(0,0%,0%,.1),
+              0 0 3px hsla(0,0%,0%,.2),
+              0 1px 0 hsla(0,0%,100%,.5);
+  -moz-transition-property: background-color, border-color, box-shadow;
+  -moz-transition-duration: 10ms;
+  -moz-transition-timing-function: linear;
+}
+#customize {
+  float: right;
+  margin: 0px;
+}

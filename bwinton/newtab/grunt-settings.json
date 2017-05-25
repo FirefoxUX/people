@@ -1,0 +1,10 @@
+  {
+    "host": "people.mozilla.com",
+    "username": "bwinton",
+    "path": "/home/bwinton23/public_html/newtab/",
+    "privateKey": "/Users/bwinton/.ssh/id_rsa",
+    "passphrase": "pyocyte filarial probable forensical",
+    "base_url": "https://people.mozilla.com/~bwinton/newtab",
+    "binary": "/Applications/Local/FirefoxUX.app",
+    "profile": "testing"
+  }

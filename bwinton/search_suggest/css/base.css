@@ -1,0 +1,54 @@
+/* ====== media ====== */
+.media {
+  margin: 10px;
+}
+.media, .bd {
+  overflow: hidden;
+  _overflow: visible;
+  zoom: 1;
+}
+.media .img {
+  float: left;
+  margin-right: 10px;
+}
+.media .img img {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.media .imgExt {
+  float: right;
+  margin-left: 10px;
+}
+
+body {
+  font-size: 16px;
+  color: #333;
+  width: 100%;
+}
+ol, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.results.search {
+  background-color: #DBE0E4;
+  padding: 1px;
+}
+.suggestions {
+  color: #1c75bc;
+  text-decoration: underline;
+}
+
+.results.history li {
+  white-space: nowrap;
+  border-bottom: 1px solid #DBE0E4;
+}
+.results.history .title {
+  font-size: 120%;
+}
+.results.history .url {
+  color: #888;
+  font-size: 80%;
+}

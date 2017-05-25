@@ -1,0 +1,201 @@
+
+.customizeContentContainer {
+  display: none;
+  -moz-box-orient: horizontal;
+  -moz-box-flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 574px;
+  background-color: #edf4fc;
+  background-image: url(images-general/background-noise-toolbar.png);
+}
+.customizeToolsArea {
+  display: -moz-box;
+  -moz-box-orient: vertical;
+}
+.customizeCategoryHeader {
+  padding-bottom: 12px;
+  color: #506273;
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 14px;
+}
+.customizeToolsArea .panelToolbarIconsRow {
+  -moz-box-flex: 1;
+}
+.customizeFooter {
+  height: 52px;
+  margin: 0px -15px -15px -15px;
+  background-color: hsla(0,0%,0%,.05);
+  border-top: 1px solid hsla(0,0%,0%,.1);
+}
+.customizeGlobalFooter {
+  position: absolute;
+  bottom: 93px;
+  right: 82px;
+}
+#restore {
+}
+#done {
+  font-weight: bold;
+}
+.window.customizeMode .navBar {
+  background-image: none;
+  border-bottom: none;
+  box-shadow: none;
+  padding: 5px;
+}
+.window.customizeMode .menuButton {
+  border: 1px solid transparent;
+  background-color: hsla(210,32%,93%,.2);
+  border-color: transparent;
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.6), hsla(0,0%,100%,.1));
+  background-clip: padding-box;
+  box-shadow: none;
+  opacity: .4;
+}
+.window.customizeMode .panelFooter img {
+  opacity: .4;
+}
+.window.customizeMode .panelFooter .normalButton {
+    margin: 16px 9px 9px;
+    padding: 2px 6px;
+    background-color: rgba(255, 255, 255, 0.2);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 2.5px 2.5px 2.5px 2.5px;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5) inset, 0px 1px 0px rgba(255, 255, 255, 0.5);
+    font-size: 11px;
+    line-height: 18px;
+    opacity: .5;
+}
+.window.customizeMode .menuPanelButton {
+  cursor: -moz-grab;
+  -moz-transition: -moz-transform 0.5s ease-in-out 100ms,
+                   background-color 10ms linear 0ms,
+                   border-color 10ms linear 0ms,
+                   box-shadow 10ms linear 0ms;
+}
+.window.customizeMode .menuPanelButton.mousedown {
+  cursor: -moz-grabbing;
+  border-color: #8acbf9 #7bbdea #6db0de;
+  opacity: 0.8;
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.3) inset,
+              0 0 0 1px hsla(0,0%,100%,.3) inset,
+              0 0 5px hsla(204,73%,70%,.5),
+              0px 3px 5px hsla(0,0,0,.1);
+  transform: scale(1.1);
+}
+.customizeToolsArea .spacer {
+  display: none !important
+}
+x-tabpanel > *:first-child {
+  min-height: 477px;
+}
+.window.customizeMode .spacer {
+  -moz-transition: -moz-transform 30ms ease-in-out 0ms,
+                   background-color 10ms linear 0ms,
+                   border-color 30ms linear 0ms,
+                   box-shadow 30ms linear 0ms;
+}
+.window.customizeMode .spacer.mousedown {
+  border: 1px solid hsla(204,73%,40%,1);
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.3) inset,
+              0 0 0 1px hsla(0,0%,100%,.3) inset,
+              0 0 5px hsla(204,73%,70%,.5);
+}
+.tabContent {
+  width: 100%;
+  height: 510px;
+  border: 0px;
+  overflow: auto;
+}
+x-tabbox, x-tabs, x-tab {
+  display: block;
+}
+x-tab {
+  cursor: default;
+  font-size: 14px;
+  line-height: 14px;
+  padding: 3px 7px;
+  margin: 5px;
+  margin-left: 15px;
+  border: 1px solid hsla(0,0%,0%,0);
+  border-radius: 2.5px;
+}
+x-tabs {
+  margin-top: 9px;
+  width: 156px;
+  float: left;
+}
+x-tab > img {
+  vertical-align: middle;
+  padding-right: 5px;
+}
+x-tab:-moz-focusring {
+  outline: none;
+}
+x-tab:hover {
+  border: 1px solid hsla(0,0%,0%,.2);
+  border-radius: 2.5px;
+  box-shadow: inset 0 1px 0 hsla(0,0%,100%,.5),
+              0 1px 0 hsla(0,0%,100%,.5);
+}
+x-tab[selected="true"] {
+  background-color: hsla(0,0%,100%,.5);
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.5), hsla(0,0%,100%,.1));
+  border: 1px solid hsla(0,0%,0%,.2);
+  border-radius: 2.5px;
+  box-shadow: inset 0 1px 0 hsla(0,0%,100%,.5),
+              0 1px 0 hsla(0,0%,100%,.5);
+}
+x-tabpanels {
+  background-color: hsla(0,0%,100%,.2);
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.5), hsla(0,0%,100%,.1));
+  border: 1px solid hsla(0,0%,0%,.4);
+  border-radius: 2.5px;
+  box-shadow: inset 0 1px 0 hsla(0,0%,100%,.5),
+              0 1px 0 hsla(0,0%,100%,.5);
+  padding: 15px;
+  margin: 5px;
+  margin-top: 14px;
+  margin-left: -6px;
+  width: calc(100% - 520px);
+  float: left;
+}
+.tabPanelArrowLeft {
+  position: relative;
+  float: left;
+  margin-top: 21px;
+  width: 20px;
+  height: 100px;
+  background-image: url(../images/panel-arrowLeft.png);
+  padding: 0;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 9999;
+}
+x-tabpanels > x-tabpanel {
+  display: none;
+  font-size: 12px;
+  line-height: 12px;
+}
+x-tabpanels, x-tabpanels > *[selected="true"] {
+  display: block;
+}
+x-tabbox[tab-orient="left"], x-tabbox[tab-orient="right"] {
+  -moz-box-orient: horizontal;
+}
+x-tabbox[tab-orient="bottom"] {
+  -moz-box-direction: reverse;
+}
+x-tabbox[tab-orient="left"] x-tabs,
+x-tabbox[tab-orient="right"] x-tabs,
+x-tabbox[tab-orient="left"] x-tabpanels,
+x-tabbox[tab-orient="right"] x-tabpanels {
+  -moz-box-flex: 0;
+  -moz-box-orient: vertical;
+}
+x-tabbox[tab-orient="right"] {
+  -moz-box-direction: reverse;
+}

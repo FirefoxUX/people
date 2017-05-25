@@ -1,0 +1,257 @@
+/* Global styles */
+.clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0}
+.clearfix:after{clear:both;content:' ';display:block;font-size:0;line-height:0;visibility:hidden;width:0;height:0}* html .clearfix,*:first-child+html .clearfix{zoom:1}
+
+body{
+	/*background: #EAEFF2;*/
+	background: #FFFFFF;
+	/*max-width: 1600px;*/
+	color: black;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-style: none;
+	margin: auto; 
+}
+
+/* BACKGROUND STYLING */
+.shadow {
+	-moz-box-shadow: 0 0 1em #424F5A; /* For old FX (to 3.5) */
+	-webkit-box-shadow: 0 0 1em #424F5A; /* For old Chrome and Safari */
+	box-shadow: 0 0 1em #424F5A;
+}
+
+/* BASIC STYLES */
+
+h1{
+	font-size: 2.25em;
+	font-weight: 400;
+	padding: 0;
+	margin: 0;
+}
+
+h2{
+	font-size: 1.750em;
+	font-weight: 400;
+}
+
+h3{
+	font-size: 1.500em;
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+}
+
+h4{
+	font-size: 1.20em;
+	font-weight: 300;
+	margin: 0;
+	padding: 0;
+}
+
+p{
+	font-size: 1.30em;
+}
+
+a:link, a:visited{
+	color: #424F5A;
+}
+
+a:hover, a:active{
+	color: #FF9500;
+}
+
+img {
+	max-width:100%;
+}
+
+/* PAGE LAYOUT */
+.container {
+/* will contain all the sections of the page */
+	/*background: #EAEFF2;*/
+	background: #FFFFFF;
+	width: 85%;
+	max-width:1300px;
+	margin: auto;
+}
+
+.section{
+	/* partitions off a section of content */
+	float: left;
+	padding: 3.076923% 3.846154%; /*40px 50px;*/
+	/*border: solid 1px black;*/
+	width: 92.3%;
+}
+
+.subsection{
+	/* used when necessary for holding multi-column layouts */
+	background: #f6f7f7;
+	width: 90.2%;  /* 1107.6px calculated */
+	float: left;
+	padding: 2.708559% 5%; /* 30px 77.532px; */
+	/*border: solid 1px black;*/
+}
+ 
+.three-column {
+	/* a 3-column layout within the section */
+	float: left;
+	margin: 2.307692% 4% 2.307692% 0; /*30px 108.55px 30px 0;*/
+	/*border: solid 1px black;*/
+	width: 27%;
+}
+
+.last-element {
+	/* To even out the last element in the column layouts*/
+	margin-right: 0;
+	padding-left: 0;
+}
+
+.footer {
+	/* contains the contact info */
+	float: left;
+	width: 92.3%;
+	border-top: dotted 1px #6A7B86;
+	padding: 1.923077% 3.846154%; /* 30px 50px; */
+	/*border: solid 1px black;*/
+}
+
+/*a.footer:link, a.footer:visited{
+	color: #E66000;
+	text-decoration: none;
+}
+
+a.footer:hover, a.footer:active{
+	color: #FF9500;
+	text-decoration: none;
+}*/
+
+
+/* #Title STYLING */
+#title {
+	border-bottom: dotted 1px #6A7B86;
+}
+
+/* #Intro CLASSES */
+#intro h2{
+	padding: 0;
+	margin: 0;
+}
+
+.graphic-container {
+	float: left;
+	margin-right: 3.846154%; /*50px;*/
+	margin-top: 1.153846%; /*15px;*/
+	/*border: solid 1px black;*/
+}
+ 
+.text-container {
+	vertical-align: middle;
+	float: inline;
+	/*border: solid 1px black;*/
+}
+
+/* #imperatives CLASSES */
+.imperative-container {
+	float: left;
+	width: 44%;
+	margin-right: 3%;
+	/*border: solid 1px black;*/
+}
+
+.imperative-container-last {
+	margin-right: 0;
+	float: right;
+	width: 44%;
+	/*border: solid 1px black;*/	
+}
+
+#imperatives h3{
+	font-size: 1.350em;
+	font-weight: 400;
+	color: #E66000;
+}
+
+#imperatives ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	padding-top: 10px;
+}
+
+#imperatives li{
+	font-size: 1.15em;
+	font-weight: 400;
+}
+
+#imperatives li.caption{
+	font-weight: 300;
+	padding-bottom: 4.330230%;/* 20px; based on the width of .2-column */
+}
+
+/* #learn-more CLASSES */
+#learn-more img {
+	display: block;
+	/*margin: 0 auto;*/
+	max-width:100%;
+	height: auto;
+	margin-bottom: 3.333333%; /*10px; - based on image size of 300 px*/
+	border: solid 1px #d2d2d2;
+}
+
+#learn-more h4{
+	padding: auto;
+	margin: auto;
+	text-align: center;
+}
+
+#posts {
+	width: 37%;
+}
+
+
+/* #contact CLASSES */
+#contact p{
+	font-size: 1.0em;
+	text-align: center;
+}
+
+
+/* #Topbar CLASSES */
+#topbar{
+	width: 100%;
+	background-color: orange;
+	/*padding: 5px 25px;*/
+	padding: 10px 25px;
+	float: left;
+}
+
+#topbar ul{
+	list-style: none;
+	margin: 0;
+}
+
+#topbar ul li {
+	color: blue;
+	margin-right: 30px;
+	float: left;
+}
+
+#topbar ul li.home {
+	color: red;
+}
+
+#topbar ul li.last {
+	margin-right: 0;
+}
+
+
+
+/* COLORS */
+/*
+#EAEFF2 - light grey (Mozilla Standard)
+#f6f7f7 - lighter grey
+#6A7B86 - dark blue
+#424F5A - dark grey
+#E66000 - orange
+#FF9500 - light orange
+#EAEFF2 to #D4DDE4 - lt blue/grey gradient
+

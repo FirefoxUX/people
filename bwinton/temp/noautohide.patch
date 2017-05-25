@@ -1,0 +1,52 @@
+# HG changeset patch
+# Parent c1c3aa2b09d8dcfabd6ae21d34ed56a45eea9f3b
+# User Blake Winton <bwinton@latte.ca>
+Enable noautohide on menus.
+
+diff --git a/browser/components/customizableui/content/panelUI.inc.xul b/browser/components/customizableui/content/panelUI.inc.xul
+--- a/browser/components/customizableui/content/panelUI.inc.xul
++++ b/browser/components/customizableui/content/panelUI.inc.xul
+@@ -46,17 +46,17 @@
+                          label="&quitApplicationCmd.label;"
+ #endif
+ #endif
+                          command="cmd_quitApplication"/>
+         </hbox>
+       </footer>
+     </panelview>
+ 
+-    <panelview id="PanelUI-history" flex="1">
++    <panelview id="PanelUI-history" flex="1" noautohide="true">
+       <label value="&appMenuHistory.label;" class="panel-subview-header"/>
+       <vbox class="panel-subview-body">
+         <toolbarbutton id="appMenuViewHistorySidebar"
+                        label="&appMenuHistory.viewSidebar.label;"
+                        type="checkbox"
+                        class="subviewbutton"
+                        oncommand="toggleSidebar('viewHistorySidebar'); PanelUI.hide();">
+           <observes element="viewHistorySidebar" attribute="checked"/>
+diff --git a/layout/xul/nsXULPopupManager.cpp b/layout/xul/nsXULPopupManager.cpp
+--- a/layout/xul/nsXULPopupManager.cpp
++++ b/layout/xul/nsXULPopupManager.cpp
+@@ -771,17 +771,20 @@ nsXULPopupManager::ShowPopupCallback(nsI
+   nsWeakFrame weakFrame(aPopupFrame);
+   aPopupFrame->ShowPopup(aIsContextMenu, aSelectFirstItem);
+   ENSURE_TRUE(weakFrame.IsAlive());
+ 
+   // popups normally hide when an outside click occurs. Panels may use
+   // the noautohide attribute to disable this behaviour. It is expected
+   // that the application will hide these popups manually. The tooltip
+   // listener will handle closing the tooltip also.
+-  if (aPopupFrame->IsNoAutoHide() || popupType == ePopupTypeTooltip) {
++  if (aPopupFrame->IsNoAutoHide() ||
++      popupType == ePopupTypeTooltip ||
++      popupType == ePopupTypeMenu ||
++      popupType == ePopupTypePanel) {
+     item->SetParent(mNoHidePanels);
+     mNoHidePanels = item;
+   }
+   else {
+     nsIContent* oldmenu = nullptr;
+     if (mPopups)
+       oldmenu = mPopups->Content();
+     item->SetParent(mPopups);

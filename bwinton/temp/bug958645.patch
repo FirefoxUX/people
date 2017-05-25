@@ -1,0 +1,76 @@
+# HG changeset patch
+# Parent 735a648bca0d5131b2e87b6ff6226df9985debe9
+# User Blake Winton <bwinton@latte.ca>
+Bug 958645 - Add mouseover effect to non-icons in Australis Customize mode.  r=Gijs, r=dao, ui-r=phlsa
+
+diff --git a/browser/themes/osx/browser.css b/browser/themes/osx/browser.css
+--- a/browser/themes/osx/browser.css
++++ b/browser/themes/osx/browser.css
+@@ -411,25 +411,29 @@ toolbar .toolbarbutton-1:not([type="menu
+   margin: 0;
+ }
+ 
+ .toolbarbutton-1,
+ #restore-button {
+   margin: 0 4px;
+ }
+ 
++#nav-bar .toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker {
++  -moz-box-orient: horizontal;
++}
++
+ /**
+  * Draw seperators before toolbar button dropmarkers, as well as between
+  * consecutive toolbarbutton-1's within a toolbaritem.
+  */
+ #nav-bar .toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker::before,
+ #nav-bar .toolbaritem-combined-buttons > .toolbarbutton-1 + .toolbarbutton-1::before {
+   content: "";
+   display: -moz-box;
+-  position: absolute;
++  position: relative;
+   top: calc(50% - 9px);
+   width: 1px;
+   height: 18px;
+   -moz-margin-end: -1px;
+   background-image: linear-gradient(hsla(210,54%,20%,.2) 0, hsla(210,54%,20%,.2) 18px);
+   background-clip: padding-box;
+   background-position: center;
+   background-repeat: no-repeat;
+diff --git a/browser/themes/shared/customizableui/customizeMode.inc.css b/browser/themes/shared/customizableui/customizeMode.inc.css
+--- a/browser/themes/shared/customizableui/customizeMode.inc.css
++++ b/browser/themes/shared/customizableui/customizeMode.inc.css
+@@ -122,24 +122,31 @@ toolbarpaletteitem[place="panel"] {
+ }
+ 
+ toolbarpaletteitem[notransition].panel-customization-placeholder,
+ toolbarpaletteitem[notransition][place="palette"],
+ toolbarpaletteitem[notransition][place="panel"] {
+   transition: none;
+ }
+ 
+-toolbarpaletteitem > toolbarbutton > .toolbarbutton-icon {
+-  transition: transform .3s cubic-bezier(.6, 2, .75, 1.5);
++toolbarpaletteitem > toolbarbutton > .toolbarbutton-icon,
++toolbarpaletteitem > toolbaritem.panel-wide-item,
++toolbarpaletteitem > toolbarbutton[type="menu-button"] {
++  transition: transform .3s cubic-bezier(.6, 2, .75, 1.5) !important;
+ }
+ 
+ toolbarpaletteitem[mousedown] > toolbarbutton > .toolbarbutton-icon {
+   transform: scale(1.3);
+ }
+ 
++toolbarpaletteitem[mousedown] > toolbaritem.panel-wide-item,
++toolbarpaletteitem[mousedown] > toolbarbutton[type="menu-button"] {
++  transform: scale(1.1);
++}
++
+ /* Override the toolkit styling for items being dragged over. */
+ toolbarpaletteitem[place="toolbar"] {
+   border-left-width: 0;
+   border-right-width: 0;
+   margin-right: 0;
+   margin-left: 0;
+ }
+ 

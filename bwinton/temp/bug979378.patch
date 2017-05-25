@@ -1,0 +1,349 @@
+# HG changeset patch
+# Parent 38a12038dcc482d9bc597d84227802256a7f231a
+# User Blake Winton <bwinton@latte.ca>
+Bug 979378 - Update the menu panel checkmark to a consistent item that fits with the panel style.  ui-r=shorlander, r=mikedeboer
+
+diff --git a/browser/themes/linux/customizableui/panelUIOverlay.css b/browser/themes/linux/customizableui/panelUIOverlay.css
+--- a/browser/themes/linux/customizableui/panelUIOverlay.css
++++ b/browser/themes/linux/customizableui/panelUIOverlay.css
+@@ -12,14 +12,26 @@
+   -moz-appearance: none;
+   border: 0;
+ }
+ 
+ .widget-overflow-list .toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker {
+   -moz-margin-start: 0;
+ }
+ 
++.subviewbutton > .toolbarbutton-text {
++  -moz-padding-start: 16px;
++}
++
++.subviewbutton:-moz-any([image],[targetURI],.cui-withicon, .restoreallitem, .bookmark-item) > .toolbarbutton-text {
++  -moz-padding-start: 0;
++}
++
++.subviewbutton.bookmark-item > .toolbarbutton-icon {
++  -moz-margin-start: 3px;
++}
++
+ .PanelUI-subView toolbarseparator,
+ .PanelUI-subView menuseparator,
+ .cui-widget-panelview menuseparator,
+ #PanelUI-footer-inner > toolbarseparator {
+   -moz-appearance: none !important;
+ }
+diff --git a/browser/themes/osx/customizableui/panelUIOverlay.css b/browser/themes/osx/customizableui/panelUIOverlay.css
+--- a/browser/themes/osx/customizableui/panelUIOverlay.css
++++ b/browser/themes/osx/customizableui/panelUIOverlay.css
+@@ -53,24 +53,56 @@
+     -moz-image-region: rect(0, 64px, 32px, 32px);
+   }
+ 
+   #PanelUI-customize:hover:active,
+   #PanelUI-help:not([disabled]):hover:active,
+   #PanelUI-quit:not([disabled]):hover:active {
+     -moz-image-region: rect(0, 96px, 32px, 64px);
+   }
++
++  .subviewbutton[checked="true"] {
++    background-image: url("chrome://global/skin/menu/menu-check@2x.png");
++  }
++
+ }
+ 
+ .panelUI-grid .toolbarbutton-1 {
+   margin-right: 0;
+   margin-left: 0;
+   margin-bottom: 0;
+ }
+ 
++.subviewbutton > .toolbarbutton-text,
++.subviewbutton > .menu-iconic-text {
++  margin: 2px 0px;
++}
++
++.subviewbutton:-moz-any([image],[targetURI],.cui-withicon, .bookmark-item) > .toolbarbutton-text {
++  margin: 2px 6px;
++}
++
++.restoreallitem > .toolbarbutton-icon,
++.restoreallitem > .toolbarbutton-icon,
++.restoreallitem > .toolbarbutton-icon {
++  display: none;
++}
++
++.subviewbutton {
++  -moz-padding-start: 18px;
++}
++
++.subviewbutton[checked="true"] {
++  background-position: top 5px left 4px;
++}
++
++.subviewbutton:not(:-moz-any([image],[targetURI],.cui-withicon, .bookmark-item)) > .menu-iconic-left {
++  display: none;
++}
++
+ #BMB_bookmarksPopup > menu,
+ #BMB_bookmarksPopup > menuitem:not(.panel-subview-footer) {
+   padding-top: 5px;
+   padding-bottom: 5px;
+ }
+ 
+ /* Override OSX-specific toolkit styles for the bookmarks panel */
+ #BMB_bookmarksPopup > menu > .menu-right {
+@@ -89,13 +121,8 @@
+ .widget-overflow-list .toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker {
+   -moz-margin-start: 4px;
+ }
+ 
+ .PanelUI-subView menuseparator,
+ .cui-widget-panelview menuseparator {
+   padding: 0 !important;
+ }
+-
+-.PanelUI-subView menuitem[checked="true"]::before,
+-.PanelUI-subView toolbarbutton[checked="true"]::before {
+-  margin: 0 5px;
+-}
+diff --git a/browser/themes/shared/customizableui/panelUIOverlay.inc.css b/browser/themes/shared/customizableui/panelUIOverlay.inc.css
+--- a/browser/themes/shared/customizableui/panelUIOverlay.inc.css
++++ b/browser/themes/shared/customizableui/panelUIOverlay.inc.css
+@@ -7,20 +7,20 @@
+ %define menuPanelWidth 22.35em
+ % XXXgijs This is the ugliest bit of code I think I've ever written for Mozilla.
+ % Basically, the 0.1px is there to avoid CSS rounding errors causing buttons to wrap.
+ % For gory details, refer to https://bugzilla.mozilla.org/show_bug.cgi?id=963365#c11
+ % There's no calc() here (and therefore lots of calc() where this is used) because
+ % we don't support nested calc(): https://bugzilla.mozilla.org/show_bug.cgi?id=968761
+ %define menuPanelButtonWidth (@menuPanelWidth@ / 3 - 0.1px)
+ %define exitSubviewGutterWidth 38px
+-%define buttonStateHover :not(:-moz-any([disabled],[open],[checked="true"],:active)):hover
+-%define menuStateHover :not(:-moz-any([disabled],[checked="true"],:active))[_moz-menuactive]
+-%define buttonStateActive :not([disabled]):-moz-any([open],[checked="true"],:hover:active)
+-%define menuStateActive :not([disabled]):-moz-any([checked="true"],[_moz-menuactive]:active)
++%define buttonStateHover :not(:-moz-any([disabled],[open],:active)):hover
++%define menuStateHover :not(:-moz-any([disabled],:active))[_moz-menuactive]
++%define buttonStateActive :not([disabled]):-moz-any([open],:hover:active)
++%define menuStateActive :not([disabled])[_moz-menuactive]:active
+ 
+ %include ../browser.inc
+ 
+ #PanelUI-button {
+   background-image: linear-gradient(to bottom, hsla(0,0%,100%,0), hsla(0,0%,100%,.3) 30%, hsla(0,0%,100%,.3) 70%, hsla(0,0%,100%,0)),
+                     linear-gradient(to bottom, hsla(210,54%,20%,0), hsla(210,54%,20%,.3) 30%, hsla(210,54%,20%,.3) 70%, hsla(210,54%,20%,0)),
+                     linear-gradient(to bottom, hsla(0,0%,100%,0), hsla(0,0%,100%,.3) 30%, hsla(0,0%,100%,.3) 70%, hsla(0,0%,100%,0));
+   background-size: 1px calc(100% - 1px), 1px calc(100% - 1px), 1px  calc(100% - 1px) !important;
+@@ -50,20 +50,16 @@
+ .panel-viewstack[viewtype="main"] > .panel-subviews:-moz-locale-dir(rtl) {
+   transform: translateX(-@menuPanelWidth@);
+ }
+ 
+ .panel-viewstack:not([viewtype="main"]) > .panel-mainview > #PanelUI-mainView {
+   -moz-box-flex: 1;
+ }
+ 
+-.subviewbutton:not(:-moz-any([image],[targetURI],.cui-withicon)) > .toolbarbutton-text {
+-  -moz-margin-start: 0;
+-}
+-
+ .panel-subview-body {
+   overflow-y: auto;
+   overflow-x: hidden;
+   -moz-box-flex: 1;
+ }
+ 
+ #PanelUI-popup .panel-subview-body {
+   margin: -4px;
+@@ -684,20 +680,16 @@ menuitem.subviewbutton@menuStateActive@,
+   -moz-margin-end: auto;
+   color: hsl(0,0%,50%);
+ }
+ 
+ #PanelUI-historyItems > toolbarbutton {
+   list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png");
+ }
+ 
+-.restoreallitem.subviewbutton > .toolbarbutton-icon {
+-  display: none;
+-}
+-
+ #PanelUI-recentlyClosedWindows > toolbarbutton > .toolbarbutton-icon,
+ #PanelUI-recentlyClosedTabs > toolbarbutton > .toolbarbutton-icon,
+ #PanelUI-historyItems > toolbarbutton > .toolbarbutton-icon {
+   width: 16px;
+   height: 16px;
+ }
+ 
+ #PanelUI-footer > #PanelUI-footer-inner[panel-multiview-anchor=true],
+@@ -894,27 +886,21 @@ toolbaritem[overflowedItem=true],
+   background-image: linear-gradient(hsla(210,54%,20%,.2) 0, hsla(210,54%,20%,.2) 18px);
+   background-clip: padding-box;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 1px 18px;
+   box-shadow: 0 0 0 1px hsla(0,0%,100%,.2);
+ }
+ 
+-.PanelUI-subView toolbarbutton[checked="true"] {
+-  -moz-padding-start: 4px;
++.subviewbutton[checked="true"] {
++  background: url("chrome://global/skin/menu/menu-check.png") top 7px left 7px / 11px 11px no-repeat transparent;
+ }
+ 
+-.PanelUI-subView toolbarbutton[checked="true"] > .toolbarbutton-text {
+-  -moz-padding-start: 0px;
++.PanelUI-subView > menu > .menu-iconic-left,
++.PanelUI-subView > menuitem > .menu-iconic-left {
++  -moz-appearance: none;
++  -moz-margin-end: 3px;
+ }
+ 
+-.PanelUI-subView menuitem[checked="true"]::before,
+-.PanelUI-subView toolbarbutton[checked="true"]::before {
+-  content: "✓";
+-  display: -moz-box;
+-  width: 12px;
+-  margin: 0 2px;
++.PanelUI-subView > menuitem[checked="true"] > .menu-iconic-left {
++  visibility: hidden;
+ }
+-
+-#BMB_bookmarksPopup > menuitem[checked="true"] > .menu-iconic-left {
+-  display: none;
+-}
+diff --git a/browser/themes/windows/customizableui/panelUIOverlay.css b/browser/themes/windows/customizableui/panelUIOverlay.css
+--- a/browser/themes/windows/customizableui/panelUIOverlay.css
++++ b/browser/themes/windows/customizableui/panelUIOverlay.css
+@@ -30,19 +30,26 @@
+   -moz-padding-start: 0;
+   height: 18px;
+ }
+ 
+ .widget-overflow-list .toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker > .dropmarker-icon {
+   padding: 0 6px;
+ }
+ 
+-#BMB_bookmarksPopup menuitem[checked="true"]::before,
+-#BMB_bookmarksPopup toolbarbutton[checked="true"]::before {
+-  margin: 0 9px;
++.subviewbutton > .toolbarbutton-text {
++  -moz-padding-start: 16px;
++}
++
++.subviewbutton:-moz-any([image],[targetURI],.cui-withicon, .restoreallitem, .bookmark-item) > .toolbarbutton-text {
++  -moz-padding-start: 0;
++}
++
++.subviewbutton.bookmark-item > .toolbarbutton-icon {
++  -moz-margin-start: 3px;
+ }
+ 
+ %ifdef WINDOWS_AERO
+ /* Win8 and beyond. */
+ @media not all and (-moz-os-version: windows-vista) {
+   @media not all and (-moz-os-version: windows-win7) {
+     panelview .toolbarbutton-1,
+     .subviewbutton,
+diff --git a/toolkit/themes/linux/global/jar.mn b/toolkit/themes/linux/global/jar.mn
+--- a/toolkit/themes/linux/global/jar.mn
++++ b/toolkit/themes/linux/global/jar.mn
+@@ -47,9 +47,10 @@ toolkit.jar:
+ +  skin/classic/global/icons/loading_16.png                    (icons/loading_16.png)
+ +  skin/classic/global/icons/panelarrow-horizontal.svg         (icons/panelarrow-horizontal.svg)
+ +  skin/classic/global/icons/panelarrow-vertical.svg           (icons/panelarrow-vertical.svg)
+ +  skin/classic/global/icons/resizer.png                       (icons/resizer.png)
+ +  skin/classic/global/icons/sslWarning.png                    (icons/sslWarning.png)
+ +  skin/classic/global/icons/wrap.png                          (icons/wrap.png)
+ +  skin/classic/global/icons/webapps-16.png                    (icons/webapps-16.png)
+ +  skin/classic/global/icons/webapps-64.png                    (icons/webapps-64.png)
++   skin/classic/global/menu/menu-check.png                     (../../shared/menu-check.png)
+ +  skin/classic/global/toolbar/spring.png                      (toolbar/spring.png)
+diff --git a/toolkit/themes/osx/global/jar.mn b/toolkit/themes/osx/global/jar.mn
+--- a/toolkit/themes/osx/global/jar.mn
++++ b/toolkit/themes/osx/global/jar.mn
+@@ -176,18 +176,18 @@ toolkit.jar:
+   skin/classic/global/media/volume-empty.png                         (media/volume-empty.png)
+   skin/classic/global/media/volume-empty@2x.png                      (media/volume-empty@2x.png)
+   skin/classic/global/media/volume-full.png                          (media/volume-full.png)
+   skin/classic/global/media/volume-full@2x.png                       (media/volume-full@2x.png)
+   skin/classic/global/media/clicktoplay-bgtexture.png                (media/clicktoplay-bgtexture.png)
+   skin/classic/global/media/videoClickToPlayButton.svg               (media/videoClickToPlayButton.svg)
+   skin/classic/global/menu/menu-arrow.png                            (menu/menu-arrow.png)
+   skin/classic/global/menu/menu-arrow@2x.png                         (menu/menu-arrow@2x.png)
+-  skin/classic/global/menu/menu-check.png                            (menu/menu-check.png)
+-  skin/classic/global/menu/menu-check@2x.png                         (menu/menu-check@2x.png)
++  skin/classic/global/menu/menu-check.png                            (../../shared/menu-check.png)
++  skin/classic/global/menu/menu-check@2x.png                         (../../shared/menu-check@2x.png)
+   skin/classic/global/scale/scale-tray-horiz.gif                     (scale/scale-tray-horiz.gif)
+   skin/classic/global/scale/scale-tray-vert.gif                      (scale/scale-tray-vert.gif)
+   skin/classic/global/splitter/dimple.png                            (splitter/dimple.png)
+   skin/classic/global/splitter/grip-bottom.gif                       (splitter/grip-bottom.gif)
+   skin/classic/global/splitter/grip-top.gif                          (splitter/grip-top.gif)
+   skin/classic/global/splitter/grip-left.gif                         (splitter/grip-left.gif)
+   skin/classic/global/splitter/grip-right.gif                        (splitter/grip-right.gif)
+   skin/classic/global/toolbar/spring.png                             (toolbar/spring.png)
+diff --git a/toolkit/themes/shared/menu-check.png b/toolkit/themes/shared/menu-check.png
+new file mode 100644
+index e69de29bb2d1d6434b8b29ae775ad8c2e48c5391..d82635a639a401185de2f31f3ea2ad8520fa1a99
+GIT binary patch
+literal 197
+zc%17D@N?(olHy`uVBq!ia0vp^0wB!61|;P_|4#%`J)SO(Ar_~T6C{EZ6ikd*I-WBd
+zid)V)+VI0v;6MALzfUAK@U4<;arU?>)4Qb7RL@n%VNI`V3|Gf}C)4IV3T>ww>=gd7
+z9O27&G@H{(RwJ=*$qQ?N-;PIxIjm$)PKZ-Ey1#J;ONYHciPbE{SdX?p>e^QtyKY}J
+uS+AykE_&gtc)_P7GHoW4<|MGOFfj1*<#K3rak2v4#o+1c=d#Wzp$Pyh#zO7@
+
+diff --git a/toolkit/themes/shared/menu-check@2x.png b/toolkit/themes/shared/menu-check@2x.png
+new file mode 100644
+index e69de29bb2d1d6434b8b29ae775ad8c2e48c5391..2b1f8361324008de1265f2a2ec6acf57ecfc0fc4
+GIT binary patch
+literal 377
+zc$@)w0fzpGP)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F80003%Nkl<ZSi@sr
+z7zM)}1cXL14y5I3Kzs&>wFbg+W*|NR#Q%Z#GZ077+X1yu%aQS9AZDkB<t9M<3yTBp
+z0WlA)E$0N{YgjD*2gLUD@cjfVmV@vFdRXoZ^(ngLw}6<7)|Lwb@gppj{{dnvdiZ_`
+zj-c-*J2**D8;ZknP-5gD$MRfQ!U19?0%|3J_$`j0HzUV#Kd5GyL92230#wce@pc@(
+zZzacaT_FB~#jry_EQCdUCJxIl0Wljn4k*WAAS^x=kkqQ;a4e_<G^8Xox8iZcb09WC
+zt7y=1JvFjaGag5L0^$`o<jw*yE4A`<9Uezu!#_c3h}wlq4G9jYqE!i3L4@TeLFs~)
+z#cUZK%fAD$COyjfVjK=Are`y&0Ij+`Lerqf;fOq_BS3|a>OeKOvp^NrXs>4!Py+w}
+X8K;zTOeY^*00000NkvXXu0mjf<Uy4=
+
+diff --git a/toolkit/themes/windows/global/jar.mn b/toolkit/themes/windows/global/jar.mn
+--- a/toolkit/themes/windows/global/jar.mn
++++ b/toolkit/themes/windows/global/jar.mn
+@@ -163,16 +163,17 @@ toolkit.jar:
+         skin/classic/global/media/scrubberThumbWide.png          (media/scrubberThumbWide.png)
+         skin/classic/global/media/throbber.png                   (media/throbber.png)
+         skin/classic/global/media/stalled.png                    (media/stalled.png)
+         skin/classic/global/media/volume-empty.png               (media/volume-empty.png)
+         skin/classic/global/media/volume-full.png                (media/volume-full.png)
+         skin/classic/global/media/error.png                      (media/error.png)
+         skin/classic/global/media/clicktoplay-bgtexture.png      (media/clicktoplay-bgtexture.png)
+         skin/classic/global/media/videoClickToPlayButton.svg     (media/videoClickToPlayButton.svg)
++        skin/classic/global/menu/menu-check.png                  (../../shared/menu-check.png)
+         skin/classic/global/printpreview/arrow-left.png          (printpreview/arrow-left.png)
+         skin/classic/global/printpreview/arrow-left-end.png      (printpreview/arrow-left-end.png)
+         skin/classic/global/printpreview/arrow-right.png         (printpreview/arrow-right.png)
+         skin/classic/global/printpreview/arrow-right-end.png     (printpreview/arrow-right-end.png)
+         skin/classic/global/radio/radio-check.gif                (radio/radio-check.gif)
+         skin/classic/global/radio/radio-check-dis.gif            (radio/radio-check-dis.gif)
+         skin/classic/global/scrollbar/slider.gif                 (scrollbar/slider.gif)
+         skin/classic/global/splitter/grip-bottom.gif             (splitter/grip-bottom.gif)
+@@ -345,16 +346,17 @@ toolkit.jar:
+         skin/classic/aero/global/media/scrubberThumbWide.png             (media/scrubberThumbWide.png)
+         skin/classic/aero/global/media/throbber.png                      (media/throbber.png)
+         skin/classic/aero/global/media/stalled.png                       (media/stalled.png)
+         skin/classic/aero/global/media/volume-empty.png                  (media/volume-empty.png)
+         skin/classic/aero/global/media/volume-full.png                   (media/volume-full.png)
+         skin/classic/aero/global/media/error.png                         (media/error.png)
+         skin/classic/aero/global/media/clicktoplay-bgtexture.png         (media/clicktoplay-bgtexture.png)
+         skin/classic/aero/global/media/videoClickToPlayButton.svg        (media/videoClickToPlayButton.svg)
++        skin/classic/aero/global/menu/menu-check.png                     (../../shared/menu-check.png)
+         skin/classic/aero/global/printpreview/arrow-left.png             (printpreview/arrow-left-aero.png)
+         skin/classic/aero/global/printpreview/arrow-left-end.png         (printpreview/arrow-left-end-aero.png)
+         skin/classic/aero/global/printpreview/arrow-right.png            (printpreview/arrow-right-aero.png)
+         skin/classic/aero/global/printpreview/arrow-right-end.png        (printpreview/arrow-right-end-aero.png)
+         skin/classic/aero/global/radio/radio-check.gif                   (radio/radio-check.gif)
+         skin/classic/aero/global/radio/radio-check-dis.gif               (radio/radio-check-dis.gif)
+         skin/classic/aero/global/scrollbar/slider.gif                    (scrollbar/slider.gif)
+         skin/classic/aero/global/splitter/grip-bottom.gif                (splitter/grip-bottom.gif)

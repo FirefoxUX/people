@@ -1,0 +1,45 @@
+
+.contextMenu {
+	position: absolute;
+	width: auto;
+	z-index: 99999;
+  font-family: Segoe UI, Verdana, sans-serif;
+  font-size: 11px;
+  border-width: 7px 9px 11px 9px;
+  border-style: solid;
+  -moz-border-image: url(../images/panel-borderImage.png) 7 9 11 9 fill repeat;
+	padding: 0px;
+	margin: 0px;
+	display: none;
+}
+.contextMenu LI {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+.contextMenu A {
+	color: #333;
+	text-decoration: none;
+	display: block;
+  line-height: 16px;
+	height: 16px;
+	background-position: 6px center;
+	background-repeat: no-repeat;
+	outline: none;
+	padding: 1px 5px;
+	padding-right: 15px;
+}
+.contextMenu LI.hover A {
+	color: #FFF;
+	background-color: #3399FF;
+}
+.contextMenu LI.disabled A {
+	color: #AAA;
+	cursor: default;
+}
+.contextMenu LI.hover.disabled A {
+	background-color: transparent;
+}
+.contextMenu LI.separator {
+  border-top: 1px solid hsla(0,0%,0%,.2);
+}

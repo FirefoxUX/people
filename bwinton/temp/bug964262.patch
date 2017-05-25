@@ -1,0 +1,96 @@
+# HG changeset patch
+# Parent 5dc091b7e86f89dff714fa7ba965e3b09f9e45ad
+# User Blake Winton <bwinton@latte.ca>
+Bug 964262 - Fade in icons in customization mode.  ui-r=phlsa, r=Gijs
+
+diff --git a/browser/components/customizableui/src/CustomizeMode.jsm b/browser/components/customizableui/src/CustomizeMode.jsm
+--- a/browser/components/customizableui/src/CustomizeMode.jsm
++++ b/browser/components/customizableui/src/CustomizeMode.jsm
+@@ -188,16 +188,17 @@ CustomizeMode.prototype = {
+       // need to force the menu panel to register itself, or else customization
+       // is really not going to work. We pass "true" to ensureRegistered to
+       // indicate that we're handling calling startBatchUpdate and
+       // endBatchUpdate.
+       yield window.PanelUI.ensureReady(true);
+ 
+       // Hide the palette before starting the transition for increased perf.
+       this.visiblePalette.hidden = true;
++      this.visiblePalette.removeAttribute("showing");
+ 
+       // Disable the button-text fade-out mask
+       // during the transition for increased perf.
+       let panelContents = window.PanelUI.contents;
+       panelContents.setAttribute("customize-transitioning", "true");
+ 
+       // Move the mainView in the panel to the holder so that we can see it
+       // while customizing.
+@@ -255,16 +256,22 @@ CustomizeMode.prototype = {
+ 
+       CustomizableUI.addListener(this);
+       window.PanelUI.endBatchUpdate();
+       this._customizing = true;
+       this._transitioning = false;
+ 
+       // Show the palette now that the transition has finished.
+       this.visiblePalette.hidden = false;
++      window.setTimeout(() => {
++        // Force layout reflow to ensure the animation runs,
++        // and make it async so it doesn't affect the timing.
++        this.visiblePalette.clientTop;
++        this.visiblePalette.setAttribute("showing", "true");
++      }, 0);
+       this.paletteSpacer.hidden = true;
+       this._updateEmptyPaletteNotice();
+ 
+       this._handler.isEnteringCustomizeMode = false;
+       panelContents.removeAttribute("customize-transitioning");
+ 
+       CustomizableUI.dispatchToolboxEvent("customizationready", {}, window);
+       if (!this._wantToBeInCustomizeMode) {
+@@ -314,16 +321,17 @@ CustomizeMode.prototype = {
+ 
+     let window = this.window;
+     let document = this.document;
+     let documentElement = document.documentElement;
+ 
+     // Hide the palette before starting the transition for increased perf.
+     this.paletteSpacer.hidden = false;
+     this.visiblePalette.hidden = true;
++    this.visiblePalette.removeAttribute("showing");
+     this.paletteEmptyNotice.hidden = true;
+ 
+     // Disable the button-text fade-out mask
+     // during the transition for increased perf.
+     let panelContents = window.PanelUI.contents;
+     panelContents.setAttribute("customize-transitioning", "true");
+ 
+     // Disable the reset and undo reset buttons while transitioning:
+diff --git a/browser/themes/shared/customizableui/customizeMode.inc.css b/browser/themes/shared/customizableui/customizeMode.inc.css
+--- a/browser/themes/shared/customizableui/customizeMode.inc.css
++++ b/browser/themes/shared/customizableui/customizeMode.inc.css
+@@ -166,16 +166,25 @@ toolbarpaletteitem[mousedown] {
+ }
+ 
+ .panel-customization-placeholder,
+ toolbarpaletteitem[place="palette"],
+ toolbarpaletteitem[place="panel"] {
+   transition: transform .3s ease-in-out;
+ }
+ 
++#customization-palette {
++  transition: opacity .3s ease-in-out;
++  opacity: 0;
++}
++
++#customization-palette[showing="true"] {
++  opacity: 1;
++}
++
+ toolbarpaletteitem[notransition].panel-customization-placeholder,
+ toolbarpaletteitem[notransition][place="toolbar"],
+ toolbarpaletteitem[notransition][place="palette"],
+ toolbarpaletteitem[notransition][place="panel"] {
+   transition: none;
+ }
+ 
+ toolbarpaletteitem > toolbarbutton > .toolbarbutton-icon,

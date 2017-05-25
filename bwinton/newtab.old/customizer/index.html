@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <base href="https://people.mozilla.com/~bwinton/newtab/">        
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="shared/styles/reset.css">
+        <link rel="stylesheet" href="customizer/styles/styles.css">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script type="text/javascript" src='shared/scripts/jquery.scrollTo.min.js'></script>
+        <script type="text/javascript" src='customizer/scripts/customizer.js'></script>
+
+    </head>
+    <body>
+        <div id="wrapper">
+            
+            <!-- preview of what the final product would look like -->
+            <div id="preview">
+                
+                <div id="preview_container">
+                    <div id="header">
+                        <h1>Preview of your New Tab Page</h1>
+                    </div>
+
+                    <button class="save_data">Save</button>
+
+                    <div id="slider_container">
+                        <div id="slider_expander">
+                            <div id="slider_div">
+                                <!-- <img id="new_panel_button" src="../images/big_plus.png" alt="New Panel"> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- place to drag apps to remove them -->
+            <div id="app_dropzone">Drag Here to Remove</div>
+
+            <!-- additional apps that can be added to the preview -->
+            <div id="apps">
+                <h1>Available Apps</h1>
+                <div id="apps_list"></div>
+            </div>
+
+        </div>
+
+
+        <div id="templates">
+            
+            <!-- panel template -->
+            <div class="panel_wrapper">
+                <div class="slider_panel">
+                    <!-- <div class="panel_header">a</div> -->
+                    <div class="panel_header">
+                        <img class="search_engine_logo" src="shared/images/SearchEngines/google_larger.png" alt="search_engine">
+                        <input class="search_box" disabled="true">
+                        <input type="submit" class="search_button" value="Search" >
+                    </div>
+                    <div class="app_group">
+
+                    </div>
+                    <div class="panel_footer">
+                        
+                        <div id="footer_buttons">
+                          
+                          <img src="chrome://browser/content/abouthome/downloads.png" id='downloads' class='' title='Downloads'></img>
+                          
+                          <img src="chrome://browser/content/abouthome/bookmarks.png" id='bookmarks' class='' title='Bookmarks'></img>
+                         
+                          <img src="chrome://browser/content/abouthome/history.png" id='history' class='' title='History'></img>
+                          
+                          <img src="chrome://browser/content/abouthome/sync.png" id='sync' class='' title='Sync'></img>
+                          
+                          <img src="chrome://browser/content/abouthome/settings.png" id='settings' class='' title='Settings'></img>
+
+                        </div>
+                        
+                        <img id="firefox_logo" src="chrome://branding/content/about-logo.png" alt="firefox">
+
+                    </div>
+                </div>
+                 <div class="panel_info">
+                    <span class="panel_number"></span>
+                </div>
+            </div>
+
+
+            <!-- app template -->
+            <div class="app_banner">
+                <div class="app_header">
+                    <img src="" alt="" class="app_icon">
+                    <span class="app_title"></span>
+                </div>
+                <div class="app_body">
+                    <span class="app_description"></span>
+                    <button class="add_app">Add to New Tab</button>
+                </div>
+            </div>
+
+
+            <!-- panel template -->
+            <div class="app_container" draggable="true">
+                <div class="app_container_content">
+                    <div class="title">
+                        <img src="" alt="" class="app_icon">
+                        <span class="app_name"></span>
+                    </div>
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                </div>
+            </div>
+
+            <!-- app settings panel template (only use inner html) -->
+            <div class="app_settings_panel">
+                <p>App Settings</p>
+
+                <select class="size_selector">
+                    <option value="2">1/3</option>
+                    <option value="3">1/2</option>
+                    <option value="4">2/3</option>
+                    <option value="6">1</option>
+                </select> 
+
+                <button class="cancel_app_changes">Cancel</button>
+                <button class="save_app_changes">Save Changes</button>
+                <button class="remove_app">Remove App</button>
+            </div>
+
+            <!-- active app template -->
+            <div class="active_app_content">
+<!--                 <img src="../images/customizer-drag-handle.png" class="expand_left"></img>
+                <img src="../images/customizer-drag-handle.png" class="expand_right"></img> -->
+                <!-- <div class=""></div> -->
+                <div class="title">
+                    <img src="" alt="" class="app_icon">
+                    <span class="active_app_name"></span>
+                </div>
+                <div class="resize_buttons">
+                    <button class="resize_small">S</button>
+                    <button class="resize_medium">M</button>
+                    <button class="resize_large">L</button>
+                    <button class="resize_extra_large">XL</button>
+                    <button class="resize_fluid">F</button>
+                </div>
+                <hr>
+                <div class="app_container_content">
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                    <div class="app_line"></div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+[
+	{
+		"text1": "Amazon",
+		"text2": "amazon.com",
+		"url": "http://www.amazon.com",
+		"image": "logos/amazon.png"
+	},
+	{
+		"text1": "Facebook",
+		"text2": "www.facebook.com",
+		"url": "http://www.facebook.com",
+		"image": "logos/facebook.png"
+	},
+	{
+		"text1": "NASA - Home",
+		"text2": "www.nasa.gov",
+		"url": "http://www.nasa.gov",
+		"image": "logos/nasa.png"
+	},
+	{
+		"text1": "Wikipedia",
+		"text2": "www.wikipedia.com",
+		"url": "http://www.wikipedia.com",
+		"image": "logos/wikipedia.png"
+	},
+	{
+		"text1": "Reddit",
+		"text2": "www.reddit.com",
+		"url": "http://www.reddit.com",
+		"image": "logos/reddit.png"
+	},
+	{
+		"text1": "Twitter",
+		"text2": "www.twitter.com",
+		"url": "http://www.twitter.com",
+		"image": "logos/twitter.png"
+	},
+	{
+		"text1": "Netflix",
+		"text2": "www.netflix.com",
+		"url": "http://www.netflix.com",
+		"image": "logos/netflix.png"
+	},
+	{
+		"text1": "Evernote",
+		"text2": "www.evernote.com",
+		"url": "http://www.evernote.com",
+		"image": "logos/evernote.png"
+	},
+	{
+		"text1": "Etsy",
+		"text2": "www.etsy.com",
+		"url": "http://www.etsy.com",
+		"image": "logos/etsy.png"
+	}
+
+
+]

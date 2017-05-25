@@ -1,0 +1,30 @@
+<html>
+<head>
+ <title>Animation curve test</title>
+  <style>
+  body {
+    background-image: url("./background.png");
+    background-repeat: repeat-x;
+    margin: 0;
+    padding: 0
+  }
+
+  #new {
+    /* transition: left 500ms cubic-bezier(0,.5,.25,1); */
+    transition: left 250ms cubic-bezier(.07,.95,0,1);
+    z-index: -1;
+    position: absolute;
+    top: 14px;
+    left: 328px;
+  }
+
+  body:hover #new {
+    left: 764px;
+  }
+
+  </style>
+</head>
+<body><img src="bgtabs.png"><img id="new" src="newtab.png">
+
+</body>
+</html>

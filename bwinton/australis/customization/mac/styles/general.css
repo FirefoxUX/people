@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+  overflow-y: hidden !important;
+}
+body {
+  height: 100%;
+  -moz-user-select: -moz-none;
+}
+.imagePreloader {
+  width: 1px;
+  height: 1px;
+  background-image: url(../images/toolbarButton-bookmarkStarred.png),
+                    url(../images/windowBackgroundCustomizeMode.jpg),
+                    url(../images/webpage-start.png);
+}
+.outerContainer {
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  height: 100%;
+  width: 100%;
+}
+.window {
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-flex: 1;
+  position: relative;
+  margin: 0;
+  border: none;
+  color: hsl(0,0%,10%);
+  font-family: Segoe UI, Verdana, sans-serif;
+  font-size: 0;
+  line-height: 0;
+}
+.window.customizeMode {
+  background-image: url(../images/windowBackgroundCustomizeMode.jpg);
+  background-size: 100% 100%;
+}
+.windowOuterContainer {
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-flex: 1;
+  position: relative;
+  height: 100%;
+  z-index: 199;
+  margin: 0;
+  -moz-transition-duration: 150ms;
+}
+.window.customizeMode .windowOuterContainer {
+  padding: 80px !important;
+}
+.contentArea {
+  display: -moz-box;
+  padding: 0;
+  -moz-box-flex: 1;
+  border-radius: 0 0 2.5px 2.5px;
+  background-color: white;
+  background-image: url(../images/webpage-start.png);
+  background-position: 0 0;
+  background-size: cover;
+}

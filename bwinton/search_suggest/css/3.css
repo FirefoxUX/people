@@ -1,0 +1,9 @@
+.suggestions.defaults .item {
+  margin-right: 19px;
+}
+
+.suggestions.defaults .item {
+  display: inline-block;
+  text-decoration: underline;
+  line-height: 26px;
+}

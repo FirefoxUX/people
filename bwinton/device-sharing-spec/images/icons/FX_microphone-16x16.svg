@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+<g enable-background="new    ">
+	<g>
+		<defs>
+			<rect id="SVGID_1_" x="-563" y="-313" width="22" height="22"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  overflow="visible"/>
+		</clipPath>
+		<g clip-path="url(#SVGID_2_)">
+			<defs>
+				<rect id="SVGID_3_" x="-1198" y="-612" width="2545" height="1280"/>
+			</defs>
+			<clipPath id="SVGID_4_">
+				<use xlink:href="#SVGID_3_"  overflow="visible"/>
+			</clipPath>
+		</g>
+		<g clip-path="url(#SVGID_2_)">
+			<defs>
+				<rect id="SVGID_9_" x="-1198" y="-612" width="2545" height="1280"/>
+			</defs>
+			<clipPath id="SVGID_6_">
+				<use xlink:href="#SVGID_9_"  overflow="visible"/>
+			</clipPath>
+		</g>
+	</g>
+</g>
+<g id="Audio_14x14">
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M11,7v2c0,1.657-1.343,3-3,3c-1.657,0-3-1.343-3-3V7H4v2
+		c0,1.863,1.276,3.424,3,3.869V14H6.5c-0.653,0-1.207,0.418-1.413,1h5.826c-0.206-0.582-0.76-1-1.413-1H9v-1.131
+		c1.724-0.445,3-2.006,3-3.869V7H11z M8,11.5c1.381,0,2.5-1.119,2.5-2.5V3.5C10.5,2.119,9.381,1,8,1C6.619,1,5.5,2.119,5.5,3.5V9
+		C5.5,10.381,6.619,11.5,8,11.5z"/>
+</g>
+</svg>
