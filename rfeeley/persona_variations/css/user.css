@@ -1,0 +1,180 @@
+/* Jumbotrons
+-------------------------------------------------- */
+
+/* Base class
+------------------------- */
+
+.j_contain {
+	background: rgba(66,79,90,1);
+	background: -moz-linear-gradient(left, rgba(66,79,90,1) 0%, rgba(106,123,134,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(66,79,90,1)), color-stop(100%, rgba(106,123,134,1)));
+	background: -webkit-linear-gradient(left, rgba(66,79,90,1) 0%, rgba(106,123,134,1) 100%);
+	background: -o-linear-gradient(left, rgba(66,79,90,1) 0%, rgba(106,123,134,1) 100%);
+	background: -ms-linear-gradient(left, rgba(66,79,90,1) 0%, rgba(106,123,134,1) 100%);
+	background: linear-gradient(to right, rgba(66,79,90,1) 0%, rgba(106,123,134,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#424f5a', endColorstr='#6a7b86', GradientType=1 );
+	/*box-shadow: 0 0 10px #444;*/
+}
+.jumbotron {
+	position: relative;
+	padding: 10px 0 2px 0;
+	margin-left: -20px;
+	color: #fff;
+	text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+	
+}
+
+
+.jumbotron h1 {
+  font-size: 32px;
+  font-weight: 200;
+  letter-spacing: -1px;
+  line-height: 1;
+  font-family: 'Open Sans';
+  padding:0 0 5px 10px;
+}
+
+.jumbotron h1 img {
+	
+}
+
+body {
+	background: #fafafa;
+}
+
+label {
+	padding:6px;
+	border-radius: 5px;
+	background: #eee;
+	margin:5px 0;
+	border-bottom:1px solid #ccc;
+}
+
+label input {
+	position: relative;
+	left:5px;
+}
+
+#fields {
+	min-height:400px;
+}
+
+.checked {
+	background: #DFF0D8;
+	border-bottom:1px solid #D6E9C6;
+}
+
+.cb_group {
+	padding:10px;
+	background: #eee;
+	border-radius: 10px;
+	margin:10px 0;
+}
+
+p.cb_text {
+	padding:2px 4px;
+	font-weight:bold;
+	margin:0;
+}
+
+span.cb_text {
+	float:left;
+	width:5%;
+	text-align: center;
+	margin-top:8px;
+	font-weight:bold;
+
+}
+
+.cb_subgroup {
+	background: #e1e1e1;
+	padding:10px;
+	border-radius: 10px;
+
+}
+
+.cb_subgroup label {
+	float:left;
+	width:45%;
+}
+
+/*====HANDLES SMALLER SCREEN HEADER*/
+@media (max-width: 767px) {
+.jumbotron h1 {
+  font-size: 24px;
+  font-weight: 200;
+  letter-spacing: -1px;
+  line-height: 1;
+  font-family: 'Open Sans';
+  padding:0 0 5px 20px;
+}
+.jumbotron img {
+	display: none;
+}
+}
+
+
+
+/*JOHN JUST ADDED THESE to 'debootstrapify'*/
+
+body {
+/* 
+	Makes Sign Out text wrap
+	font-family: "open sans";
+ */
+	margin:0;
+	padding:0;
+}
+
+#fields input {
+/* 
+	Used Bootstraps input-block-level for same effect, without text cropping problem
+	width:100%;
+	height:32px;
+	padding:10px 5%;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+ */
+}
+
+#fields h2, #selectors h3 {
+/* 
+	font-weight: lighter;
+	border-bottom: 1px solid #ddd;
+ */
+ 	font-family: 'Open Sans';
+	color: #444;
+	font-size: 24px;
+}
+
+#fields h3 {
+/* 
+	font-weight: lighter;
+ */
+	color: #444;
+	font-size: 18px;
+}
+
+
+/* Migrated from HTML */
+
+.modal
+{
+	position: relative;
+	left: 0;
+	margin-left: 0;
+	top: -5px;
+	width: 100%;
+}
+
+h5 { color: pink; }
+.icon-persona
+{
+	background-image: url(../img/glyph_dark_small.png);
+	background-repeat: no-repeat;
+	background-position: 0 2px;
+	background-size: 14px;
+}
+span.badge { display: none; }
+
+.modal { box-shadow: none; border-color: rgba(0,0,0,0.2);}

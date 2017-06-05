@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Redirect Design</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700italic,700' rel='stylesheet' type='text/css'>
+	<style>
+	body { background: linear-gradient(to right, rgb(63, 181, 142) 0px, rgb(117, 196, 168) 50%, rgb(63, 181, 142) 100%) repeat scroll 0% 0% transparent; color: #383838; font-family: 'Open Sans', sans-serif; line-height: 100%;
+/* 
+			height: 50vw;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+ */
+ }
+		.container
+		{
+			margin: 10% auto;
+			width: 350px;
+			position: relative;
+		}
+	.container > div { padding: 20px; border-style: solid; border-color: rgba(221, 221, 221, 0.9); background-clip: padding-box; }
+	.rp { background-color: #fff; text-align: center; border-radius: 4px 4px 0 0; border-width: 1px; }
+	.rp h1, .rp h3 { font-weight: normal; letter-spacing: -1px; }
+	.rp h1 { font-size: 20px; margin-bottom: 5px; }
+	.rp h3 { font-size: 16px; margin: 0; }
+	.sign-in { background-color: rgba(255,255,255,0.98); border-width: 0 1px; }
+	.sign-in label { display: block; }
+	.sign-in input
+	{
+		border-radius: 3px;
+		box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+		color: #383838;
+		font-size: 13px;
+		margin-top: 6px;
+		outline: 0 none;
+		padding: 5px 0;
+		width: 100%;
+		text-indent: 5px;
+		border: 1px #B2B2B2 solid;
+	}	
+	.sign-in small { font-size: 11px; margin: 10px 0 20px 0; display: block; }
+	.sign-in a { color: #000; border-bottom: 1px dotted #bbb; text-decoration: none;}
+	.sign-in .button-row { text-align: right; }
+	.sign-in button { text-transform: lowercase; background-color: rgba(0,0,0,0.1); border-radius: 3px; border: none; padding: 6px 10px; color: #999; font-size: 13px; }
+	.persona
+	{
+		background-color: rgba(255,255,255,0.93);
+		border-radius: 0 0 4px 4px;
+		border-width: 1px;
+		
+	}
+	.persona p
+	{
+		margin: 0;
+		padding-left: 40px;
+		font-size: 12px;
+		background-image: url(persona-logo-glyph.svg);
+		background-repeat: no-repeat;
+		background-position: left center;
+		background-size: 32px;
+		opacity: 0.65;
+		color: #000;
+	}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="rp">
+		<img src="logo-webmaker.png" width="100" height="100" alt="logo-webmaker">
+		<h1>Mozilla Webmaker</h1>
+		<h3>webmaker.org</h3>
+	</div>
+	<div class="sign-in">
+		<form>
+			<label>Sign in with…</label>
+			<input type="email" placeholder="email address" maxlength="254" value="" id="authentication_email">
+			<div><small>By proceeding, you agree to Mozilla Webmaker’s <a href="#">Terms</a> and <a href="#">Privacy Policy</a> and to Persona’s <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</small></div>
+			<div class="button-row"><button class="">Next…</button></div>
+		</form>
+	</div>
+	<div class="persona">
+		<p>
+			<strong>Mozilla Persona</strong><br>
+			Simple sign-in from the people behind Firefox.
+		</p>
+	</div>
+
+</div>
+</body>
+</html>

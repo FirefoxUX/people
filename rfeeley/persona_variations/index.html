@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Integrating Persona</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Le styles -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/user.css" rel="stylesheet">
+	<style type="text/css">
+
+h1 { text-transform: uppercase; }
+h2, h3, h4 { font-weight: normal; }	
+	
+</style>
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>s
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="j_contain">
+	<header class="jumbotron subhead" id="overview">
+		<div class="container">
+			<h1>
+				<img src="img/glyph__light_big.png" width="50" alt="glyph__light_big" height="20"> Integrating Mozilla Persona into authentication UX
+			</h1>
+		</div>
+	</header>
+</div>
+<div class="container">
+	<div class="row" id="selectors">
+		<div class="span12">
+			<h3>
+				What are the features of your authentication?
+			</h3>
+			<form class="form-signin">
+				<fieldset>
+					<label class="checkbox">
+						<input type="checkbox" id="persona" value="option1">
+						 <strong>Persona</strong>  … or we’re thinking about it.
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" id="traditional" value="option2">
+						 <strong>Traditional Authentication</strong>  i.e. we store passwords.
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" id="one_social" value="option3">
+						 <strong>One Social Sign-in</strong>  e.g. Facebook
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" id="mult_social" value="option4">
+						 <strong>Multiple Social Sign-ins</strong>  e.g. Facebook, Google+ and GitHub
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" id="add_info" value="option5">
+						 <strong>Additional Profile Info Required</strong>  i.e. first name, last name, gender
+					</label>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<div class="row" id="fields">
+		<div class="span3">
+			<h2>
+				Authentication
+			</h2>
+			<p><span class="badge">0</span><span class="badge">0+4</span></p>
+			<div class="alert alert-important">Select at least one sign-in option</div>
+			<p><span class="badge">1</span></p>
+			<div class="well well-small persona">
+				<i class="icon-persona"></i> <a href="#">Log in</a> or <a href="#">Register</a>
+			</div>
+			<p><span class="badge">1+2</span> <span class="badge">1+2+3</span> <span class="badge">1+2+4</span> <span class="badge">2</span> <span class="badge">2+3</span> <span class="badge">2+4</span> </p>
+			<div class="well well-small traditional">
+				 <a href="#">Log in</a> or <a href="#">Register</a>
+			</div>
+			<p><span class="badge">3</span></p>
+			<div class="well well-small persona">
+				<button class="btn btn-small" type="submit"><i class="icon-star"></i> Social Sign-in</button>
+			</div>
+			<p><span class="badge">3+2</span> <span class="badge">4</span> <span class="badge">4+2</span></p>
+			<div class="well well-small">
+				<a href="#">Log in</a>
+			</div>
+		</div>
+		<div class="span3">
+			<h2>
+				Registration
+			</h2>
+			<p><span class="badge">0</span><span class="badge">0+4</span></p>
+			<div class="alert alert-important">Select at least one sign-in option</div>
+			<p><span class="badge">1</span></p>
+			<div class="alert alert-info"><i>Provided by Persona</i></div>
+			<p><span class="badge">1+5</span></p>
+			<div>
+				<div class="alert alert-info">Persona sign-in then this…</div>
+				<div class="modal">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3>
+							Additional info
+						</h3>
+					</div>
+					<div class="modal-body">
+						<input type="text" class="input-block-level" placeholder="First name">
+						<input type="text" class="input-block-level" placeholder="Last name">
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn btn-primary">Save</a>
+					</div>
+				</div>
+			</div>
+			<p><span class="badge">2</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+					<input type="password" class="input-block-level" placeholder="Repeat password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Register</a>
+				</div>
+			</div>
+			<p><span class="badge">3</span></p>
+			<div class="alert alert-info">Provided by social sign-in</div>
+			<p><span class="badge">1+2</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Persona</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+					<input type="password" class="input-block-level" placeholder="Repeat password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Register</a>
+				</div>
+			</div>
+			<p><span class="badge">1+2+5</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Persona</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="First name">
+					<input type="text" class="input-block-level" placeholder="Last name">
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+					<input type="password" class="input-block-level" placeholder="Repeat password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Register</a>
+				</div>
+			</div>
+			<p><span class="badge">1+2</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Persona</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+					<input type="password" class="input-block-level" placeholder="Repeat password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Register</a>
+				</div>
+			</div>
+			<p><span class="badge">1+2+3+5</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Persona</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="First name">
+					<input type="text" class="input-block-level" placeholder="Last name">
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+					<input type="password" class="input-block-level" placeholder="Repeat password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Register</a>
+				</div>
+			</div>
+			<p><span class="badge">1+2+4+5</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Twitter</button> <button class="btn btn-small" type="submit">Persona</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="First name">
+					<input type="text" class="input-block-level" placeholder="Last name">
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+					<input type="password" class="input-block-level" placeholder="Repeat password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Register</a>
+				</div>
+			</div>
+			<p><span class="badge">1+5</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<input type="text" class="input-block-level" placeholder="First name">
+					<input type="text" class="input-block-level" placeholder="Last name">
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+					<input type="password" class="input-block-level" placeholder="Repeat password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Register</a>
+				</div>
+			</div>
+			<p><span class="badge">1+3</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Persona</button>
+				</div>
+			</div>
+			<p><span class="badge">2+3</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+					<input type="password" class="input-block-level" placeholder="Repeat password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Register</a>
+				</div>
+			</div>
+			<p><span class="badge">2+3+5</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="First name">
+					<input type="text" class="input-block-level" placeholder="Last name">
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+					<input type="password" class="input-block-level" placeholder="Repeat password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Register</a>
+				</div>
+			</div>
+			<p><span class="badge">2+4</span> <span class="badge">2+4+5</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Twitter</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+					<input type="password" class="input-block-level" placeholder="Repeat password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Register</a>
+				</div>
+			</div>
+			<p><span class="badge">4</span> <span class="badge">4+5</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Twitter</button>
+				</div>
+			</div>
+			<div>
+				<div class="alert alert-info">Social sign-in then this…</div>
+				<div class="modal">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3>
+							Additional info
+						</h3>
+					</div>
+					<div class="modal-body">
+						<input type="text" class="input-block-level" placeholder="First name">
+						<input type="text" class="input-block-level" placeholder="Last name">
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn btn-primary">Save</a>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="modal">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3>
+							Register
+						</h3>
+					</div>
+					<div class="modal-body">
+						<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Twitter</button>
+					</div>
+				</div>
+				<div class="alert alert-info">… and then this…</div>
+				<div class="modal">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3>
+							Additional info
+						</h3>
+					</div>
+					<div class="modal-body">
+						<input type="text" class="input-block-level" placeholder="First name">
+						<input type="text" class="input-block-level" placeholder="Last name">
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn btn-primary">Save</a>
+					</div>
+				</div>
+			</div>
+			<p><span class="badge">1+4</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Twitter</button> <button class="btn btn-small" type="submit">Persona</button>
+				</div>
+			</div>
+			<div>
+				<div class="modal">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3>
+							Register
+						</h3>
+					</div>
+					<div class="modal-body">
+						<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Twitter</button> <button class="btn btn-small" type="submit">Persona</button>
+					</div>
+				</div>
+				<div class="alert alert-info">… and then this…</div>
+				<div class="modal">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3>
+							Additional info
+						</h3>
+					</div>
+					<div class="modal-body">
+						<input type="text" class="input-block-level" placeholder="First name">
+						<input type="text" class="input-block-level" placeholder="Last name">
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn btn-primary">Save</a>
+					</div>
+				</div>
+			</div>
+			<p><span class="badge">1+2+4</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Twitter</button> <button class="btn btn-small" type="submit">Persona</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+					<input type="password" class="input-block-level" placeholder="Repeat password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Register</a>
+				</div>
+			</div>
+			<p><span class="badge">1+2+3</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Register
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Persona</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+					<input type="password" class="input-block-level" placeholder="Repeat password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Sign up</a>
+				</div>
+			</div>
+		</div>
+		<div class="span3">
+			<h2>
+				Login
+			</h2>
+			<p><span class="badge">0</span><span class="badge">0+4</span></p>
+			<div class="alert alert-important">Select at least one sign-in option</div>
+			<p><span class="badge">1</span></p>
+			<div class="alert alert-info"><i>Provided by Persona</i></div>
+			<p><span class="badge">2</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Log in
+					</h3>
+				</div>
+				<div class="modal-body">
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Log in</a>
+				</div>
+			</div>
+			<p><span class="badge">3</span></p>
+			<div class="alert alert-info">Provided by social sign-in</div>
+			<p><span class="badge">1+2+3+5</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Log in
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Persona</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Log in</a>
+				</div>
+			</div>
+			<p><span class="badge">1+2+4+5</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Log in
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Twitter</button> <button class="btn btn-small" type="submit">Persona</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Log in</a>
+				</div>
+			</div>
+			<p><span class="badge">1+4</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Log in
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Twitter</button> <button class="btn btn-small" type="submit">Persona</button>
+				</div>
+			</div>
+			<p><span class="badge">1+3</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Log in
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Persona</button>
+				</div>
+			</div>
+			<p><span class="badge">3</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Log in
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Twitter</button>
+				</div>
+			</div>
+			<p><span class="badge">2+3</span> <span class="badge">2+3+5</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Log in
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Log in</a>
+				</div>
+			</div>
+			<p><span class="badge">2+4</span> <span class="badge">2+4+5</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Log in
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Facebook</button> <button class="btn btn-small" type="submit">Twitter</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Log in</a>
+				</div>
+			</div>
+			<p><span class="badge">1+2</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Log in
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Persona</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Log in</a>
+				</div>
+			</div>
+			<p><span class="badge">1+2+5</span></p>
+			<div class="modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>
+						Log in
+					</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-small" type="submit">Persona</button>
+					<p style="text-align:left;margin:1em 0;">
+						or
+					</p>
+					<input type="text" class="input-block-level" placeholder="Email address">
+					<input type="password" class="input-block-level" placeholder="Password">
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-primary">Log in</a>
+				</div>
+			</div>
+
+		</div>
+		<div class="span3">
+			<h2>
+				Sign-out
+			</h2>
+			<p><span class="badge">0</span><span class="badge">0+4</span></p>
+			<div class="alert alert-important">Select at least one sign-in option</div>
+			<p><span class="badge">ANY-5</span></p>
+			<div class="well well-small">
+				user@domain… &nbsp; <a href="#">Sign Out</a>
+			</div>
+			<p><span class="badge">ANY+5</span></p>
+			<div class="well well-small">
+				user@domain… &nbsp; <a href="#">Settings</a> | <a href="#">Sign Out</a>
+			</div>
+		</div>
+	</div>
+	<hr>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript" src="js/state2.js">
+</script>
+
+<!-- /container -->
+</body>
+</html>
