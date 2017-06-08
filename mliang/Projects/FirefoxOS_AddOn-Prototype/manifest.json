@@ -1,0 +1,15 @@
+{
+    "manifest_version": 1,
+    "name": "FxOS Add-On Prototype",
+    "description": "FirefoxOS Add-On Prototyping",
+    "version": "1.0",
+    "author": "Mark Liang <mliang@mozilla.com>",
+    "content_scripts": [{
+      "matches": ["app://system.gaiamobile.org/index.html"],
+      "css": ["css/style.css"],
+      "js": ["js/index.js"]
+    }],
+    "icons": {
+      "128": "/icons/icon-128.png"
+    }
+}

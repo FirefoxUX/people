@@ -1,0 +1,9 @@
+{
+  "name": "FxOS Add-On Prototype",
+  "description": "FirefoxOS Add-On Prototyping",
+  "developer": { "name": "Mark Liang" },
+  "package_path": "extension.zip",
+  "icons": {
+    "128": "/icons/icon-128.png"
+  }
+}
