@@ -1,0 +1,227 @@
+/* ====================== */
+/* -------Sidebars------- */
+/* ====================== */
+
+.sidebar-container {
+  flex: 0 0 auto;
+  width: 256px;
+  height: 100%;
+  overflow: hidden;
+  background-color: hsla(0,0%,100%,.9);
+  border-right: 1px solid var(--color-chrome-border-10);
+  transition-duration: 250ms;
+  transition-timing-function: var(--animation-curve);
+}
+.sidebar-container.hidden {
+  transform: translateX(-256px);
+  width: 0;
+  border-right: none;
+}
+
+
+/* Sidebar Panes */
+.sidebar-pane {
+  flex: 1 1 auto;
+  height: 100%;
+}
+
+
+/* Sidebar Header */
+.sidebar-header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.sidebar-header-separator {
+  height: 1px;
+  width: 100%;
+  background-color: var(--color-chrome-toolbars-foreground-10);
+}
+
+
+/* Sidebar Selector */
+.sidebar-selector {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex: 0 1 auto;
+  align-items: center;
+  margin-right: 12px;
+  padding: 2px 4px;
+  -moz-user-select:none;
+  cursor: default;
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+}
+.sidebar-selector:hover {
+  background-color: var(--color-chrome-toolbars-foreground-05);
+  border: 1px solid var(--color-chrome-toolbars-foreground-20);
+}
+.sidebar-selector:hover:active {
+  background-color: var(--color-chrome-toolbars-foreground-10);
+  border: 1px solid var(--color-chrome-toolbars-foreground-25);
+}
+
+.sidebar-selector > .icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  background-image: url("../images-general/bookmark-16-filled.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: .8;
+}
+
+.sidebar-selector > .label {
+  flex: 0 1 auto;
+  margin-right: 4px;
+  padding: 0;
+}
+
+.sidebar-selector .dropdown {
+  width: 12px;
+  height: 12px;
+  background-image: url("../images-general/arrow-dropdown-12.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: .6;
+}
+
+
+/* Sidebar Close */
+.sidebar-header-container > .close {
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  background-image: url("../images-general/close-16.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+/* Sidebar Field */
+.sidebar-field-container {
+  position: relative;
+  padding: 8px 8px 8px;
+  z-index: 99;
+}
+
+.sidebar-field-container.scrolling {
+  box-shadow: 0 1px 0 var(--color-chrome-border-20),
+              0 1px 2px var(--color-chrome-border-20);
+}
+
+.sidebar-field-filter {
+  -moz-appearance: none;
+  width: 100%;
+  padding: 2px 4px;
+  -moz-padding-start: 20px;
+  background-color: white;
+  background-image: url("../images-general/search-12.svg");
+  background-repeat: no-repeat;
+  background-position: 4px center;
+  color: graytext;
+  border: 1px solid var(--color-chrome-border-20);
+  border-radius: var(--border-radius);
+}
+
+.sidebar-field-filter:focus {
+  border: 1px solid var(--color-blue);
+  background-color: hsla(0,100%,100%,1);
+}
+
+
+/* Sidebar List */
+.sidebar-list {
+  flex: 1 1 auto;
+  height: calc(100% - 70px);
+  overflow: auto;
+}
+
+.sidebar-item {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 24px;
+  padding: 0 8px 0 2px;
+  font-size: 12px;
+  -moz-user-select: none;
+  cursor: default;
+  outline: none;
+}
+.sidebar-item.selected {
+  background-color: var(--color-chrome-toolbars-foreground-05);
+}
+
+.sidebar-sublist {
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition-duration: 150ms;
+}
+.sidebar-sublist.open {
+  overflow: visible;
+  opacity: 1;
+  height: 144px;
+}
+
+.sidebar-sublist > .sidebar-item {
+  padding: 0 8px 0 16px;
+}
+
+.sidebar-item > .arrow-disclosure {
+  width: 16px;
+  height: 16px;
+  margin-right: 2px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.sidebar-item.item-folder > .arrow-disclosure {
+  background-image: url("../images-general/arrow-disclosure-collapsed-8.svg");
+  transform: rotate(0);
+  transition-property: transform;
+  transition-duration: 150ms;
+}
+
+.sidebar-item.open > .arrow-disclosure {
+  transform: rotate(90deg);
+}
+
+.sidebar-item > .icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  background-image: url("../images-general/icon-sidebar-generic.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+}
+
+
+/* Sidebar Icons */
+.sidebar-item.item-folder > .icon { background-image: url("../images-general/icon-sidebar-folder-16.svg"); }
+.sidebar-item.item-folder.item-feed > .icon { background-image: url("../images-general/icon-sidebar-folder-live-16.svg"); }
+.sidebar-item.item-folder.item-smart > .icon { background-image: url("../images-general/icon-sidebar-folder-smart-16.svg"); }
+
+.sidebar-item.item-folder.item-bookmarks-folder > .icon { background-image: url("../images-general/icon-sidebar-folder.svg"); }
+.sidebar-item.item-folder.item-bookmarks-toolbar > .icon { background-image: url("../images-general/icon-sidebar-bookmarks-toolbar.svg"); }
+.sidebar-item.item-folder.item-bookmarks-menu > .icon { background-image: url("../images-general/icon-sidebar-bookmarks-menu.svg"); }
+.sidebar-item.item-folder.item-bookmarks-other > .icon { background-image: url("../images-general/icon-sidebar-inbox.svg"); }
+
+.sidebar-item.item-history > .icon { background-image: url("../images-general/icon-sidebar-history.svg"); }
+
+.sidebar-item.item-device-mobile > .icon { background-image: url("../images-general/icon-sidebar-device-mobile.svg"); }
+.sidebar-item.item-device-desktop > .icon { background-image: url("../images-general/icon-sidebar-device-desktop.svg"); }
+
+.sidebar-item.item-bookmark[site="mozilla"] .icon { background-image: url("../images-general/favicon-mozilla.svg"); }
+.sidebar-item.item-bookmark[site="mdn"] .icon { background-image: url("../images-general/favicon-mdn.svg"); }
+.sidebar-item.item-bookmark[site="firefox"] .icon { background-image: url("../images-general/favicon-firefox.png"); }
+

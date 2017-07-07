@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Linux - Ubuntu</title>
+    <meta charset="UTF-8" />
+
+    <link href="css/general.css" type="text/css" rel="stylesheet" />
+    <link href="css/backgrounds.css" type="text/css" rel="stylesheet" />
+    <link href="css/variables.css" type="text/css" rel="stylesheet" />
+    <link href="css/ui-base.css" type="text/css" rel="stylesheet" />
+    <link href="css/ui-sidebar.css" type="text/css" rel="stylesheet" />
+    <link href="css/ui-linux.css" type="text/css" rel="stylesheet" />
+    <link href="css/content.css" type="text/css" rel="stylesheet" />
+    <link href="css/option-toggles.css" type="text/css" rel="stylesheet" />
+    <link href="css/theme.css" type="text/css" rel="stylesheet" />
+
+    <script src="jquery.min.js"></script>
+
+  </head>
+
+  <body class="background-desktop-picture" spellcheck="false">
+
+    <div class="option-toggles-container linux-ubuntu">
+      <div class="option-toggles-inner">
+        <div class="option-label">UI Options:</div>
+        <div class="option-toggle" id="toggle-extra-drag-space"><div class="toggle-checkbox"></div> Extra Drag Space</div>
+        <div class="option-toggle" id="toggle-bookmarks-bar"><div class="toggle-checkbox"></div> Bookmarks Bar</div>
+        <div class="option-toggle" id="toggle-sidebar"><div class="toggle-checkbox"></div> Sidebar</div>
+        <div class="option-toggle toggled" id="toggle-badges"><div class="toggle-checkbox"></div> Badges</div>
+        <div class="option-toggle" id="toggle-readerMode"><div class="toggle-checkbox"></div> Reader Mode Indicator</div>
+        <div class="separator"></div>
+        <div class="option-label">UI Density:</div>
+        <div class="option-toggle" id="toggle-density-compact"><div class="toggle-checkbox"></div> Compact</div>
+        <div class="separator"></div>
+        <div class="option-label">Theme:</div>
+        <div class="option-toggle" id="toggle-theme-light"><div class="toggle-checkbox"></div>Light</div>
+        <div class="option-toggle" id="toggle-theme-dark"><div class="toggle-checkbox"></div>Dark</div>
+        <div class="option-toggle" id="toggle-theme-lotus"><div class="toggle-checkbox"></div>Lotus</div>
+        <div class="option-toggle" id="toggle-theme-spring-rain"><div class="toggle-checkbox"></div>Spring Rain</div>
+      </div>
+    </div>
+    
+    <div class="window-container">
+      <!-- Window [Start] -->
+      <div class="window linux-ubuntu title-bar-enabled" id="window-main">
+        
+        <!-- Window - Inner [Start] -->
+        <div class="window-inner">
+          
+          <div class="ui-container">
+            <div class="title-bar">
+              <div class="title">Welcome to Firefox!</div>
+            </div>
+            <div class="tab-bar">
+              <div class="window-controls-container">
+                <div class="window-control close"><div class="icon"></div></div>
+                <div class="window-control minimize"><div class="icon"></div></div>
+                <div class="window-control fullscreenZoomMax"><div class="icon"></div></div>
+              </div>
+              <div class="tabs-and-dragSpace-container">
+                <div class="drag-space"></div>
+                <div class="tabs-container">
+                  <div class="toolbar-drag-spacer"></div>
+                  <div class="tab-separator"></div>
+                  <div class="tab attention first-tab" site="medium" pinned>
+                    <div class="tab-indicator"></div>
+                    <div class="tab-content">
+                      <div class="icon favicon"></div>
+                    </div>
+                  </div>
+                  <div class="tab-separator"></div>
+                  <div class="tab" site="github" pinned>
+                    <div class="tab-indicator"></div>
+                    <div class="tab-content">
+                      <div class="icon favicon dark"></div>
+                    </div>
+                  </div>
+                  <div class="tab-separator"></div>
+                  <div class="tab attention" site="twitter" pinned>
+                    <div class="tab-indicator"></div>
+                    <div class="tab-content">
+                      <div class="icon favicon"></div>
+                    </div>
+                  </div>
+                  <div class="tab-separator hidden"></div>
+                  <div class="tab active" site="home">
+                    <div class="tab-indicator"></div>
+                    <div class="tab-content">
+                      <div class="icon favicon custom"></div>
+                      <div class="label">Firefox Start</div>
+                      <div class="icon close" title="Close tab (⌘W)"></div>
+                    </div>
+                  </div>
+                  <div class="tab-separator hidden"></div>
+                  <div class="tab" site="mozilla">
+                    <div class="tab-indicator"></div>
+                    <div class="tab-content">
+                      <div class="icon favicon"></div>
+                      <div class="label">Internet for people, not profit — Mozilla</div>
+                      <div class="icon close" title="Close tab (⌘W)"></div>
+                    </div>
+                  </div>
+                  <div class="tab-separator"></div>
+                  <div class="tab" site="facebook">
+                    <div class="tab-indicator"></div>
+                    <div class="tab-content">
+                      <div class="icon favicon"></div>
+                      <div class="label">Facebook</div>
+                      <div class="icon close" title="Close tab (⌘W)"></div>
+                    </div>
+                  </div>
+                  <div class="tab-separator"></div>
+                  <div class="toolbar-button new" id="button-new-tab" title="Open a new tab (⌘T)"><div class="icon"></div></div>
+                  <div class="toolbar-drag-spacer"></div>
+                </div>
+              </div>
+            </div>
+            <div class="toolbars-container">
+              <div class="toolbar-primary">
+                <div class="toolbar-button back" title="Go back one page&#013;Press and hold to show history"><div class="icon"></div></div>
+                <div class="toolbar-button forward" title="Go forward one page&#013;Press and hold to show history"><div class="icon"></div></div>
+                <div class="toolbar-button refresh" title="Reload the current page (Ctrl-R)"><div class="icon"></div></div>
+                <div class="toolbar-button home" title="Firefox Start Page"><div class="icon"></div></div>
+                <div class="toolbar-flexible-space"></div>
+                <div class="location-bar toolbar-field" tabindex="0">
+                  <div class="toolbar-button site-identity">
+                    <div class="icon info" title="Show site information"></div>
+                    <div class="icon secure" title="Verified by: Some Registrar"></div>
+                  </div>
+                  <div class="input-field">
+                    <div class="url-text" contenteditable="true">https://www.<span class="domain-text">mozilla.org</span>/firefox</div>
+                  </div>
+                  <div class="toolbar-button progress-notification-button readerMode hidden" title="Enter Reader View">
+                    <div class="icon"></div>
+                    <div class="label">Reader View Available</div>
+                  </div>
+                  <div class="toolbar-separator"></div>
+                  <div class="toolbar-button more badged badged-attention" title="Page actions"><div class="icon"></div></div>
+                  <div class="toolbar-button pocket" title="Save to Pocket"><div class="icon"></div></div>
+                  <div class="toolbar-button bookmark" title="Bookmark this page (Ctrl-D)"><div class="icon"></div></div>
+                </div>
+                <div class="toolbar-flexible-space"></div>
+                <div class="toolbar-button library" title="A Library of all of your stuff"><div class="icon"></div></div>
+                <div class="toolbar-button sidebar badged badged-attention" title="Show the sidebar"><div class="icon"></div></div>
+                <div class="toolbar-button overflow" title="More stuff here"><div class="icon"></div></div>
+                <div class="toolbar-separator"></div>
+                <div class="toolbar-button menu badged badged-update" title="Open menu"><div class="icon"></div></div>
+              </div>
+              <div class="toolbar-bookmarks hidden">
+                <div class="toolbar-button bookmark-item" site="mozilla" title="https://www.mozilla.org&#013;Internet for people, not profit — Mozilla">
+                  <div class="icon favicon"></div>
+                  <div class="label">Mozilla</div>
+                </div>
+                <div class="toolbar-button bookmark-item" site="mdn" title="https://developer.mozilla.org/en-US&#013;Mozilla Developer Network">
+                  <div class="icon favicon"></div>
+                  <div class="label">MDN</div>
+                </div>
+                <div class="toolbar-button bookmark-item" site="firefox" title="https://www.firefox.com&#013;Home of the best web browser">
+                  <div class="icon favicon"></div>
+                  <div class="label">Firefox</div>
+                </div>
+                <div class="toolbar-button bookmark-item folder">
+                  <div class="icon"></div>
+                  <div class="label">Folder</div>
+                  <div class="dropdown"></div>
+                </div>
+                <div class="toolbar-button bookmark-item folder-live">
+                  <div class="icon"></div>
+                  <div class="label">Feed</div>
+                  <div class="dropdown"></div>
+                </div>
+                <div class="toolbar-button bookmark-item folder-smart">
+                  <div class="icon"></div>
+                  <div class="label">Saved Search</div>
+                  <div class="dropdown"></div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="content-container">
+
+            <!-- Sidebar [Start] -->
+            <div class="sidebar-container hidden">
+              
+              <div class="sidebar-pane sidebar-pane-bookmarks">
+                <div class="sidebar-header-container">
+                  <div class="sidebar-selector">
+                    <div class="icon"></div>
+                    <div class="label">Bookmarks</div>
+                    <div class="dropdown"></div>
+                  </div>
+                  <div class="spacer-flexible"></div>
+                  <div class="toolbar-button close"></div>
+                </div>
+                
+                <div class="sidebar-header-separator"></div>
+                
+                <div class="sidebar-field-container">
+                  <input type="text" class="sidebar-field-filter" placeholder="Search Bookmarks"></input>
+                </div>
+                
+                <div class="sidebar-list" id="sidebar-list-bookmarks">
+                  <div class="sidebar-item item-folder item-bookmarks-toolbar" tabindex="-1">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmarks Toolbar</div>
+                  </div>
+                  
+                  <div class="sidebar-sublist" id="sidebar-sublist-bookmarksToolbar">
+                    <div class="sidebar-item item-bookmark" site="mozilla">
+                      <div class="arrow-disclosure"></div>
+                      <div class="icon favicon"></div>
+                      <div class="text">Mozilla</div>
+                    </div>
+                    <div class="sidebar-item item-bookmark" site="mdn">
+                      <div class="arrow-disclosure"></div>
+                      <div class="icon favicon"></div>
+                      <div class="text">MDN</div>
+                    </div>
+                    <div class="sidebar-item item-bookmark" site="firefox">
+                      <div class="arrow-disclosure"></div>
+                      <div class="icon favicon"></div>
+                      <div class="text">Firefox</div>
+                    </div>
+                    <div class="sidebar-item item-folder" tabindex="-1">
+                      <div class="arrow-disclosure"></div>
+                      <div class="icon"></div>
+                      <div class="text">Folder</div>
+                    </div>
+                    <div class="sidebar-item item-folder item-feed" tabindex="-1">
+                      <div class="arrow-disclosure"></div>
+                      <div class="icon"></div>
+                      <div class="text">Feed</div>
+                    </div>
+                    <div class="sidebar-item item-folder item-smart" tabindex="-1">
+                      <div class="arrow-disclosure"></div>
+                      <div class="icon"></div>
+                      <div class="text">Saved Search</div>
+                    </div>
+                  </div>
+
+                  <div class="sidebar-item item-folder item-bookmarks-menu" tabindex="-1">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmarks Menu</div>
+                  </div>
+
+                  <div class="sidebar-item item-folder item-bookmarks-other" tabindex="-1">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Other Bookmarks</div>
+                  </div>
+                  <div class="sidebar-item item-folder item-bookmark-folder" tabindex="-1">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Mobile Bookmarks</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                  <div class="sidebar-item item-bookmark">
+                    <div class="arrow-disclosure"></div>
+                    <div class="icon"></div>
+                    <div class="text">Bookmark</div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <!-- Sidebar [End] -->
+
+            <div class="page-container page-start">
+              <div class="section section-top-sites">
+                <h1>Top Sites</h1>
+                <div class="grid grid-top-sites">
+                  <div class="tile top-site"></div>
+                  <div class="tile top-site"></div>
+                  <div class="tile top-site"></div>
+                  <div class="tile top-site"></div>
+                  <div class="tile top-site"></div>
+                  <div class="tile top-site"></div>
+                </div>
+              </div>
+  
+              <div class="section section-highlights">
+                <h1>Highlights</h1>
+                <div class="grid grid-highlights">
+                  <div class="tile highlight"></div>
+                  <div class="tile highlight"></div>
+                  <div class="tile highlight"></div>
+                  <div class="tile highlight"></div>
+                  <div class="tile highlight"></div>
+                  <div class="tile highlight"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <!-- Window - Inner [End] -->      
+  
+      </div>
+      <!-- Window [End] -->
+    </div>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+      <clipPath id="badge-cutout">
+        <path d="M8,0H0v16h16V8C11.6,8,8,4.4,8,0z"/>
+      </clipPath>
+    </svg>
+
+    <script>
+
+      /*--- Fullscreen ---*/
+      document.addEventListener("keydown", function(e) {
+        if (e.keyCode == 13) {
+          toggleFullScreen();
+        }
+      }, false);
+      
+      function toggleFullScreen() {
+        document.getElementById("window-main").requestFullscreen();
+      }
+      
+      $(".fullscreenZoomMax").mouseup(function() {
+        toggleFullScreen();
+      });
+
+      /*--- Focus Location/Search Fields ---*/
+      $(".toolbar-field .url-text").focus(function() {
+        $(this).parent().parent().toggleClass("focus"); 
+      });
+      $(".toolbar-field .url-text").blur(function() {
+        $(this).parent().parent().toggleClass("focus"); 
+      });
+
+
+      /*--- Tab Separators ---*/
+      $(".tab").mouseover(function() {
+        $(this).prev(".tab-separator").addClass("tall"); 
+        $(this).next(".tab-separator").addClass("tall"); 
+      });
+      $(".tab").mouseout(function() {
+        $(this).prev(".tab-separator").removeClass("tall"); 
+        $(this).next(".tab-separator").removeClass("tall"); 
+      });
+
+
+      /*--- Tab Selection ---*/
+      $(".tabs-container").on('mousedown','.tab',function() {
+        var tabWidth = $(".tab.active").width();
+
+        $(".tab-separator").removeClass("hidden"); 
+        $(".tab").removeClass("active"); 
+        $(".tab").removeClass("animated"); 
+        $(this).prev(".tab-separator").addClass("hidden"); 
+        $(this).next(".tab-separator").addClass("hidden"); 
+        $(this).addClass("active"); 
+        $(this).addClass("animated"); 
+
+        if (tabWidth <= 120) { 
+          $(".tab:not(.active) .icon.close").addClass("hidden");
+        }
+        $(".tab.active .icon.close").removeClass("hidden");
+      });
+      
+      $(".tab.attention").mouseup(function() {
+        $(this).removeClass("attention"); 
+      });
+
+
+      /*--- Tab Creation ---*/
+      $("#button-new-tab").mouseup(function() {
+        $(".tab-separator").removeClass("hidden"); 
+        $(".tab").removeClass("active"); 
+        $(".tab").removeClass("animated"); 
+        $(".tab").removeClass("animation-new-tab"); 
+        $( "<div class='tab-separator'></div><div class='tab active animation-new-tab'><div class='tab-indicator'></div><div class='tab-content'><div class='label'>New Tab</div><div class='icon close'></div></div></div>" ).insertBefore( $(this).prev() );
+        $(this).addClass("active"); 
+        $(this).addClass("animated"); 
+      });
+
+
+      /*--- Tab Close ---*/
+      $("#button-new-tab").mouseup(function() {
+        var tabWidth = $(".tab.active").width();
+        if (tabWidth <= 120) { 
+          $(".tab:not(.active) .icon.close").addClass("hidden");
+        } 
+      });
+      
+      $(".tab .icon.close").mouseup(function() {
+        if ($(this).parent().parent().hasClass("active")) {
+          if ($(this).parent().parent().next().next().hasClass("tab")) {
+            $(this).parent().parent().next().next(".tab").addClass("active");
+          }
+          else {
+            $(this).parent().parent().prev().prev(".tab").addClass("active");
+          }
+          $(".tab-separator").removeClass("hidden"); 
+          $(this).parent().parent().prev(".tab-separator").remove();
+          $(this).parent().parent().remove();
+        }
+        else {
+          $(this).parent().parent().prev(".tab-separator").remove();
+          $(this).parent().parent().remove();
+        }
+      });
+
+
+      /*--- Icon Animation ---*/
+      $(".toolbar-button").mouseup(function() {
+        $(this).addClass("pressed");
+        setTimeout(function(){ $(".toolbar-button").removeClass("pressed");}, 250);
+      });
+      
+      $(".toolbar-button.sidebar").mouseup(function() {
+        $(this).toggleClass("toggled");
+        $(".sidebar-container").toggleClass("hidden");
+        $("#toggle-sidebar").toggleClass("toggled");
+      });
+
+
+      /*--- Badges ---*/
+      $(".toolbar-button.badged").mouseup(function() {
+        if ($("#toggle-badges").hasClass("toggled")) {
+          $(this).toggleClass("badged");
+        } else {
+        }
+      });
+
+
+      /*--- Sidebar ---*/
+      $(function(){
+        $("#sidebar-list-bookmarks").scroll(function(){ 
+        
+          var a = 0;
+          var pos = $("#sidebar-list-bookmarks").scrollTop();
+          if(pos > a) {
+            $(".sidebar-pane-bookmarks").children(".sidebar-field-container").addClass("scrolling");
+          }
+          else {
+            $(".sidebar-pane-bookmarks").children(".sidebar-field-container").removeClass("scrolling");
+          }
+        });
+      });
+
+      /* Sidebar Items */
+      $(".sidebar-item").mouseup(function() {
+        if ($(this).hasClass("selected")) {
+          $(this).removeClass("selected"); 
+        }
+        else {
+          $(".sidebar-item").removeClass("selected"); 
+          $(this).addClass("selected"); 
+        }
+      });
+
+      $(".sidebar-item").mouseup(function() {
+        if ($(this).hasClass("open")) {
+          $(this).removeClass("open");
+        }
+        else {
+          $(this).addClass("open"); 
+        }
+      });
+
+      $(".sidebar-item").focus(function() {
+        $(this).toggleClass("focus"); 
+      });
+      $(".sidebar-item").blur(function() {
+        $(this).toggleClass("focus"); 
+      });
+      
+      $(".item-bookmarks-toolbar").mouseup(function() {
+        $("#sidebar-sublist-bookmarksToolbar").toggleClass("open");
+      });
+      
+      $(".sidebar-header-container").children(".close").mouseup(function() {
+        $(".sidebar-container").toggleClass("hidden");
+        $("#toggle-sidebar").toggleClass("toggled");
+        $(".toolbar-button.sidebar").toggleClass("toggled");
+      });
+      
+      $(".sidebar-tabs-button").mouseup(function() {
+        $(".sidebar-tabs-button").removeClass("selected");
+      });
+
+      $("#select-bookmark-sidebar").mouseup(function() {
+        $(this).addClass("selected");
+        $(".sidebar-panes").removeClass("history");
+        $(".sidebar-panes").removeClass("tabs");
+        $(".sidebar-panes").addClass("bookmarks");
+      });
+      
+      $("#select-history-sidebar").mouseup(function() {
+        $(this).addClass("selected");
+        $(".sidebar-panes").removeClass("bookmarks");
+        $(".sidebar-panes").removeClass("tabs");
+        $(".sidebar-panes").addClass("history");
+      });
+      
+      $("#select-tab-sidebar").mouseup(function() {
+        $(this).addClass("selected");
+        $(".sidebar-panes").removeClass("bookmarks");
+        $(".sidebar-panes").removeClass("history");
+        $(".sidebar-panes").addClass("tabs");
+      });
+      
+      $(".sidebar-list-switcher-item").mouseup(function() {
+        $(".sidebar-list-switcher-item").removeClass("selected");
+        $(this).addClass("selected");
+      });
+
+
+      /*--- Toggle Settings ---*/
+      /* UI Additions */
+      $("#toggle-extra-drag-space").mouseup(function() {
+        $(".window").toggleClass("drag-space-enabled");
+        $(".window").removeClass("title-bar-enabled");
+        $("#toggle-title-bar").removeClass("toggled");
+        $("#toggle-extra-drag-space").toggleClass("toggled");
+      });
+
+      $("#toggle-title-bar").mouseup(function() {
+        $(".window").toggleClass("title-bar-enabled");
+        $(".window").removeClass("drag-space-enabled");
+        $("#toggle-extra-drag-space").removeClass("toggled");
+        $("#toggle-title-bar").toggleClass("toggled");
+      });
+
+      $("#toggle-bookmarks-bar").mouseup(function() {
+        $(".toolbar-bookmarks").toggleClass("hidden");
+        $("#toggle-bookmarks-bar").toggleClass("toggled");
+      });
+
+      $("#toggle-sidebar").mouseup(function() {
+        $(".sidebar-container").toggleClass("hidden");
+        $("#toggle-sidebar").toggleClass("toggled");
+        $(".toolbar-button.sidebar").toggleClass("toggled");
+      });
+
+/*
+      $("#toggle-badges").mouseup(function() {
+        $(".toolbar-button.more").toggleClass("badged");
+        $(".toolbar-button.sidebar").toggleClass("badged");
+        $(".toolbar-button.menu").toggleClass("badged");
+        $("#toggle-badges").toggleClass("toggled");
+      });
+*/
+
+      $("#toggle-badges").mouseup(function() {
+        if ($(this).hasClass("toggled")) {
+          $(".toolbar-button.more").removeClass("badged");
+          $(".toolbar-button.sidebar").removeClass("badged");
+          $(".toolbar-button.menu").removeClass("badged");
+          $("#toggle-badges").removeClass("toggled");
+        } else {
+          $(".toolbar-button.more").addClass("badged");
+          $(".toolbar-button.sidebar").addClass("badged");
+          $(".toolbar-button.menu").addClass("badged");
+          $("#toggle-badges").addClass("toggled");
+        }
+      });
+
+      $("#toggle-readerMode").mouseup(function() {
+        $(this).toggleClass("toggled");
+        $(".progress-notification-button").toggleClass("hidden");
+      });
+
+
+      /* UI Density */
+      $("#toggle-density-compact").mouseup(function() {
+        $(".window").toggleClass("density-compact");
+        $(".window").removeClass("density-touch");
+        $("#toggle-density-touch").removeClass("toggled");
+        $(this).toggleClass("toggled");
+      });
+      
+      $("#toggle-density-touch").mouseup(function() {
+        if (!$(this).hasClass("toggled")) {
+          toggleFullScreen();
+          $(".window").toggleClass("density-touch");
+          $(".window").removeClass("density-compact");
+          $("#toggle-density-compact").removeClass("toggled");
+          $(this).toggleClass("toggled");
+        } else {
+          $(".window").toggleClass("density-touch");
+          $(".window").removeClass("density-compact");
+          $("#toggle-density-compact").removeClass("toggled");
+          $(this).toggleClass("toggled");
+        }
+      });
+
+
+      /* Theme Settings */
+      $("#toggle-theme-system").mouseup(function() {
+        $(".window").removeClass("theme-light");
+        $(".window").removeClass("theme-dark");
+        $(".window").removeClass("theme-lotus");
+        $(".window").removeClass("theme-spring-rain");
+        $("#toggle-theme-light").removeClass("toggled");
+        $("#toggle-theme-dark").removeClass("toggled");
+        $("#toggle-theme-lotus").removeClass("toggled");
+        $("#toggle-theme-spring-rain").removeClass("toggled");
+        $(".window").toggleClass("theme-system");
+        $(this).toggleClass("toggled");
+      });
+
+      $("#toggle-theme-light").mouseup(function() {
+        $(".window").removeClass("theme-dark");
+        $(".window").removeClass("theme-system");
+        $(".window").removeClass("theme-lotus");
+        $(".window").removeClass("theme-spring-rain");
+        $("#toggle-theme-dark").removeClass("toggled");
+        $("#toggle-theme-system").removeClass("toggled");
+        $("#toggle-theme-lotus").removeClass("toggled");
+        $("#toggle-theme-spring-rain").removeClass("toggled");
+        $(".window").toggleClass("theme-light");
+        $(this).toggleClass("toggled");
+      });
+
+      $("#toggle-theme-dark").mouseup(function() {
+        $(".window").removeClass("theme-light");
+        $(".window").removeClass("theme-system");
+        $(".window").removeClass("theme-lotus");
+        $(".window").removeClass("theme-spring-rain");
+        $("#toggle-theme-light").removeClass("toggled");
+        $("#toggle-theme-system").removeClass("toggled");
+        $("#toggle-theme-lotus").removeClass("toggled");
+        $("#toggle-theme-spring-rain").removeClass("toggled");
+        $(".window").toggleClass("theme-dark");
+        $(this).toggleClass("toggled");
+      });
+      
+      $("#toggle-theme-lotus").mouseup(function() {
+        $(".window").removeClass("theme-light");
+        $(".window").removeClass("theme-dark");
+        $(".window").removeClass("theme-system");
+        $(".window").removeClass("theme-spring-rain");
+        $("#toggle-theme-light").removeClass("toggled");
+        $("#toggle-theme-dark").removeClass("toggled");
+        $("#toggle-theme-system").removeClass("toggled");
+        $("#toggle-theme-spring-rain").removeClass("toggled");
+        $(".window").toggleClass("theme-lotus");
+        $(this).toggleClass("toggled");
+      });
+      $("#toggle-theme-spring-rain").mouseup(function() {
+        $(".window").removeClass("theme-light");
+        $(".window").removeClass("theme-dark");
+        $(".window").removeClass("theme-system");
+        $(".window").removeClass("theme-lotus");
+        $("#toggle-theme-light").removeClass("toggled");
+        $("#toggle-theme-dark").removeClass("toggled");
+        $("#toggle-theme-system").removeClass("toggled");
+        $("#toggle-theme-lotus").removeClass("toggled");
+        $(".window").toggleClass("theme-spring-rain");
+        $(this).toggleClass("toggled");
+      });
+
+    </script>
+
+  </body>
+</html>
+
+

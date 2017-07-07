@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1"
+     id=""
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     x="0"
+     y="0"
+     width="12"
+     height="12"
+     viewBox="0 0 12 12">
+
+  <style type="text/css">
+    use:not(:target) {
+      display: none;
+    }
+
+    .style-window-widget-close {
+      fill: #800200;
+    }
+    
+    .style-window-widget-close.pressed {
+      fill: #4d0100;
+    }
+
+    .style-window-widget-minimize {
+      fill: #995700;
+    }
+    
+    .style-window-widget-minimize.pressed {
+      fill: #592800;
+    }
+    
+    .style-window-widget-fullscreenZoom {
+      fill: #006400;
+    }
+    
+    .style-window-widget-fullscreenZoom.pressed {
+      fill: #003100;
+    }
+  </style>
+
+  <defs>
+    <polygon id="shape-window-widget-close"         points="7.4,6 9,4.3 9,3 7.7,3 6,4.6 4.3,3 3,3 3,4.3 4.6,6 3,7.6 3,9 4.4,9 6,7.4 7.6,9 9,9 9,7.6 "/>    
+    <polygon id="shape-window-widget-close-HiRes"   points="7,6 9,4 9,3 8,3 6,5 4,3 3,3 3,4 5,6 3,8 3,9 4,9 6,7 8,9 9,9 9,8 "/>
+
+    <rect    id="shape-window-widget-minimize"       x="2" y="5" width="8" height="2" rx="1" ry="1" />
+    <rect    id="shape-window-widget-minimize-HiRes" x="2" y="5.5" width="8" height="1" rx="1" ry="1" />
+
+    <path    id="shape-window-widget-fullscreenZoom" d="M3,8c0,0.6,0.4,1,1,1s3.7,0,3.7,0L3,4.3C3,4.3,3,7.4,3,8z M8,3 C7.4,3,4.3,3,4.3,3L9,7.7c0,0,0-3.1,0-3.7S8.6,3,8,3z" />
+  </defs>
+  
+  <use id="window-widget-close"                         class="style-window-widget-close"                    xlink:href="#shape-window-widget-close" />
+  <use id="window-widget-close-pressed"                 class="style-window-widget-close pressed"            xlink:href="#shape-window-widget-close" />
+
+  <use id="window-widget-close-HiRes"                   class="style-window-widget-close"                    xlink:href="#shape-window-widget-close-HiRes" />
+  <use id="window-widget-close-HiRes-pressed"           class="style-window-widget-close pressed"            xlink:href="#shape-window-widget-close-HiRes" />
+
+
+  <use id="window-widget-minimize"                      class="style-window-widget-minimize"                 xlink:href="#shape-window-widget-minimize" />
+  <use id="window-widget-minimize-pressed"              class="style-window-widget-minimize pressed"         xlink:href="#shape-window-widget-minimize" />
+
+  <use id="window-widget-minimize-HiRes"                class="style-window-widget-close"                    xlink:href="#shape-window-widget-minimize-HiRes" />
+  <use id="window-widget-minimize-HiRes-pressed"        class="style-window-widget-minimize pressed"         xlink:href="#shape-window-widget-minimize-HiRes" />
+
+
+  <use id="window-widget-fullscreenZoom"                class="style-window-widget-fullscreenZoom"           xlink:href="#shape-window-widget-fullscreenZoom" />
+  <use id="window-widget-fullscreenZoom-pressed"        class="style-window-widget-fullscreenZoom pressed"   xlink:href="#shape-window-widget-fullscreenZoom" />
+
+</svg>

@@ -1,0 +1,23 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+
+  <style type="text/css">
+  	.fill-100 { fill: #595959; }
+  	.fill-90 { fill: #595959; fill-opacity: .90;}
+  	.fill-50 { fill: #595959; fill-opacity: .5;}
+  	.fill-25 { fill: #595959; fill-opacity: .25;}
+  	.fill-15 { fill: #595959; fill-opacity: .15;}
+  	.fill-5 { fill: #595959; fill-opacity: .05;}
+    text {
+      fill: #fff;
+      font: message-box;
+      text-anchor: middle;
+    }
+  </style>
+
+  <circle class="fill-100" cx="8" cy="8" r="8"/>
+  <text x="8" y="12">B</text>
+
+</svg>

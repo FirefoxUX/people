@@ -1,0 +1,82 @@
+/* ====================== */
+/* --------General------- */
+/* ====================== */
+
+.content-container {
+  display: flex;
+  background-color: var(--color-chrome-toolbars-background);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  height: 100%;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 352px;
+  margin: 0 auto;
+  padding: 32px 0;
+  overflow: auto;
+}
+
+
+
+/* ====================== */
+/* --Welcome to Firefox-- */
+/* ====================== */
+
+.page-container.page-welcome {
+  background-color: #2D253A;
+  background-image: url("../images-content/webpage-welcome-image-blurred.png");
+}
+
+
+
+/* ====================== */
+/* ------Start Page------ */
+/* ====================== */
+
+.page-container.page-start {
+  background-color: var(--color-chrome-toolbars-background);
+}
+
+.page-container h1 {
+  margin-bottom: 8px;
+  color: var(--color-chrome-toolbars-foreground);
+  font-size: 1.1em;
+  text-transform: uppercase;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 96px);
+  grid-column-gap: 32px; 
+  grid-row-gap: 32px; 
+}
+
+.tile {
+  background-color: hsla(0,0%,100%,.5);
+  border: 1px solid hsla(0,0%,0%,.2);
+  border-radius: var(--border-radius-outer);
+  box-shadow: 0 1px 2px hsla(0,0%,0%,.06);  
+}
+
+.tile.top-site {
+  width: 96px;
+  height: 96px;
+}
+
+.tile.highlight {
+  height: 280px;
+  grid-column: span 2;
+}
+
+

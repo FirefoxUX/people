@@ -1,0 +1,200 @@
+/* ====================== */
+/* ------Variables------- */
+/* ====================== */
+
+:root {
+  /* Chrome Colors */
+  --color-chrome-tabs-background: hsla(0,0%,6%,.7);
+  --color-chrome-tabs-foreground: hsla(0,0%,100%,1);
+  --color-chrome-tabs-foreground-10: hsla(0,0%,100%,.1);
+  --color-chrome-tabs-foreground-20: hsla(0,0%,100%,.2);
+  --color-chrome-tabs-foreground-30: hsla(0,0%,100%,.3);
+  --color-chrome-tabs-foreground-90: hsla(0,0%,100%,.9);
+
+  --color-chrome-toolbars-foreground: hsl(0,0%,0%);
+  --color-chrome-toolbars-foreground-10: hsla(0,0%,0%,.1);
+  --color-chrome-toolbars-foreground-15: hsla(0,0%,0%,.15);
+  --color-chrome-toolbars-foreground-20: hsla(0,0%,0%,.2);
+
+  --border-radius: 4px;
+}
+
+
+
+/* ====================== */
+/* ------UI Styles------- */
+/* ====================== */
+
+/* --Window-- */
+.window {
+  border-radius: var(--border-radius);
+  background-image: url("../images-general/background-image-blurred-mac.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+
+/* --Window Controls-- */
+.window-controls-container {
+  margin: 0 0 0 12px;
+}
+
+.window-control {
+  width: 12px;
+  height: 12px;
+  margin: 0 4px;
+  border-radius: 100%;
+}
+
+.window-control > .icon {
+  width: 12px;
+  height: 12px;
+}
+
+.window-control:first-child {
+  margin-left: 0;
+}
+.window-control:last-child {
+  margin-right: 0;
+}
+
+.window-control.close {
+  background-color: #ff6058;
+  box-shadow: 0 0 0 1px #e03b32 inset;
+}
+.window-controls-container:hover > .window-control.close:active {
+  background-color: #bf4943;
+  box-shadow: 0 0 0 1px #a92d26 inset;
+}
+.window-controls-container:hover > .window-control.close > .icon {
+  background-image: url("../images-macOS/window-close.svg");
+}
+@media (min-resolution: 2dppx) {
+  .window-controls-container:hover > .window-control.close > .icon {
+    background-image: url("../images-macOS/window-close-detailed.svg");
+  }
+}
+
+.window-control.minimize {
+  background-color: #ffbf2f;
+  box-shadow: 0 0 0 1px #df9c07 inset;
+}
+.window-controls-container:hover > .window-control.minimize:hover:active {
+  background-color: #bf9023;
+  box-shadow: 0 0 0 1px #a87505 inset;
+}
+.window-controls-container:hover > .window-control.minimize > .icon {
+  background-image: url("../images-macOS/window-minimize.svg");
+}
+@media (min-resolution: 2dppx) {
+  .window-controls-container:hover > .window-control.minimize > .icon {
+    background-image: url("../images-macOS/window-minimize-detailed.svg");
+  }
+}
+
+.window-control.fullscreenZoomMax {
+  background-color: #29cd42;
+  box-shadow: 0 0 0 1px #06a919 inset;
+}
+.window-controls-container:hover > .window-control.fullscreenZoomMax:active {
+  background-color: #1f9a31;
+  box-shadow: 0 0 0 1px #057f13 inset;
+}
+.window-controls-container:hover > .window-control.fullscreenZoomMax > .icon {
+  background-image: url("../images-macOS/window-fullscreen.svg");
+}
+
+
+
+/* --UI Container (Contains UI e.g. NavBar and BookmarksBar-- */
+.ui-container {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+
+
+/* --Tabs-- */
+.toolbar-drag-spacer {
+  width: 36px;
+}
+
+
+
+/* --Toolbars-- */
+.toolbar-button .icon {
+  opacity: .7;
+}
+
+
+/* Location and Search Fields */
+.toolbar-field.focus {
+  border: 1px solid var(--color-focusRing-macOS-base);
+  box-shadow: 0 0 0 1px var(--color-focusRing-macOS-light) inset,
+              0 0 0 1px var(--color-focusRing-macOS-light);
+}
+
+
+
+/* ====================== */
+/* -------Sidebars------- */
+/* ====================== */
+
+.sidebar-container {
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, hsla(0, 0%, 93%, .8), hsla(0, 0%, 87%, .8) 40px),
+                    url("../images-general/background-image-blurred-mac.jpg");
+  background-blend-mode: screen, normal;
+}
+
+
+/* Sidebar Header */
+.sidebar-header-container {
+  mix-blend-mode: multiply;
+}
+
+
+/* Sidebar Field */
+.sidebar-field-filter {
+  background-color: var(--color-chrome-toolbars-foreground-15);
+  border: 1px solid var(--color-chrome-toolbars-foreground-15);
+  box-shadow: 0 0 0 30px hsla(210, 100%, 60%, .0);
+  color: unset;
+}
+.sidebar-field-filter:focus {
+  border: 1px solid var(--color-focusRing-macOS-base);
+  box-shadow: 0 0 0 3px var(--color-focusRing-macOS-light);
+  transition-duration: 150ms;
+}
+
+
+/* Sidebar List */
+.sidebar-item.selected {
+  background-color: var(--color-chrome-toolbars-foreground-10);
+  background-blend-mode: color-burn;
+  mix-blend-mode: multiply;
+}
+
+.sidebar-item.item-folder > .arrow-disclosure {
+  mix-blend-mode: multiply; 
+}
+
+.sidebar-item > .icon:not(.favicon) {
+  mix-blend-mode: multiply;
+}
+
+
+
+/* ====================== */
+/* ------Content UI------ */
+/* ====================== */
+
+.content-container {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);  
+}
+
+
+
+
+
+

@@ -1,0 +1,301 @@
+/* ====================== */
+/* ------Variables------- */
+/* ====================== */
+
+:root {
+  --image-caption-buttons: linear-gradient(hsla(0,0%,100%,.5), hsla(0,0%,100%,.3) 10px, hsla(0,0%,100%,0) 10px, hsla(0,0%,100%,0) 12px, hsla(0,0%,100%,.2) 20px);
+}
+
+/* ====================== */
+/* ------UI Styles------- */
+/* ====================== */
+
+/* --Window-- */
+.window {
+  background-image: linear-gradient(-135deg, hsla(0,0%,100%,.3) 0%, hsla(0,0%,100%,.2) 208px, hsla(0,0%,100%,0) 240px),
+/*                     linear-gradient(150deg, hsla(0,0%,100%,.4) 0%, hsla(0,0%,100%,.3) 208px, hsla(0,0%,100%,0) 240px), */
+                    linear-gradient(135deg, hsla(0,0%,100%,.3) 0px, hsla(0,0%,100%,.2) 300px, hsla(0,0%,100%,0) 416px),
+                    linear-gradient(to bottom right, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 20%),
+                    linear-gradient(to bottom, rgba(255,255,255,0) 20%, rgba(255,255,255,.5) 40%, rgba(255,255,255,0.0) 40.25%),
+                    url("../images-general/background-image-blurred-win7.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.75),
+              0 1px 10px 0 rgba(0,0,0,.95),
+              0 0 0 1px rgba(255,255,255,.5) inset;
+  border-radius: 6px;
+}
+
+
+/* --Window Controls-- */
+.window-controls-container {
+  position: relative;
+  top: -4px;
+  right: 0;
+  height: 21px;
+  border: 1px solid hsla(0,0%,100%,.4);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+
+.window-control {
+  width:  26px;
+  background-color: hsla(201, 29%, 31%, .5);
+  background-image: var(--image-caption-buttons);
+  box-shadow: 0 0 0 1px hsla(0,0%,100%,.4) inset;
+  border: 1px solid hsla(0,0%,0%,.4);
+  border-top: none;
+}
+
+.window-control:not(.close) {
+  border-right: none;
+}
+
+.window-control:first-child {
+  border-bottom-left-radius: 4px;
+}
+.window-control:last-child {
+  border-bottom-right-radius: 4px;
+}
+
+.window-control:hover {
+  background-color: #0f76b6;
+  background-image: var(--image-caption-buttons),
+                    radial-gradient(ellipse, hsla(191,100%,50%,.2), hsla(191,100%,50%,0) 40%),
+                    radial-gradient(ellipse at center bottom, hsla(191,100%,50%,1), hsla(191,100%,50%,0) 80%);
+  box-shadow: 0 0 0 1px hsla(0,0%,100%,.4) inset,
+              0 0 10px 0 hsla(191,100%,50%,1),
+              0 -1px 0 hsla(191,100%,50%,.8) inset;
+}
+.window-control:hover:active {
+  background-color: #073a5d; 
+  background-image: var(--image-caption-buttons),
+                    radial-gradient(ellipse, hsla(191,100%,50%,.2), hsla(191,100%,50%,0) 40%),
+                    radial-gradient(ellipse at center bottom, hsla(191,100%,50%,.5), hsla(191,100%,50%,0) 80%);
+}
+
+.window-control .icon {
+  margin: 0 auto;
+  width: 16px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.window-control.close {
+  width: 48px;
+  background-color: #89251e;
+  background-image: var(--image-caption-buttons),
+/*                     radial-gradient(ellipse, red, blue 80%); */
+                    radial-gradient(ellipse, hsla(10,81%,49%,.8), hsla(10,81%,49%,0) 80%);
+  box-shadow: ;
+}
+.window-control.close:hover {
+  background-color: #d12000;
+  background-image: var(--image-caption-buttons),
+                    radial-gradient(ellipse, hsla(10,81%,49%,.8), hsla(10,81%,49%,0) 80%),
+                    radial-gradient(ellipse at center bottom, hsla(44, 100%, 50%, 1), hsla(44, 100%, 50%, 0) 80%);
+  box-shadow: 0 0 0 1px hsla(0,0%,100%,.4) inset,
+              0 0 10px 0 #ff8400,
+              0 -1px 0 hsla(52, 100%, 80%, .5) inset;
+}
+.window-control.close:hover:active {
+  background-color: #571307;
+  background-image: var(--image-caption-buttons),
+                    radial-gradient(ellipse, hsla(10,81%,49%,.4), hsla(10,81%,49%,0) 80%),
+                    radial-gradient(ellipse at center bottom, hsla(44, 100%, 50%, .5), hsla(44, 100%, 50%, 0) 80%);
+  box-shadow: 0 0 0 1px hsla(0,0%,100%,.4) inset,
+              0 0 10px 0 #ff8400,
+              0 -1px 0 hsla(52, 100%, 80%, .25) inset;
+}
+.window-control.close .icon {
+  background-image: url("../images-windows/window-close-aero.svg");
+}
+
+.window-control.minimize .icon {
+  background-image: url("../images-windows/window-minimize-aero.svg");
+}
+
+.window-control.fullscreenZoomMax .icon {
+  background-image: url("../images-windows/window-maximize-aero.svg");
+}
+
+.window-container.maximized .window-control.fullscreenZoomMax .icon {
+  background-image: url("../images-windows/window-restore-aero.svg");
+}
+
+
+/* --UI Container (Contains UI e.g. NavBar and BookmarksBar-- */
+.ui-container {
+  margin: 4px 4px 0 4px;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+
+/* --Tabs-- */
+.tab-bar {
+  flex-direction: row-reverse;
+}
+
+.tabs-background-container {
+  display: flex;
+/*   flex: 1 1 auto; */
+/*   width: 100%; */
+  align-items: center;
+  height: var(--density-tabs-height);
+  background-color: var(--color-chrome-tabs-background-90);
+  background-clip: padding-box;
+  border: 1px solid var(--color-chrome-border-30);
+  border-bottom: none;
+}
+
+.tab {
+  width: 224px;
+}
+
+
+
+/* --Toolbars-- */
+.toolbars-container {
+  border: 1px solid var(--color-chrome-border-30);
+  border-top: none;
+  border-bottom: 1px solid var(--color-chrome-border-10);
+  background-clip: padding-box;
+  box-shadow: 0 -1px 0 var(--color-chrome-border-30);
+}
+
+.toolbar-button.bookmark-item.folder .icon { background-image: url("../images-windows/icon-sidebar-folder-16.svg"); }
+
+
+
+/* --Sidebar-- */
+/* Sidebar Icons */
+.sidebar-field-filter { background-image: url("../images-windows/search-12.svg"); }
+.sidebar-item.item-folder > .icon { background-image: url("../images-windows/icon-sidebar-folder-16.svg"); }
+
+
+
+/* --Title Bar-- */
+.title {
+  justify-content: start;
+  text-shadow: 0 0 8px hsla(0,0%,100%,1), 
+               0 0 10px hsla(0,0%,100%,1);
+}
+
+.title-bar .title {
+  color: var(--color-chrome-toolbars-foreground);
+}
+
+
+
+
+/* ====================== */
+/* --------Content------- */
+/* ====================== */
+
+.content-container {
+  margin: -1px 4px 4px 4px;
+  border: 1px solid var(--color-chrome-border-30);
+  border-top: none;
+  background-clip: padding-box;
+}
+
+
+
+/* ====================== */
+/* ----Configurations---- */
+/* ====================== */
+
+/* Title Bar Enabled */
+.window.title-bar-enabled .title-bar {
+  margin: -4px -4px 0 -4px;
+  height: 30px;
+}
+
+.window.title-bar-enabled .tab-bar .window-controls-container {
+  position: relative;
+  top: -13px;
+  right: 0;
+}
+
+.window.title-bar-enabled .tab-bar .toolbar-drag-spacer {
+  margin-left: 0;
+}
+
+
+
+/* Maximized */
+.window-container.maximized {
+  padding: 0;
+}
+
+.window-container.maximized .window {
+  width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.window-container.maximized .window .tab-bar .toolbar-drag-spacer:first-child {
+  width: 0;
+  margin-left: -1px;
+}
+
+.window-container.maximized .window-controls-container {
+  top: 0;
+  margin-right: 2px;
+
+}
+
+.window-container.maximized .ui-container {
+  margin: 0;
+  margin: -1px;
+}
+
+.window-container.maximized .window.drag-space-enabled .drag-space {
+  height: 0;
+}
+
+.drag-space-enabled .tab.active,
+.window.title-bar-enabled .tab.active {
+  border-top: 1px solid transparent;  
+}
+
+.window-container.maximized .content-container {
+  margin: -1px 0 0 0;
+}
+
+
+/* Touch Mode Enabled */
+.window.density-touch {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#window-main:fullscreen .window-controls-container {
+  display: flex !important;
+  top: 0;
+  margin-right: 2px;
+}
+
+.window.density-touch .content-container {
+  margin: -1px;
+}
+
+.window.density-touch .ui-container {
+  margin: 0;
+  margin: -1px;
+}
+
+
+/* Light Theme Enabled */
+.window.win7.theme-light .tab-bar .toolbar-button.new > .icon { background-image: url("../images-general/new-16-inverted.svg"); }
+
+
+/* Dark Theme Enabled */
+
+
+

@@ -1,0 +1,223 @@
+/* ====================== */
+/* ------Variables------- */
+/* ====================== */
+
+:root {
+  /* Chrome Colors */
+  --color-chrome-tabs-background: hsl(48, 4%, 23%);
+  --color-chrome-tabs-foreground: hsla(0,0%,100%,1);
+  --color-chrome-tabs-foreground-10: hsla(0,0%,100%,.1);
+  --color-chrome-tabs-foreground-20: hsla(0,0%,100%,.2);
+  --color-chrome-tabs-foreground-30: hsla(0,0%,100%,.3);
+  --color-chrome-tabs-foreground-90: hsla(0,0%,100%,.9);
+
+  --color-chrome-toolbars-foreground: hsl(0,0%,0%);
+  --color-chrome-toolbars-foreground-10: hsla(0,0%,0%,.1);
+  --color-chrome-toolbars-foreground-15: hsla(0,0%,0%,.15);
+  --color-chrome-toolbars-foreground-20: hsla(0,0%,0%,.2);
+  
+  --color-accent: #f07746;
+
+  --border-radius: 4px;
+}
+
+
+
+/* ====================== */
+/* ------UI Styles------- */
+/* ====================== */
+
+/* --Window-- */
+.window {
+  border-radius: 8px 8px 0 0;
+  background-color: Window;
+  background-image: linear-gradient(to bottom, #59574f, #3f3e3a 27px, #3c3b37 28px);
+  box-shadow: 0 16px 40px hsla(0,0%,0%,.6),
+              0 1px 0 #626055 inset;
+}
+
+
+
+/* --Window Controls-- */
+.window-controls-container {
+  margin: 0 0 0 12px;
+}
+
+.window-control {
+  margin: 0 1px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid hsla(0,0%,0%,.2);
+  background-image: linear-gradient(#898883, #5d5c58);
+  background-clip: padding-box;
+  border-radius: 100%;
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.2) inset;
+}
+
+.window-control:hover {
+  background-image: linear-gradient(#c7c7c7, #9e9e9e);
+}
+
+.window-control:hover:active {
+  background-image: linear-gradient(#74736c, #77766f);
+  box-shadow: 0 1px 0 hsla(0,0%,0%,.2) inset;
+}
+
+.window-control > .icon {
+  width: 7px;
+  height: 7px;
+}
+
+.window-control:first-child {
+  margin-left: 0;
+}
+.window-control:last-child {
+  margin-right: 0;
+}
+
+.window-control.close {
+  background-image: linear-gradient(#f28462, #da4e1d);
+}
+.window-control.close:hover {
+  background-image: linear-gradient(#f99f85, #e55726);
+}
+.window-control.close:hover:active {
+  background-image: linear-gradient(#e86b41, #ec6e44);
+}
+
+.window-control.close > .icon {
+}
+
+.window-control.minimize > .icon {
+}
+
+.window-control.fullscreenZoomMax > .icon {
+}
+
+
+/* --Tabs-- */
+.tab.active {
+  background-color: hsla(30, 8%, 95%, 1);
+}
+.tab {
+  font-size: 14px;
+}
+
+/* --UI Container (Contains UI e.g. NavBar and BookmarksBar-- */
+.ui-container {
+  border-radius: 8px 8px 0 0;
+}
+
+
+/* --Toolbars-- */
+.toolbars-container {
+  background-color: hsla(30, 8%, 95%, 1);
+}
+
+.toolbar-button .icon {
+  opacity: .7;
+}
+
+
+/* Location and Search Fields */
+.toolbar-field.focus {
+  border-color: highlight;
+}
+
+
+/* --Configurations-- */ 
+/* Title Bar Enabled */
+.window.title-bar-enabled .title-bar {
+  height: 28px;
+  background-image: linear-gradient(#59574f, #3f3e3a), 
+                    linear-gradient(#59574e, #3d3c38);
+  background-clip: content-box, border-box;
+  background-origin: content-box, border-box;
+
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  
+  box-shadow: 0 1px 0 #626055 inset;
+}
+
+.title {
+  position: relative;
+  left: 64px;
+  justify-content: start;
+  font: caption;
+  font-weight: 500;
+}
+
+.window.title-bar-enabled .tab-bar .window-controls-container {
+  position: absolute;
+  margin-top: -21px;
+  margin-left: 7px;
+}
+
+.tab.active > .tab-indicator {
+  background-color: highlight;
+}
+
+@keyframes kf-animation-tab-active-indicator { 
+  from { background-color: hsla(0,0%,0%,.2); }
+  to   { background-color: highlight; }
+}
+
+
+/* ====================== */
+/* -------Sidebars------- */
+/* ====================== */
+
+.sidebar-container {
+}
+
+
+/* Sidebar Header */
+.sidebar-header-container {
+  mix-blend-mode: multiply;
+}
+
+
+/* Sidebar Field */
+/* .sidebar-field-filter {
+  background-color: var(--color-chrome-toolbars-foreground-15);
+  border: 1px solid var(--color-chrome-toolbars-foreground-15);
+  box-shadow: 0 0 0 30px hsla(210, 100%, 60%, .0);
+  color: unset;
+} */
+.sidebar-field-filter:focus {
+  border: 1px solid highlight;
+}
+
+
+/* Sidebar List */
+.sidebar-item.selected {
+  background-color: var(--color-chrome-toolbars-foreground-10);
+  background-blend-mode: color-burn;
+  mix-blend-mode: multiply;
+}
+
+.sidebar-item.item-folder > .arrow-disclosure {
+  mix-blend-mode: multiply; 
+}
+
+.sidebar-item > .icon:not(.favicon) {
+  mix-blend-mode: multiply;
+}
+
+
+
+/* ====================== */
+/* ------Content UI------ */
+/* ====================== */
+
+.content-container {
+  border-radius: 0;  
+}
+
+
+
+
+
+

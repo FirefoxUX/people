@@ -1,0 +1,556 @@
+/* ====================== */
+/* ------Variables------- */
+/* ====================== */
+
+/* --Lotus-- */
+.window.theme-lotus {
+  /* Chrome Colors */
+  --color-chrome-tabs-background: #004c66;
+  --color-chrome-tabs-foreground: #6affff;
+  --color-chrome-tabs-foreground-10: hsla(180,100%,71%,.1);
+  --color-chrome-tabs-foreground-20: hsla(180,100%,71%,.2);
+  --color-chrome-tabs-foreground-30: hsla(180,100%,71%,.3);
+  --color-chrome-tabs-foreground-90: hsla(180,100%,71%,.9);
+
+  --color-chrome-toolbars-background: #ff1ad9;
+  --color-chrome-toolbars-foreground: #2b0023;
+  --color-chrome-toolbars-foreground-10: hsla(310,100%,8%,.1);
+  --color-chrome-toolbars-foreground-15: hsla(310,100%,8%,.15);
+  --color-chrome-toolbars-foreground-20: hsla(310,100%,8%,.2);
+
+  --color-chrome-border: hsla(0,0%,0%,.3);
+  --color-chrome-border-hover: hsla(0,0%,0%,.35);
+  --color-chrome-border-active: hsla(0,0%,0%,.4);
+}
+
+/* --Spring Rain-- */
+.window.theme-spring-rain {
+  /* Chrome Colors */
+  --color-chrome-tabs-background: #004c66;
+  --color-chrome-tabs-foreground: #D3EDF1;
+  --color-chrome-tabs-foreground-10: hsla(180,100%,71%,.1);
+  --color-chrome-tabs-foreground-20: hsla(180,100%,71%,.2);
+  --color-chrome-tabs-foreground-30: hsla(180,100%,71%,.3);
+  --color-chrome-tabs-foreground-90: hsla(180,100%,71%,.9);
+
+  --color-chrome-toolbars-background: hsla(188, 52%, 89%, .8);
+  --color-chrome-toolbars-foreground: hsla(180,33%,28%,1);
+  --color-chrome-toolbars-foreground-10: hsla(180,33%,28%,.1);
+  --color-chrome-toolbars-foreground-15: hsla(180,33%,28%,.15);
+  --color-chrome-toolbars-foreground-20: hsla(180,33%,28%,.2);
+
+  --color-chrome-border: #C7A6AB;
+  --color-chrome-border-10: #C7A6AB;
+  --color-chrome-border-25: #C7A6AB;
+  --color-chrome-border-30: #C7A6AB;
+  --color-chrome-border-35: #C7A6AB;
+  --color-chrome-border-40: #C7A6AB;
+
+  --color-blue: #4B7582;
+  --color-accent: #4B7582;
+}
+
+.window.theme-spring-rain .ui-container {
+  background-image: url("../images-general/theme-spring-rain.jpg");
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+.window.theme-spring-rain .tab .tab-content .label {
+  opacity: 1;
+}
+
+.window.theme-spring-rain .tab-separator {
+  opacity: .7;
+}
+
+.window.theme-spring-rain .content-container {
+  background-color: hsla(188, 52%, 89%, 1);
+}
+
+/* --Light-- */
+.window.theme-light {
+  /* Chrome Colors */
+  --color-chrome-tabs-background-values: 240, 5%, 85%;
+  --color-chrome-tabs-background: hsl(var(--color-chrome-tabs-background-values));
+  --color-chrome-tabs-background-70: hsla(var(--color-chrome-tabs-background-values),.7);
+  --color-chrome-tabs-background-80: hsla(var(--color-chrome-tabs-background-values),.8);
+  --color-chrome-tabs-background-90: hsla(var(--color-chrome-tabs-background-values),.9);
+  --color-chrome-tabs-foreground-values: 240, 5%, 5%;
+  --color-chrome-tabs-foreground: hsl(var(--color-chrome-tabs-foreground-values));
+  --color-chrome-tabs-foreground-10: hsla(var(--color-chrome-tabs-foreground-values),.1);
+  --color-chrome-tabs-foreground-20: hsla(var(--color-chrome-tabs-foreground-values),.2);
+  --color-chrome-tabs-foreground-30: hsla(var(--color-chrome-tabs-foreground-values),.3);
+  --color-chrome-tabs-foreground-90: hsla(var(--color-chrome-tabs-foreground-values),.9);
+
+  --color-chrome-toolbars-background-values: 240, 9%, 98%;
+  --color-chrome-toolbars-background: hsl(var(--color-chrome-toolbars-background-values));
+  --color-chrome-toolbars-foreground-values: 240, 5%, 5%;
+  --color-chrome-toolbars-foreground: hsl(var(--color-chrome-toolbars-foreground-values));
+  --color-chrome-toolbars-foreground-05: hsla(var(--color-chrome-toolbars-foreground-values),.05);
+  --color-chrome-toolbars-foreground-10: hsla(var(--color-chrome-toolbars-foreground-values),.1);
+  --color-chrome-toolbars-foreground-15: hsla(var(--color-chrome-toolbars-foreground-values),.15);
+  --color-chrome-toolbars-foreground-20: hsla(var(--color-chrome-toolbars-foreground-values),.2);
+  --color-chrome-toolbars-foreground-25: hsla(var(--color-chrome-toolbars-foreground-values),.25);
+}
+
+.window.macOS.theme-light {
+  --color-chrome-tabs-background: hsla(240, 5%, 90%,.9);
+}
+
+.window.theme-light .tab-bar .toolbar-button.new > .icon { background-image: url("../images-general/new-16.svg"); }
+.window.theme-light .tab-content > .icon.close { background-image: url("../images-general/close-16.svg"); }
+
+.window.theme-light .tab[site="home"] .icon.favicon { background-image: url("../images-general/favicon-home-16.svg"); }
+
+
+/* --Dark-- */
+.window.theme-dark {
+  /* Chrome Colors */
+  --color-chrome-tabs-background-values: 240, 5%, 5%;
+  --color-chrome-tabs-background: hsl(var(--color-chrome-tabs-background-values));
+  --color-chrome-tabs-background-70: hsla(var(--color-chrome-tabs-background-values),.7);
+  --color-chrome-tabs-background-80: hsla(var(--color-chrome-tabs-background-values),.8);
+  --color-chrome-tabs-background-90: hsla(var(--color-chrome-tabs-background-values),.9);
+  --color-chrome-tabs-foreground-values: 240, 9%, 98%;
+  --color-chrome-tabs-foreground: hsl(var(--color-chrome-tabs-foreground-values));
+  --color-chrome-tabs-foreground-10: hsla(var(--color-chrome-tabs-foreground-values),.1);
+  --color-chrome-tabs-foreground-20: hsla(var(--color-chrome-tabs-foreground-values),.2);
+  --color-chrome-tabs-foreground-30: hsla(var(--color-chrome-tabs-foreground-values),.3);
+  --color-chrome-tabs-foreground-90: hsla(var(--color-chrome-tabs-foreground-values),.9);
+
+  --color-chrome-toolbars-background-values: 240, 1%, 20%;
+  --color-chrome-toolbars-background: hsl(var(--color-chrome-toolbars-background-values));
+  --color-chrome-toolbars-foreground-values: 240, 9%, 98%;
+  --color-chrome-toolbars-foreground: hsl(var(--color-chrome-toolbars-foreground-values));
+  --color-chrome-toolbars-foreground-05: hsla(var(--color-chrome-toolbars-foreground-values),.05);
+  --color-chrome-toolbars-foreground-10: hsla(var(--color-chrome-toolbars-foreground-values),.1);
+  --color-chrome-toolbars-foreground-15: hsla(var(--color-chrome-toolbars-foreground-values),.15);
+  --color-chrome-toolbars-foreground-20: hsla(var(--color-chrome-toolbars-foreground-values),.2);
+  --color-chrome-toolbars-foreground-25: hsla(var(--color-chrome-toolbars-foreground-values),.25);
+}
+
+.window.macOS.theme-dark {
+  --color-chrome-tabs-background: hsla(0,0%,6%,.9);
+}
+
+.window.theme-dark .toolbar-button.back > .icon { background-image: url("../images-general/back-16-inverted.svg"); }
+.window.theme-dark .toolbar-button.forward > .icon { background-image: url("../images-general/forward-16-inverted.svg"); }
+.window.theme-dark .toolbar-button.refresh > .icon { background-image: url("../images-general/refresh-16-inverted.svg"); }
+.window.theme-dark .toolbar-button.home > .icon { background-image: url("../images-general/home-16-inverted.svg"); }
+.window.theme-dark .toolbar-button.more > .icon { background-image: url("../images-general/more-16-inverted.svg"); }
+.window.theme-dark .toolbar-button.pocket > .icon { background-image: url("../images-general/pocket-16-inverted.svg"); }
+.window.theme-dark .toolbar-button.bookmark > .icon { background-image: url("../images-general/bookmark-16-outline-inverted.svg"); }
+.window.theme-dark .toolbar-button.library > .icon { background-image: url("../images-general/library-16-inverted.svg"); }
+.window.theme-dark .toolbar-button.sidebar > .icon { background-image: url("../images-general/sidebar-16-inverted.svg"); }
+.window.theme-dark .toolbar-button.overflow > .icon { background-image: url("../images-general/overflow-16-inverted.svg"); }
+.window.theme-dark .toolbar-button.menu > .icon { background-image: url("../images-general/menu-16-inverted.svg"); }
+
+.window.theme-dark .toolbar-button.bookmark-item .icon:not(.favicon) { filter: invert(100%); }
+.window.theme-dark .toolbar-button.bookmark-item .dropdown { filter: invert(100%); }
+
+.window.theme-dark .tab-content > .icon.close { background-image: url("../images-general/close-16-inverted.svg"); }
+
+.window.theme-dark .tab[site="home"] .icon.favicon { background-image: url("../images-general/favicon-home-16-inverted.svg"); }
+
+.window.theme-dark .toolbar-button.site-identity .icon.info { background-image: url("../images-general/info-16-inverted.svg"); }
+
+
+.window.theme-dark .toolbar-field {
+  background-color: hsla(0,0%,100%,.1);
+}
+
+.window.theme-dark:not(.density-compact) .toolbar-button.back {
+  background-color: var(--color-chrome-toolbars-foreground-10);
+}
+.window.theme-dark:not(.density-compact) .toolbar-button.back:hover {
+  background-color: var(--color-chrome-toolbars-foreground-15);
+}
+.window.theme-dark:not(.density-compact) .toolbar-button.back:hover:active {
+  background-color: var(--color-chrome-toolbars-foreground-20);
+}
+
+.window.theme-dark .url-text {
+  color: graytext;
+}
+
+.window.theme-dark .url-text .domain-text {
+  color: white;
+}
+
+.window.theme-dark .sidebar-container {
+  background-color: hsla(0,0%,0%,.5);
+}
+.window.macOS.theme-dark .sidebar-container {
+  background-image: linear-gradient(to bottom, hsla(0, 0%, 0%, .5), hsla(0, 0%, 0%, .5) 40px),
+                    url("../images-general/background-image-blurred-mac.jpg");
+  background-blend-mode: multiply, normal;
+}
+.window.macOS.theme-dark .sidebar-header-container {
+  mix-blend-mode: screen;
+}
+.window.theme-dark .sidebar-item > .icon:not(.favicon) {
+  filter: invert(100%);
+  mix-blend-mode: screen;
+}
+
+.window.macOS.theme-dark .sidebar-item.selected {
+  mix-blend-mode: screen;
+}
+
+.window.macOS.theme-dark .sidebar-item.item-folder > .arrow-disclosure {
+  mix-blend-mode: screen; 
+}
+
+.window.macOS.theme-dark .sidebar-item > .icon:not(.favicon) {
+  mix-blend-mode: screen;
+}
+
+
+.window.theme-dark .sidebar-item.item-folder > .arrow-disclosure {
+  background-image: url("../images-general/arrow-disclosure-collapsed-8-inverted.svg");
+}
+
+.window.theme-dark .sidebar-header-container > .close {
+  background-image: url("../images-general/close-16-inverted.svg");
+}
+
+.window.theme-dark .sidebar-selector > .icon {
+  background-image: url("../images-general/bookmark-16-filled-inverted.svg");
+}
+
+.window.theme-dark .sidebar-selector .dropdown {
+  background-image: url("../images-general/arrow-dropdown-12-inverted.svg");
+}
+
+.window.theme-dark .sidebar-field-filter {
+  background-color: hsla(0,0%,100%,.15);
+}
+
+.window.theme-dark .location-bar > .toolbar-button.progress-notification-button {
+  color: var(--color-teal);
+}
+
+
+
+
+/* --High Contrast-- */
+.window.theme-highcontrast {
+  /* Chrome Colors */
+  --color-chrome-tabs-background: ActiveCaption;
+  --color-chrome-tabs-foreground: CaptionText;
+
+  --color-chrome-toolbars-background: -moz-Dialog;
+  --color-chrome-toolbars-foreground: -moz-DialogText;
+}
+
+
+/* --Window-- */
+.window.theme-highcontrast {
+  background: ActiveCaption;
+  box-shadow: 0 0 0 1px WindowFrame,
+              0 16px 40px hsla(0,0%,0%,.6);
+}
+
+.window.theme-highcontrast .ui-container {
+  margin: 0 6px;
+  background-color: ActiveCaption;
+}
+
+
+/* --Window Controls-- */
+.window.theme-highcontrast .window-controls-container {
+  height: calc(100% - 1px);
+}
+.window.theme-highcontrast .window-control {
+  background-color: ButtonFace;
+  margin-left: 1px;
+}
+.window.theme-highcontrast .window-control:hover {
+  background-color: HighLight;
+}
+.window.theme-highcontrast .window-control:hover:active {
+  background-color: HighLight;
+}
+
+
+/* --Tabs-- */
+.window.theme-highcontrast .tab {
+  color: CaptionText;
+}
+
+.window.theme-highcontrast .tab.active {
+  border-right: 1px solid ThreeDDarkShadow;
+  border-left: 1px solid ThreeDDarkShadow;
+}
+
+.window.theme-highcontrast.drag-space-enabled .tab.active,
+.window.theme-highcontrast.title-bar-enabled .tab.active {
+  border-top: 1px solid ThreeDDarkShadow;
+}
+
+.window.theme-highcontrast .tab.active > .tab-indicator {
+  background-color: Highlight;
+}
+
+.window.theme-highcontrast .tab .label {
+  color: CaptionText;
+  opacity: 1;
+}
+
+.window.theme-highcontrast .tab.active .label {
+  color: -moz-DialogText;
+}
+
+.window.theme-highcontrast .tab-separator:not(.hidden) {
+  background-color: CaptionText;
+  opacity: 1;
+}
+
+.window.theme-highcontrast .tab .icon.favicon {
+  -moz-context-properties: fill;
+  fill: ButtonText;
+  opacity: 1;
+}
+
+.window.theme-highcontrast .tab[pinned].attention:after {
+  -moz-context-properties: fill;
+  fill: Highlight;
+  background-image: url("../images-context-fill/indicator-tab-attention.svg");
+}
+
+.window.theme-highcontrast .tab[site="home"] .icon.favicon { 
+  fill: CaptionText;
+  background-image: url("../images-context-fill/home-16.svg"); 
+}
+.window.theme-highcontrast .tab.active .icon.favicon { 
+  fill: -moz-DialogText;
+}
+
+.window.theme-highcontrast .tab .tab-content > .icon.close {
+  -moz-context-properties: fill;
+  fill: CaptionText;
+  background-image: url("../images-context-fill/close-16.svg");
+}
+.window.theme-highcontrast .tab.active .tab-content > .icon.close {
+  fill: ButtonText;
+}
+.window.theme-highcontrast .tab .tab-content > .icon.close:hover {
+  fill: HighlightText;
+  background-color: Highlight;
+}
+
+/* --Toolbars-- */
+.window.theme-highcontrast .toolbars-container {
+  box-shadow: 0 -1px 0 ThreeDDarkShadow;
+  border-bottom: 1px solid ThreeDDarkShadow;
+}
+
+
+/* --Toolbar Items-- */
+/* Fields */
+.window.theme-highcontrast .toolbar-field {
+  background-color: -moz-Field;
+  border: 1px solid ThreeDDarkShadow;
+}
+
+.window.theme-highcontrast .toolbar-field.focus {
+  border: 1px solid Highlight;
+}
+
+.window.theme-highcontrast .url-text .domain-text {
+  color: -moz-FieldText;
+}
+
+/* Buttons */
+.window.theme-highcontrast .toolbar-button.back {
+  background-color: ButtonFace;
+  border: 1px solid ThreeDDarkShadow;
+}
+.window.theme-highcontrast .toolbar-button.back:hover,
+.window.theme-highcontrast .toolbar-button.back:hover:active {
+  background-color: Highlight;
+  border: 1px solid transparent;
+  background-clip: border-box;
+}
+
+.window.theme-highcontrast .toolbar-button:hover {
+  background-color: Highlight;
+}
+.window.theme-highcontrast .toolbar-button:hover:active {
+  background-color: Highlight;
+}
+
+.window.theme-highcontrast .toolbar-button .icon {
+  -moz-context-properties: fill;
+  fill: ButtonText;
+  opacity: 1;
+}
+.window.theme-highcontrast .toolbar-button:hover .icon {
+  -moz-context-properties: fill;
+  fill: HighlightText;
+  opacity: 1;
+}
+
+.window.theme-highcontrast .tab-bar .toolbar-button.new > .icon {
+  -moz-context-properties: fill;
+  fill: CaptionText;
+  background-image: url("../images-context-fill/new-16.svg");
+}
+.window.theme-highcontrast .tab-bar .toolbar-button.new:hover > .icon {
+  fill: HighlightText;
+}
+
+/* Icons */
+.window.theme-highcontrast .toolbar-button.back > .icon { background-image: url("../images-context-fill/back-16.svg"); }
+.window.theme-highcontrast .toolbar-button.forward > .icon { background-image: url("../images-context-fill/forward-16.svg"); }
+.window.theme-highcontrast .toolbar-button.refresh > .icon { background-image: url("../images-context-fill/refresh-16.svg"); }
+.window.theme-highcontrast .toolbar-button.home > .icon { background-image: url("../images-context-fill/home-16.svg"); }
+.window.theme-highcontrast .location-bar .toolbar-button.readerMode > .icon { background-image: url("../images-context-fill/readermode-16-teal-light.svg"); opacity: 1; }
+.window.theme-highcontrast .toolbar-button.more > .icon { background-image: url("../images-context-fill/more-16.svg"); }
+.window.theme-highcontrast .toolbar-button.pocket > .icon { background-image: url("../images-context-fill/pocket-16.svg"); }
+.window.theme-highcontrast .toolbar-button.bookmark > .icon { background-image: url("../images-context-fill/bookmark-16-outline.svg"); }
+.window.theme-highcontrast .toolbar-button.library > .icon { background-image: url("../images-context-fill/library-16.svg"); }
+.window.theme-highcontrast .toolbar-button.sidebar > .icon { background-image: url("../images-context-fill/sidebar-16.svg"); }
+.window.theme-highcontrast .toolbar-button.overflow > .icon { background-image: url("../images-context-fill/overflow-16.svg"); }
+.window.theme-highcontrast .toolbar-button.menu > .icon { background-image: url("../images-context-fill/menu-16.svg"); }
+.window.theme-highcontrast .toolbar-button.site-identity .icon.info { background-image: url("../images-context-fill/info-16.svg"); }
+
+
+/* --Bookmarks Toolbar-- */
+.window.theme-highcontrast .toolbar-button.bookmark-item {
+  color: ButtonText
+}
+.window.theme-highcontrast .toolbar-button.bookmark-item:hover {
+  color: HighlightText
+}
+
+.window.theme-highcontrast .toolbar-button.bookmark-item.folder .icon { 
+  -moz-context-properties: fill;
+  fill: ButtonText;
+  background-image: url("../images-context-fill-windows/icon-sidebar-folder-16.svg"); 
+}
+
+.window.theme-highcontrast .toolbar-button.bookmark-item.folder .icon { background-image: url("../images-context-fill-windows/icon-sidebar-folder-16.svg"); }
+.window.theme-highcontrast .toolbar-button.bookmark-item.folder-smart .icon { background-image: url("../images-context-fill/icon-sidebar-folder-smart-16.svg"); }
+.window.theme-highcontrast .toolbar-button.bookmark-item.folder-live .icon { background-image: url("../images-context-fill/icon-sidebar-folder-live-16.svg"); }
+
+.window.theme-highcontrast .toolbar-button.bookmark-item > .dropdown {
+  -moz-context-properties: fill;
+  fill: ButtonText;
+  background-image: url("../images-context-fill/arrow-dropdown-8.svg");
+}
+
+.window.theme-highcontrast .toolbar-button.bookmark-item:hover .icon,
+.window.theme-highcontrast .toolbar-button.bookmark-item:hover > .dropdown {
+  fill: HighlightText;
+}
+
+
+/* --Content-- */
+.window.theme-highcontrast .content-container {
+  margin: 0 6px 6px;
+}
+
+.window.theme-highcontrast .page-container h1 {
+  color: WindowText;
+}
+
+
+/* --Sidebars-- */
+.window.theme-highcontrast .sidebar-container {
+  background-color: -moz-Dialog;
+  border-right: 1px solid ThreeDDarkShadow;
+}
+
+.window.theme-highcontrast .sidebar-selector {
+  color: ButtonText;
+}
+.window.theme-highcontrast .sidebar-selector:hover,
+.window.theme-highcontrast .sidebar-selector:hover:active {
+  background-color: Highlight;
+  color: HighlightText;
+}
+
+.window.theme-highcontrast .sidebar-selector > .icon {
+  -moz-context-properties: fill;
+  fill: ButtonText;
+  background-image: url("../images-context-fill/bookmark-16-filled.svg");
+  opacity: 1;
+}
+.window.theme-highcontrast .sidebar-selector:hover > .icon,
+.window.theme-highcontrast .sidebar-selector:hover .dropdown,
+.window.theme-highcontrast .sidebar-header-container > .close:hover {
+  fill: HighlightText;
+}
+
+.window.theme-highcontrast .sidebar-selector .dropdown {
+  -moz-context-properties: fill;
+  fill: ButtonText;
+  background-image: url("../images-context-fill/arrow-dropdown-12.svg");
+  opacity: 1;
+}
+
+/* Sidebar Close */
+.window.theme-highcontrast .sidebar-header-container > .close {
+  -moz-context-properties: fill;
+  fill: ButtonText;
+  background-image: url("../images-context-fill/close-16.svg");
+}
+
+/* Sidebar Field */
+.window.theme-highcontrast .sidebar-field-container .sidebar-field-filter {
+  background-color: -moz-Field;
+}
+
+.window.theme-highcontrast .sidebar-field-container.scrolling {
+  box-shadow: 0 1px 0 var(--color-chrome-border-20),
+              0 1px 2px var(--color-chrome-border-20);
+}
+
+.window.theme-highcontrast .sidebar-field-filter {
+  -moz-context-properties: fill;
+  fill: -moz-FieldText;
+  background-color: -moz-Field;
+  background-image: url("../images-context-fill/search-12.svg");
+  border: 1px solid ThreeDDarkShadow;
+}
+
+.window.theme-highcontrast .sidebar-field-filter:focus {
+  border: 1px solid HighLight;
+  background-color: -moz-Field;
+}
+
+/* Sidebar Items */
+.window.theme-highcontrast .sidebar-item {
+  color: ButtonText;
+}
+
+.window.theme-highcontrast .sidebar-item.item-folder > .arrow-disclosure {
+  -moz-context-properties: fill;
+  fill: -moz-FieldText;
+}
+
+/* Sidebar Icons */
+.window.theme-highcontrast .sidebar-item.item-folder > .icon { 
+  background-image: url("../images-context-fill-windows/icon-sidebar-folder-16.svg"); 
+  -moz-context-properties: fill;
+  fill: ButtonText;
+}
+.window.theme-highcontrast .sidebar-item.item-folder.item-feed > .icon { background-image: url("../images-context-fill/icon-sidebar-folder-live-16.svg"); }
+.window.theme-highcontrast .sidebar-item.item-folder.item-smart > .icon { background-image: url("../images-context-fill/icon-sidebar-folder-smart-16.svg"); }
+
+.window.theme-highcontrast .sidebar-item.item-folder.item-bookmarks-folder > .icon { background-image: url("../images-context-fill/icon-sidebar-folder.svg"); }
+.window.theme-highcontrast .sidebar-item.item-folder.item-bookmarks-toolbar > .icon { background-image: url("../images-context-fill/icon-sidebar-bookmarks-toolbar.svg"); }
+.window.theme-highcontrast .sidebar-item.item-folder.item-bookmarks-menu > .icon { background-image: url("../images-context-fill/icon-sidebar-bookmarks-menu.svg"); }
+.window.theme-highcontrast .sidebar-item.item-folder.item-bookmarks-other > .icon { background-image: url("../images-context-fill/icon-sidebar-inbox.svg"); }
+
+.window.theme-highcontrast .sidebar-item.item-history > .icon { background-image: url("../images-context-fill/icon-sidebar-history.svg"); }
+
+.window.theme-highcontrast .sidebar-item.item-device-mobile > .icon { background-image: url("../images-context-fill/icon-sidebar-device-mobile.svg"); }
+.window.theme-highcontrast .sidebar-item.item-device-desktop > .icon { background-image: url("../images-context-fill/icon-sidebar-device-desktop.svg"); }
+
+
+
+
+

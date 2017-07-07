@@ -1,0 +1,90 @@
+/* ====================== */
+/* ------Variables------- */
+/* ====================== */
+
+:root {
+  /* Chrome Colors */
+  --color-chrome-tabs-background-values: 235, 33%, 19%;
+  --color-chrome-tabs-background: hsl(var(--color-chrome-tabs-background-values));
+  --color-chrome-tabs-background-70: hsla(var(--color-chrome-tabs-background-values),.7);
+  --color-chrome-tabs-background-80: hsla(var(--color-chrome-tabs-background-values),.8);
+  --color-chrome-tabs-background-90: hsla(var(--color-chrome-tabs-background-values),.9);
+  --color-chrome-tabs-foreground-values: 240, 9%, 98%;
+  --color-chrome-tabs-foreground: hsl(var(--color-chrome-tabs-foreground-values));
+  --color-chrome-tabs-foreground-10: hsla(var(--color-chrome-tabs-foreground-values),.1);
+  --color-chrome-tabs-foreground-20: hsla(var(--color-chrome-tabs-foreground-values),.2);
+  --color-chrome-tabs-foreground-30: hsla(var(--color-chrome-tabs-foreground-values),.3);
+  --color-chrome-tabs-foreground-90: hsla(var(--color-chrome-tabs-foreground-values),.9);
+
+  --color-chrome-toolbars-background-values: 240, 9%, 98%;
+  --color-chrome-toolbars-background: hsl(var(--color-chrome-toolbars-background-values));
+  --color-chrome-toolbars-foreground-values: 240, 5%, 5%;
+  --color-chrome-toolbars-foreground: hsl(var(--color-chrome-toolbars-foreground-values));
+  --color-chrome-toolbars-foreground-05: hsla(var(--color-chrome-toolbars-foreground-values),.05);
+  --color-chrome-toolbars-foreground-10: hsla(var(--color-chrome-toolbars-foreground-values),.1);
+  --color-chrome-toolbars-foreground-15: hsla(var(--color-chrome-toolbars-foreground-values),.15);
+  --color-chrome-toolbars-foreground-20: hsla(var(--color-chrome-toolbars-foreground-values),.2);
+  --color-chrome-toolbars-foreground-25: hsla(var(--color-chrome-toolbars-foreground-values),.25);
+
+  --color-chrome-border-values: 240, 5%, 5%;
+  --color-chrome-border: hsl(var(--color-chrome-border-values));
+  --color-chrome-border-10: hsla(var(--color-chrome-border-values),.1);
+  --color-chrome-border-15: hsla(var(--color-chrome-border-values),.15);
+  --color-chrome-border-20: hsla(var(--color-chrome-border-values),.20);
+  --color-chrome-border-25: hsla(var(--color-chrome-border-values),.25);
+  --color-chrome-border-30: hsla(var(--color-chrome-border-values),.3);
+  --color-chrome-border-35: hsla(var(--color-chrome-border-values),.35);
+  --color-chrome-border-40: hsla(var(--color-chrome-border-values),.4);
+
+  --color-progressive-notification-values: 240, 5%, 5%;
+  --color-progressive-notification: hsl(var(--color-progressive-notification-values));
+  --color-progressive-notification-90: hsla(var(--color-chrome-border-values),.9);
+  --color-progressive-notification-80: hsla(var(--color-chrome-border-values),.8);
+  --color-progressive-notification-10: hsla(var(--color-chrome-border-values),.1);
+  --color-progressive-notification-text-values: 188, 100%, 32%;
+  --color-progressive-notification-text: hsl(var(--color-progressive-notification-text-values));
+
+
+  /* General Color Palette */
+  --color-blue: #0A8DFF;
+  --color-blue-dark: #0670cc;
+  --color-blue-darker: #005bab;
+  --color-blue-darkest: #004480;
+  
+  --color-focusRing-macOS-base-values: 210, 100%, 40%;
+  --color-focusRing-macOS-base: hsla(var(--color-focusRing-macOS-base-values),.45);
+  --color-focusRing-macOS-light-values: 210, 100%, 60%;
+  --color-focusRing-macOS-light: hsla(var(--color-focusRing-macOS-light-values),.45);
+
+  --color-teal: hsl(180, 100%, 50%);
+  --color-teal-lighter: hsl(180, 100%, 50%);
+  --color-teal-lighter-10: hsla(180, 100%, 50%, .1);
+  --color-teal-light: hsl(184, 100%, 42%);
+  --color-teal-medium: hsl(188, 100%, 32%);
+
+  --color-green-lightest: #33F70C;
+  --color-green: #57BD35;
+  --color-green-dark: #40A624;
+  --color-green-darker: #399320;
+  --color-green-darkest: #2E761A;
+
+
+  /* Animation Curves */
+  --animation-curve: cubic-bezier(.07,.95,0,1);
+
+
+  /* Configuration Dimensions */
+  --density-tabs-height: 32px;
+  --density-toolbar-primary-height: 40px;
+  --density-toolbar-button-width: 28px;
+  --density-toolbar-button-height: 28px;
+  --density-toolbar-field-height: 30px;
+  --density-dragspace-height: 8px;
+  --density-toolbar-bookmarks-height: 20px;
+
+
+  /* Border Radii */
+  --border-radius: 2px;
+  --border-radius-inner: 3px;
+  --border-radius-outer: 4px;
+}

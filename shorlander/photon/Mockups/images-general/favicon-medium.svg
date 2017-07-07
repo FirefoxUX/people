@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <path d="M15,4 L10.9,2.2 C10.7,2.1 10.4,2.2 10.3,2.4 L5,9 L10,11.5 L15,4 Z" id="Shape" fill="#0BE370"></path>
+  <polyline id="Shape" fill="#14C767" points="5 4 5 9 10 11.5 5 4"></polyline>
+  <path d="M10.3,11.7 L14.2,13.6 C14.6,13.8 15,13.7 15,13.3 L15,4.2 L10.3,11.7 Z" id="Shape" fill="#32FC8D"></path>
+  <path d="M5,4 L1.4,2.2 C1.2,2.1 1,2.2 1,2.4 L1,11.4 C1,11.8 1.2,12.1 1.6,12.3 L4.5,13.8 C4.7,13.9 5,13.7 5,13.4 L5,4 Z" id="Shape" fill="#00AB6C"></path>
+  <path d="M10,11.5 L14.5,13.8 C14.7,13.9 15,13.7 15,13.5 L15,4 L10,11.5 Z" id="Shape" fill="#32FC8D"></path>
+</svg>

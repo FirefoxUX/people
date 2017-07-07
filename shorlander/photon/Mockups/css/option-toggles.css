@@ -1,0 +1,128 @@
+/* ====================== */
+/* -------Options-------- */
+/* ====================== */
+
+.option-toggles-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  
+  height: 100%;
+  
+  background-image: linear-gradient(hsla(0,0%,0%,.25), hsla(0,0%,0%,.25)),
+                    url("../images-general/background-image-blurred-mac.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  
+  border-right: 1px solid hsla(0,0%,100%,.2);
+  
+  font: message-box;
+  font-size: 12px;
+  color: white;
+}
+
+.option-toggles-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  padding: 12px;
+}
+
+
+.option-label {
+  flex: 0 0 auto;
+  margin-bottom: .5em;
+  overflow: hidden;
+  font-size: 12px;
+  color: hsla(0,0%,100%,.6);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.option-toggle {
+  display: flex;
+/*   flex: 0 1 auto; */
+  align-items: center;
+  padding: 0 10px 0 8px;
+  margin: 2px 0;
+  width: 100%;
+  -moz-user-select: none;
+  cursor: default;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.option-toggle {
+  height: 32px;
+  border-radius: 4px;
+}
+
+
+.option-toggle:first-child {
+  margin-left: 0;
+}
+
+.option-toggle:last-child {
+  margin-right: 0;
+}
+
+
+.option-toggle:hover {
+  background-color: hsla(0,0%,0%,.1);
+}
+
+.option-toggle:hover:active {
+  opacity: .8;
+}
+
+.option-toggle.toggled {
+  background-color: hsla(0,0%,0%,.2);  
+}
+
+.toggle-checkbox {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 2px solid hsla(0,0%,100%,.5);
+  border-radius: 100%;
+}
+
+.option-toggle.toggled .toggle-checkbox {
+  background-color: #34F70C;
+  border: 2px solid #34F70C;
+  background-image: url("../images-general/toggle-check-16.svg");
+}
+
+.option-toggles-container .separator {
+  flex: 0 0 auto;
+  margin: 16px 0;
+  width: 100%;
+  height: 1px;
+  background-color: hsla(0,0%,100%,.2);
+  border-radius: 1px;
+}
+
+
+
+/* --Hide Some Stuff-- */ 
+.option-toggles-container.macOS #toggle-density-touch { display: none; }
+.option-toggles-container.macOS #toggle-theme-system { display: none; }
+
+
+
+/* --Generic Spacer-- */ 
+.spacer-flex {
+  flex: 1 1 auto;
+}
+
+
+
+/* --Configurations-- */ 
+.option-toggles-container.hide {
+  display: none;
+}

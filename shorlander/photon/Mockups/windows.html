@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>macOS - Yosemite+</title>
+    <meta charset="UTF-8" />
+
+    <link href="css/general.css" type="text/css" rel="stylesheet" />
+    <link href="css/backgrounds.css" type="text/css" rel="stylesheet" />
+    <link href="css/variables.css" type="text/css" rel="stylesheet" />
+    <link href="css/ui-base.css" type="text/css" rel="stylesheet" />
+    <link href="css/ui-macOS.css" type="text/css" rel="stylesheet" />
+    <link href="css/content.css" type="text/css" rel="stylesheet" />
+    <link href="css/option-toggles.css" type="text/css" rel="stylesheet" />
+    <link href="css/theme.css" type="text/css" rel="stylesheet" />
+
+    <script src="jquery.min.js"></script>
+
+  </head>
+
+  <body class="background-desktop-picture" spellcheck="false">
+
+    <div class="option-toggles-container">
+      <div class="option-toggle" id="toggle-extra-drag-space"><div class="toggle-checkbox"></div> Enable Extra Drag Space</div>
+      <div class="option-toggle" id="toggle-title-bar"><div class="toggle-checkbox"></div> Enable Title Bar</div>
+      <div class="spacer-flex"></div>
+      <div class="option-label">UI Density:</div>
+      <div class="option-toggle" id="toggle-density-compact"><div class="toggle-checkbox"></div> Compact</div>
+      <div class="option-toggle" id="toggle-density-touch"><div class="toggle-checkbox"></div> Touch</div>
+      <div class="spacer-flex"></div>
+      <div class="option-label">Theme:</div>
+      <div class="option-toggle" id="toggle-theme-lotus"><div class="toggle-checkbox"></div>Lotus</div>
+      <div class="option-toggle" id="toggle-theme-spring-rain"><div class="toggle-checkbox"></div>Spring Rain</div>
+    </div>
+    
+    <!-- Window [Start] -->
+    <div class="window" id="window-main">
+      
+      <!-- Window - Inner [Start] -->
+      <div class="window-inner">
+        
+        <div class="ui-container">
+          <div class="title-bar">
+            <div class="title">Welcome to Firefox!</div>
+          </div>
+          <div class="tab-bar">
+            <div class="window-controls-container">
+              <div class="window-control close"><div class="icon"></div></div>
+              <div class="window-control minimize"><div class="icon"></div></div>
+              <div class="window-control fullscreenZoomMax"><div class="icon"></div></div>
+            </div>
+            <div class="tabs-and-dragSpace-container">
+              <div class="drag-space"></div>
+              <div class="tabs-container">
+                <div class="toolbar-drag-spacer"></div>
+                <div class="tab-separator"></div>
+                <div class="tab attention" site="medium" pinned>
+                  <div class="tab-indicator"></div>
+                  <div class="tab-content">
+                    <div class="icon favicon"></div>
+                  </div>
+                </div>
+                <div class="tab-separator"></div>
+                <div class="tab" site="github" pinned>
+                  <div class="tab-indicator"></div>
+                  <div class="tab-content">
+                    <div class="icon favicon dark"></div>
+                  </div>
+                </div>
+                <div class="tab-separator"></div>
+                <div class="tab attention" site="twitter" pinned>
+                  <div class="tab-indicator"></div>
+                  <div class="tab-content">
+                    <div class="icon favicon"></div>
+                  </div>
+                </div>
+                <div class="tab-separator hidden"></div>
+                <div class="tab active" site="home">
+                  <div class="tab-indicator"></div>
+                  <div class="tab-content">
+                    <div class="icon favicon custom"></div>
+                    <div class="label">Firefox Start</div>
+                    <div class="icon close"></div>
+                  </div>
+                </div>
+                <div class="tab-separator hidden"></div>
+                <div class="tab" site="mozilla">
+                  <div class="tab-indicator"></div>
+                  <div class="tab-content">
+                    <div class="icon favicon"></div>
+                    <div class="label">Internet for people, not profit — Mozilla</div>
+                    <div class="icon close"></div>
+                  </div>
+                </div>
+                <div class="tab-separator"></div>
+                <div class="tab" site="facebook">
+                  <div class="tab-indicator"></div>
+                  <div class="tab-content">
+                    <div class="icon favicon"></div>
+                    <div class="label">Facebook</div>
+                    <div class="icon close"></div>
+                  </div>
+                </div>
+                <div class="tab-separator"></div>
+                <div class="toolbar-button new" id="button-new-tab"><div class="icon"></div></div>
+                <div class="toolbar-drag-spacer"></div>
+              </div>
+            </div>
+          </div>
+          <div class="toolbars-container">
+            <div class="toolbar-primary">
+              <div class="toolbar-button back"><div class="icon"></div></div>
+              <div class="toolbar-button forward"><div class="icon"></div></div>
+              <div class="toolbar-button refresh"><div class="icon"></div></div>
+              <div class="toolbar-button home"><div class="icon"></div></div>
+              <div class="location-bar-container">
+                <div class="toolbar-flexible-space"></div>
+                <div class="location-bar toolbar-field"></div>
+                <div class="toolbar-flexible-space"></div>
+              </div>
+              <div class="toolbar-button library"><div class="icon"></div></div>
+              <div class="toolbar-button sidebar"><div class="icon"></div></div>
+              <div class="toolbar-button overflow"><div class="icon"></div></div>
+              <div class="toolbar-separator"></div>
+              <div class="toolbar-button menu"><div class="icon"></div></div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="content-container page-start">
+          <div id="page-start-container">
+            <div class="section section-top-sites">
+              <h1>Top Sites</h1>
+              <div class="grid grid-top-sites">
+                <div class="tile top-site"></div>
+                <div class="tile top-site"></div>
+                <div class="tile top-site"></div>
+                <div class="tile top-site"></div>
+                <div class="tile top-site"></div>
+                <div class="tile top-site"></div>
+              </div>
+            </div>
+
+            <div class="section section-highlights">
+              <h1>Highlights</h1>
+              <div class="grid grid-highlights">
+                <div class="tile highlight"></div>
+                <div class="tile highlight"></div>
+                <div class="tile highlight"></div>
+                <div class="tile highlight"></div>
+                <div class="tile highlight"></div>
+                <div class="tile highlight"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <!-- Window - Inner [End] -->      
+
+    </div>
+    <!-- Window [End] -->
+    <script>
+
+      /*--- Fullscreen ---*/
+      document.addEventListener("keydown", function(e) {
+        if (e.keyCode == 13) {
+          toggleFullScreen();
+        }
+      }, false);
+      
+/*
+      function toggleFullScreen() {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen(); 
+          }
+        }
+      }
+*/
+
+      function toggleFullScreen() {
+        document.getElementById("window-main").requestFullscreen();
+      }
+
+      /*--- Tab Separators ---*/
+      $(".tab").mouseover(function() {
+        $(this).prev(".tab-separator").addClass("tall"); 
+        $(this).next(".tab-separator").addClass("tall"); 
+      });
+      $(".tab").mouseout(function() {
+        $(this).prev(".tab-separator").removeClass("tall"); 
+        $(this).next(".tab-separator").removeClass("tall"); 
+      });
+
+
+      /*--- Tab Selection ---*/
+      $(".tabs-container").on('click','.tab',function() {
+        var tabWidth = $(".tab.active").width();
+
+        $(".tab-separator").removeClass("hidden"); 
+        $(".tab").removeClass("active"); 
+        $(".tab").removeClass("animated"); 
+        $(this).prev(".tab-separator").addClass("hidden"); 
+        $(this).next(".tab-separator").addClass("hidden"); 
+        $(this).addClass("active"); 
+        $(this).addClass("animated"); 
+
+        if (tabWidth <= 120) { 
+          $(".tab:not(.active) .icon.close").addClass("hidden");
+        }
+        $(".tab.active .icon.close").removeClass("hidden");
+      });
+      
+      $(".tab.attention").mouseup(function() {
+        $(this).removeClass("attention"); 
+      });
+
+
+      /*--- Tab Creation ---*/
+      $("#button-new-tab").mouseup(function() {
+        $(".tab-separator").removeClass("hidden"); 
+        $(".tab").removeClass("active"); 
+        $(".tab").removeClass("animated"); 
+        $(".tab").removeClass("animation-new-tab"); 
+        $( "<div class='tab-separator'></div><div class='tab active animation-new-tab'><div class='tab-indicator'></div><div class='tab-content'><div class='label'>New Tab</div><div class='icon close'></div></div></div>" ).insertBefore( $(this).prev() );
+        $(this).addClass("active"); 
+        $(this).addClass("animated"); 
+      });
+
+
+      /*--- Tab Close ---*/
+      $("#button-new-tab").mouseup(function() {
+        var tabWidth = $(".tab.active").width();
+        if (tabWidth <= 120) { 
+          $(".tab:not(.active) .icon.close").addClass("hidden");
+        } 
+      });
+      
+      $(".tab .icon.close").mouseup(function() {
+        if ($(this).parent().parent().hasClass("active")) {
+          if ($(this).parent().parent().next().next().hasClass("tab")) {
+            $(this).parent().parent().next().next(".tab").addClass("active");
+          }
+          else {
+            $(this).parent().parent().prev().prev(".tab").addClass("active");
+          }
+          $(".tab-separator").removeClass("hidden"); 
+          $(this).parent().parent().prev(".tab-separator").remove();
+          $(this).parent().parent().remove();
+        }
+        else {
+          $(this).parent().parent().prev(".tab-separator").remove();
+          $(this).parent().parent().remove();
+        }
+      });
+
+
+      /*--- Icon Animation ---*/
+      $(".toolbar-button").mouseup(function() {
+        $(this).find(".icon").addClass("pressed");
+        setTimeout(function(){ $(".icon").removeClass("pressed");}, 250);
+      });
+      
+      $(".toolbar-button.library").mouseup(function() {
+        $(this).toggleClass("toggled");
+      });
+
+      $(".toolbar-button.sidebar").mouseup(function() {
+        $(this).toggleClass("toggled");
+      });
+
+
+      /*--- Toggle Settings ---*/
+      $("#toggle-extra-drag-space").mouseup(function() {
+        $(".window").toggleClass("drag-space-enabled");
+        $(".window").removeClass("title-bar-enabled");
+        $("#toggle-title-bar").removeClass("toggled");
+        $("#toggle-extra-drag-space").toggleClass("toggled");
+      });
+
+      $("#toggle-title-bar").mouseup(function() {
+        $(".window").toggleClass("title-bar-enabled");
+        $(".window").removeClass("drag-space-enabled");
+        $("#toggle-extra-drag-space").removeClass("toggled");
+        $("#toggle-title-bar").toggleClass("toggled");
+      });
+
+      $("#toggle-density-compact").mouseup(function() {
+        $(".window").toggleClass("density-compact");
+        $(".window").removeClass("density-touch");
+        $("#toggle-density-touch").removeClass("toggled");
+        $(this).toggleClass("toggled");
+      });
+      
+      $("#toggle-density-touch").mouseup(function() {
+        $(".window").toggleClass("density-touch");
+        $(".window").removeClass("density-compact");
+        $("#toggle-density-compact").removeClass("toggled");
+        $(this).toggleClass("toggled");
+      });
+
+      $("#toggle-theme-lotus").mouseup(function() {
+        $(".window").removeClass("theme-spring-rain");
+        $("#toggle-theme-spring-rain").removeClass("toggled");
+        $(".window").toggleClass("theme-lotus");
+        $(this).toggleClass("toggled");
+      });
+      $("#toggle-theme-spring-rain").mouseup(function() {
+        $(".window").removeClass("theme-lotus");
+        $("#toggle-theme-lotus").removeClass("toggled");
+        $(".window").toggleClass("theme-spring-rain");
+        $(this).toggleClass("toggled");
+      });
+
+    </script>
+
+  </body>
+</html>
+
+

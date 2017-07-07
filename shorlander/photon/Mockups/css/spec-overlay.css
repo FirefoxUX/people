@@ -1,0 +1,80 @@
+/* ====================== */
+/* -----Spec Overlay----- */
+/* ====================== */
+
+.window {
+  position: relative;
+}
+.window:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(300,50%,50%,.1);
+  background-image: repeating-linear-gradient(hsla(300,50%,50%,.25) 0px, hsla(300,50%,50%,.25) 4px, transparent 4px, transparent 8px),
+                    repeating-linear-gradient(to right, hsla(300,50%,50%,.25) 0px, hsla(300,50%,50%,.25) 4px, transparent 4px, transparent 8px);
+  z-index: 999;
+}
+
+.toolbar-drag-spacer {
+  position: relative;
+  height: 100%;
+}
+.toolbar-drag-spacer:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(180,50%,50%,.25);
+  border: 1px solid hsla(180,50%,50%,.50);
+  z-index: 1099;
+  box-sizing: border-box;
+}
+
+.tab[pinned] {
+  pointer-events: relative;
+}
+.tab[pinned]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(180,50%,50%,.25);
+  border: 1px solid hsla(180,50%,50%,.50);
+  z-index: 1099;
+  box-sizing: border-box;
+}
+
+.toolbar-button {
+  pointer-events: relative;
+}
+.toolbar-button:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(180,50%,50%,.25);
+  border: 1px solid hsla(180,50%,50%,.50);
+  z-index: 1099;
+  box-sizing: border-box;
+}
+.toolbar-button.back:before {
+  box-sizing: content-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

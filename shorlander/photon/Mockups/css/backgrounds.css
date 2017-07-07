@@ -1,0 +1,18 @@
+.blue {
+  background-color: #0A8DFF; 
+}
+
+.blue-gradient {
+  background-image: linear-gradient(330deg, #0052CC, #0A8DFF);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.background-desktop-picture {
+  background-image: url("../images-general/background-image.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+

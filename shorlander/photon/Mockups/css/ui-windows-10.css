@@ -1,0 +1,142 @@
+/* ====================== */
+/* ------Variables------- */
+/* ====================== */
+
+
+
+/* ====================== */
+/* ------UI Styles------- */
+/* ====================== */
+
+/* --Window-- */
+.window {
+  background-attachment: fixed;
+  background-size: cover;
+  box-shadow: 0 0 0 1px #0A75D3,
+              0 16px 40px hsla(0,0%,0%,.6);
+}
+
+
+/* --Window Controls-- */
+.window-control:hover {
+  background-color: var(--color-chrome-tabs-foreground-10);
+}
+
+.window-control:hover:active {
+  background-color: var(--color-chrome-tabs-foreground-20);
+}
+
+.window-control.close {
+  background-image: url("../images-windows/window-close-white.svg");
+}
+.window-control.close:hover {
+  background-color: #ff0039;
+  background-image: url("../images-windows/window-close-white.svg");
+}
+.window-control.close:hover:active {
+  background-color: #d70022;
+}
+
+.window-control.minimize {
+  background-image: url("../images-windows/window-minimize-white.svg");
+}
+
+.window-control.fullscreenZoomMax {
+  background-image: url("../images-windows/window-maximize-white.svg");
+}
+
+.window-container.maximized .window-control.fullscreenZoomMax {
+  background-image: url("../images-windows/window-restore-white.svg");
+}
+
+
+
+/* --Tabs-- */
+.tab-bar {
+  flex-direction: row-reverse;
+}
+
+
+
+/* --Toolbars-- */
+.toolbar-button.bookmark-item.folder .icon { background-image: url("../images-windows/icon-sidebar-folder-16.svg"); }
+
+
+
+/* --Sidebar-- */
+/* Sidebar Icons */
+.sidebar-field-filter { background-image: url("../images-windows/search-12.svg"); }
+.sidebar-item.item-folder > .icon { background-image: url("../images-windows/icon-sidebar-folder-16.svg"); }
+
+
+
+/* --Title Bar-- */
+.title {
+  justify-content: start;
+}
+
+
+
+/* --Configurations-- */ 
+/* Title Bar Enabled */
+.window.title-bar-enabled .title-bar {
+  height: 30px;
+}
+
+.window.title-bar-enabled .tab-bar .window-controls-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  height: 30px;
+}
+
+
+
+/* Maximized */
+.window-container.maximized {
+  padding: 0;
+}
+
+.window-container.maximized .window {
+  width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  margin: 0;
+}
+
+.window-container.maximized .window .tab-bar .toolbar-drag-spacer:first-child {
+  width: 0;
+  margin-left: -1px;
+}
+
+.window-container.maximized .window.drag-space-enabled .drag-space {
+  height: 0;
+}
+
+
+
+/* System Colors Enabled */
+.window.theme-system {
+  /* Chrome Colors */
+  --color-chrome-tabs-background-values: 207, 100%, 42%;
+  --color-chrome-tabs-background: hsl(var(--color-chrome-tabs-background-values));
+  --color-chrome-tabs-foreground-values: 0, 0%, 100%;
+  --color-chrome-tabs-foreground: hsl(var(--color-chrome-tabs-foreground-values));
+  --color-chrome-tabs-foreground-10: hsla(var(--color-chrome-tabs-foreground-values),.1);
+  --color-chrome-tabs-foreground-20: hsla(var(--color-chrome-tabs-foreground-values),.2);
+  --color-chrome-tabs-foreground-30: hsla(var(--color-chrome-tabs-foreground-values),.3);
+  --color-chrome-tabs-foreground-90: hsla(var(--color-chrome-tabs-foreground-values),.9);
+}
+
+
+/* Light Theme Enabled */
+.window.theme-light .window-control.close { background-image: url("../images-windows/window-close.svg"); }
+.window.theme-light .window-control.close:hover { background-image: url("../images-windows/window-close-white.svg"); }
+.window.theme-light .window-control.minimize { background-image: url("../images-windows/window-minimize.svg"); }
+.window.theme-light .window-control.fullscreenZoomMax { background-image: url("../images-windows/window-maximize.svg"); }
+.window.theme-light.maximized .window-control.fullscreenZoomMax { background-image: url("../images-windows/window-restore.svg"); }
+
+
+
+
