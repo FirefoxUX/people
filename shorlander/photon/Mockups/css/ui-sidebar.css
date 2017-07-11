@@ -155,8 +155,15 @@
   cursor: default;
   outline: none;
 }
-.sidebar-item.selected {
-  background-color: var(--color-chrome-toolbars-foreground-05);
+.sidebar-item.selected,
+.sidebar-item.selected:hover {
+  background-color: var(--color-chrome-toolbars-foreground-20);
+}
+.sidebar-item:focus,
+.sidebar-item:focus:hover,
+.sidebar-item.selected:focus {
+  background-color: var(--color-blue-dark);
+  color: #fff;
 }
 
 .sidebar-sublist {
@@ -189,6 +196,9 @@
   transform: rotate(0);
   transition-property: transform;
   transition-duration: 150ms;
+}
+.sidebar-item.item-folder:focus > .arrow-disclosure {
+  background-image: url("../images-general/arrow-disclosure-collapsed-8-inverted.svg");
 }
 
 .sidebar-item.open > .arrow-disclosure {
@@ -224,4 +234,13 @@
 .sidebar-item.item-bookmark[site="mozilla"] .icon { background-image: url("../images-general/favicon-mozilla.svg"); }
 .sidebar-item.item-bookmark[site="mdn"] .icon { background-image: url("../images-general/favicon-mdn.svg"); }
 .sidebar-item.item-bookmark[site="firefox"] .icon { background-image: url("../images-general/favicon-firefox.png"); }
+
+.sidebar-item.item-folder:focus > .icon { background-image: url("../images-general/icon-sidebar-folder-16-inverted.svg"); }
+.sidebar-item.item-folder.item-feed:focus > .icon { background-image: url("../images-general/icon-sidebar-folder-live-16-inverted.svg"); }
+.sidebar-item.item-folder.item-smart:focus > .icon { background-image: url("../images-general/icon-sidebar-folder-smart-16-inverted.svg"); }
+
+.sidebar-item.item-folder.item-bookmarks-folder:focus > .icon { background-image: url("../images-general/icon-sidebar-folder-inverted.svg"); }
+.sidebar-item.item-folder.item-bookmarks-toolbar:focus > .icon { background-image: url("../images-general/icon-sidebar-bookmarks-toolbar-inverted.svg"); }
+.sidebar-item.item-folder.item-bookmarks-menu:focus > .icon { background-image: url("../images-general/icon-sidebar-bookmarks-menu-inverted.svg"); }
+.sidebar-item.item-folder.item-bookmarks-other:focus > .icon { background-image: url("../images-general/icon-sidebar-inbox-inverted.svg"); }
 

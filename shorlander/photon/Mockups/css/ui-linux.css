@@ -161,42 +161,26 @@
 /* -------Sidebars------- */
 /* ====================== */
 
-.sidebar-container {
-}
-
-
-/* Sidebar Header */
-.sidebar-header-container {
-  mix-blend-mode: multiply;
-}
-
-
-/* Sidebar Field */
-/* .sidebar-field-filter {
-  background-color: var(--color-chrome-toolbars-foreground-15);
-  border: 1px solid var(--color-chrome-toolbars-foreground-15);
-  box-shadow: 0 0 0 30px hsla(210, 100%, 60%, .0);
-  color: unset;
-} */
 .sidebar-field-filter:focus {
   border: 1px solid var(--color-accent);
 }
 
+.sidebar-item.item-folder > .icon { background-image: url("../images-windows/icon-sidebar-folder-16.svg"); }
 
-/* Sidebar List */
-.sidebar-item.selected {
+.sidebar-item.item-folder:focus > .icon { background-image: url("../images-windows/icon-sidebar-folder-16-inverted.svg"); }
+
+.sidebar-item:hover {
   background-color: var(--color-chrome-toolbars-foreground-10);
-  background-blend-mode: color-burn;
-  mix-blend-mode: multiply;
 }
 
-.sidebar-item.item-folder > .arrow-disclosure {
-  mix-blend-mode: multiply; 
+.sidebar-item:focus,
+.sidebar-item:focus:hover,
+.sidebar-item.selected:focus {
+  background-color: var(--color-accent);
+  color: #fff;
 }
 
-.sidebar-item > .icon:not(.favicon) {
-  mix-blend-mode: multiply;
-}
+
 
 
 

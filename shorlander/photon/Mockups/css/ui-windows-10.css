@@ -68,6 +68,11 @@
 .sidebar-field-filter { background-image: url("../images-windows/search-12.svg"); }
 .sidebar-item.item-folder > .icon { background-image: url("../images-windows/icon-sidebar-folder-16.svg"); }
 
+.sidebar-item.item-folder:focus > .icon { background-image: url("../images-windows/icon-sidebar-folder-16-inverted.svg"); }
+
+.sidebar-item:hover {
+  background-color: var(--color-chrome-toolbars-foreground-10);
+}
 
 
 /* --Title Bar-- */

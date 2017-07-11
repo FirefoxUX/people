@@ -175,6 +175,11 @@
   mix-blend-mode: multiply;
 }
 
+.sidebar-item.selected:focus {
+  background-blend-mode: normal;
+  mix-blend-mode: normal;
+}
+
 .sidebar-item.item-folder > .arrow-disclosure {
   mix-blend-mode: multiply; 
 }
@@ -182,6 +187,13 @@
 .sidebar-item > .icon:not(.favicon) {
   mix-blend-mode: multiply;
 }
+
+.sidebar-item.selected:focus > .arrow-disclosure,
+.sidebar-item.selected:focus > .icon:not(.favicon) {
+  background-blend-mode: normal;
+  mix-blend-mode: normal;
+}
+
 
 
 
