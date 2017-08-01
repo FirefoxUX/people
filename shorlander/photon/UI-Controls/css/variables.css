@@ -1,0 +1,69 @@
+/* ====================== */
+/* ------Variables------- */
+/* ====================== */
+
+:root {
+  /* Colors */
+  --blue-50-values: 210, 100%, 52%;
+  --blue-60-values: 214, 100%, 44%;
+  --blue-70-values: 218, 100%, 33%;
+  --blue-80-values: 223, 100%, 23%;
+
+  --blue-50: hsl(var(--blue-50-values));
+  --blue-60: hsl(var(--blue-60-values));
+  --blue-70: hsl(var(--blue-70-values));
+  --blue-80: hsl(var(--blue-80-values));
+
+  --blue-50-10: hsla(var(--blue-50-values), .1);
+  --blue-50-20: hsla(var(--blue-50-values), .2);
+  
+  
+  --teal-50-values: 180, 100%, 50%;
+  --teal-60-values: 184, 100%, 42%;
+  --teal-70-values: 188, 100%, 32%;
+  --teal-80-values: 192, 100%, 22%;
+
+  --teal-50: hsl(var(--teal-50-values));
+  --teal-60: hsl(var(--teal-60-values));
+  --teal-70: hsl(var(--teal-70-values));
+  --teal-80: hsl(var(--teal-80-values));
+
+  --teal-50-10: hsla(var(--teal-50-values), .1);
+  --teal-50-20: hsla(var(--teal-50-values), .2);
+
+  --teal-60-10: hsla(var(--teal-60-values), .1);
+  --teal-60-20: hsla(var(--teal-60-values), .2);
+
+
+  --grey-10-values: 240, 9%, 98%;
+  --grey-30-values: 240, 5%, 85%;
+  --grey-80-values: 240, 3%, 30%;
+  --grey-90-values: 240, 5%, 5%;
+
+  --grey-10: hsl(var(--grey-10-values));
+  --grey-30: hsl(var(--grey-30-values));
+  --grey-80: hsl(var(--grey-80-values));
+  --grey-90: hsl(var(--grey-90-values));
+ 
+  --grey-10-025: hsla(var(--grey-10-values), .025);
+  --grey-10-05: hsla(var(--grey-10-values), .05);
+  --grey-10-10: hsla(var(--grey-10-values), .1);
+  --grey-10-20: hsla(var(--grey-10-values), .2);
+  --grey-10-30: hsla(var(--grey-10-values), .3);
+  --grey-10-40: hsla(var(--grey-10-values), .4);
+ 
+  --grey-90-025: hsla(var(--grey-90-values), .025);
+  --grey-90-05: hsla(var(--grey-90-values), .05);
+  --grey-90-10: hsla(var(--grey-90-values), .1);
+  --grey-90-20: hsla(var(--grey-90-values), .2);
+  --grey-90-30: hsla(var(--grey-90-values), .3);
+
+  /* Animation Curves */
+  --animation-curve: cubic-bezier(.07,.95,0,1);
+
+
+  /* Border Radii */
+  --border-radius: 2px;
+  --border-radius-inner: 3px;
+  --border-radius-outer: 4px;
+}

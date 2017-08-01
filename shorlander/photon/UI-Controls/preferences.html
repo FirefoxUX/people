@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Preferences</title>
+    <meta charset="UTF-8" />
+    
+    <link href="css/variables.css" type="text/css" rel="stylesheet" />
+    <link href="css/styles.css" type="text/css" rel="stylesheet" />
+  </head>
+  
+  <body spellcheck="false">
+    <div class="container-content">
+      <h1>General</h1>
+      
+      <section id="section-general-startup">
+        <h2 class="label-section">Startup</h2>
+        
+        <div class="group-ui-elements item-checkbox">
+          <input type="checkbox" id="checkbox-01" checked />
+          <label for="checkbox-01">Enable multi-process Nightly</label>
+        </div>
+        
+        <div class="group-ui-elements item-checkbox has-helptext">
+          <input type="checkbox" id="checkbox-02" checked />
+          <label for="checkbox-02">Always check if Nightly is your default browser</label>
+        </div>
+        <div class="group-ui-elements item-helptext">
+          😃👍 Nightly is currently your default browser
+        </div>
+        
+        <div class="group-ui-elements item-dropdown">
+          <label for="select-01">When Nightly starts:</label>
+          <select id="select-01">
+            <option value="value1" selected>Show my windows and tabs from last time</option> 
+            <option value="value2">Show my homepage</option>
+            <option value="value3">Show a blank page</option>
+          </select>
+        </div>
+
+        <div class="group-ui-elements item-field has-attached-buttons">
+          <label for="field-01">Home Page:</label>
+          <input id="field-01" type="text" placeholder="Nightly Start Page"/>
+        </div>
+
+        <div class="group-ui-elements item-button-group">
+          <button id="button-01" disabled>Use Current Page</button>
+          <button id="button-02">Use Bookmarks…</button>
+<!--           <button id="button-03" class="button-primary">Reset to Default</button> -->
+          <button id="button-03">Reset to Default</button>
+        </div>
+      </section>
+  
+      <hr />
+
+      <section id="section-general-tabs">
+        <h2 class="label-section">Tabs</h2>
+        
+        <div class="group-ui-elements item-checkbox">
+          <input type="checkbox" id="checkbox-05" />
+          <label for="checkbox-05">Ctrl+Tab cycles through tabs in recently used order</label>
+        </div>
+        
+        <div class="group-ui-elements item-checkbox">
+          <input type="checkbox" id="checkbox-06" checked />
+          <label for="checkbox-06">Open new windows in a new tab instead</label>
+        </div>
+        
+        <div class="group-ui-elements item-checkbox">
+          <input type="checkbox" id="checkbox-07" />
+          <label for="checkbox-07">When you open a link in a new tab, switch to it immediately</label>
+        </div>
+      </section>
+  
+      <hr />
+
+      <section id="section-general-languages">
+        <h2 class="label-section">Language</h2>
+        
+        <div class="group-ui-elements item-button">
+          <label for="button-07">Choose your preferred language for displaying pages</label>
+          <button id="button-07">Choose…</button>
+        </div>
+        
+        <div class="group-ui-elements item-checkbox">
+          <input type="checkbox" id="checkbox-08" />
+          <label for="checkbox-08">Check your spelling as you type</label>
+        </div>
+      </section>
+  
+      <hr />
+
+      <section id="section-general-downloads">
+        <h2 class="label-section">Downloads</h2>
+        
+        <div class="group-ui-elements item-checkbox">
+          <input type="radio" id="radio-02" name="radio-downloads" />
+          <label for="radio-02">Always ask you where to save files</label>
+        </div>
+        
+        <div class="group-ui-elements item-checkbox has-attached-buttons" style="margin-bottom: 4px;">
+          <input type="radio" id="radio-01" name="radio-downloads" checked />
+          <label for="radio-01">Save files to:</label>
+        </div>
+        <div class="group-ui-elements subitem">
+          <div class="group-ui-elements item-field-button-combo">
+            <input id="field-02" type="text" value="Downloads"/ >
+            <button id="button-08">Choose…</button>
+          </div>
+        </div>
+      </section>
+  
+      <hr />
+
+      <section id="section-general-downloads">
+        <h2 class="label-section">Applications</h2>
+
+        <div class="group-ui-elements item-field has-attached-buttons">
+          <input id="field-03" class="search-field" type="text" placeholder="Search file types or applications"/>
+        </div>
+        
+        <div class="group-ui-elements item-multiselect has-attached-buttons">
+          <table class="multiselect-table">
+            <thead>
+              <tr>
+                <td>Content Type</td>
+                <td class="separator"><div></div></td>
+                <td>Action</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td class="separator"></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="separator"></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+  
+      <hr />
+
+      <section id="section-general-fonts-and-colors">
+        <h2 class="label-section">Fonts &amp; Colors</h2>
+
+        <div class="group-ui-elements two-pane">
+        <div class="group-ui-elements item-dropdown">
+          <label for="select-03">Default font:</label>
+          <select id="select-03">
+            <option value="value1" selected>Default (Helvetica Neue)</option> 
+            <option value="value2">Comic Sans</option>
+            <option value="value3">Papyrus</option>
+          </select>
+        </div>
+        <div class="group-ui-elements item-dropdown">
+          <label for="select-04">Font size:</label>
+          <select id="select-04">
+            <option value="value1" selected>16</option> 
+            <option value="value2">17</option>
+            <option value="value3">18</option>
+          </select>
+        </div>
+        </div>
+        
+        <div class="group-ui-elements item-button-group">
+          <button id="button-09">Advanced…</button>
+          <div class="spacer"></div>
+          <button id="button-10">Colors…</button>
+        </div>
+      </section>
+  
+      <hr />
+
+      <h1>Search</h1>
+      <section id="section-general-search-defaults">
+        <h2 class="label-section">Default Search Engine</h2>
+        
+<!--
+        <div class="group-ui-elements item-sectiontext">
+          Nightly uses your default search engine in the location bar, search bar, and start page.
+        </div>
+-->
+        <div class="group-ui-elements item-dropdown has-helptext">
+          <label for="select-02">Search Engine:</label>
+          <select id="select-02">
+            <option value="value1" selected>Yahoo</option> 
+            <option value="value2">Google</option>
+            <option value="value3">Bing</option>
+          </select>
+        </div>
+        <div class="group-ui-elements item-helptext">
+          Nightly uses your default search engine in the location bar, search bar, and start page.
+        </div>
+        
+        <div class="group-ui-elements item-checkbox">
+          <input type="checkbox" id="checkbox-03" checked />
+          <label for="checkbox-03">Provide search suggestions</label>
+        </div>
+        
+        <div class="group-ui-elements item-checkbox subcheckbox">
+          <input type="checkbox" id="checkbox-04" checked />
+          <label for="checkbox-04">Show search suggestions in location bar results</label>
+        </div>
+        
+      </section>
+  
+      <hr />
+
+      <section id="section-general-search-oneoffs">
+        <h2 class="label-section">One-Click Search Engines</h2>
+        
+        <div class="group-ui-elements item-sectiontext">
+          The search bar lets you search alternate engines directly. Choose which ones to display.
+        </div>
+
+        <div class="group-ui-elements item-multiselect has-attached-buttons">
+          <table class="multiselect-table">
+            <thead>
+              <tr>
+                <td class="engine-status"></td>
+                <td class="separator"><div></div></td>
+                <td>Search Engine</td>
+                <td class="separator"><div></div></td>
+                <td>Keyword</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="engine-status"><input type="checkbox" id="checkbox-09" /></td>
+                <td class="separator"></td>
+                <td class="column-search-engine"><div class="favicon favicon-yahoo"></div><div class="label">Yahoo</div></td>
+                <td class="separator"></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="engine-status"><input type="checkbox" id="checkbox-10" /></td>
+                <td class="separator"></td>
+                <td class="column-search-engine"><div class="favicon favicon-google"></div><div class="label">Google</div></td>
+                <td class="separator"></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="group-ui-elements item-button-group">
+          <button id="button-04" disabled>Restore Default Search Engine</button>
+          <div class="spacer"></div>
+          <button id="button-05" disabled>Remove</button>
+        </div>
+        <div class="group-ui-elements item-link">
+          <div class="link"><a href="">Add more search engines</a></div>
+          <div class="link-icon"></div>
+        </div>
+      </section>
+
+    </div>
+  </body>
+  
+</html>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

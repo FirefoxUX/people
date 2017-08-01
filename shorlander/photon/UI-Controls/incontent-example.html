@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Styleguide - InContent Example</title>
+    <meta charset="UTF-8" />
+
+<!--
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+    <link href="styles-web.css" type="text/css" rel="stylesheet" />
+    <link href="styles-incontent.css" type="text/css" rel="stylesheet" />
+-->
+
+    <link href="styles-incontent-example.css" type="text/css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+    
+    <div class="layout-column-sidebar">
+      <div class="item-sidebar general selected">
+        <div class="icon"></div>
+        <div class="label">General</div>
+      </div>
+      <div class="item-sidebar search">
+        <div class="icon"></div>
+        <div class="label">Search</div>
+      </div>
+      <div class="item-sidebar content">
+        <div class="icon"></div>
+        <div class="label">Content</div>
+      </div>
+      <div class="item-sidebar">
+        <div class="icon"></div>
+        <div class="label">Applications</div>
+      </div>
+      <div class="item-sidebar privacy">
+        <div class="icon"></div>
+        <div class="label">Privacy</div>
+      </div>
+      <div class="item-sidebar">
+        <div class="icon"></div>
+        <div class="label">Security</div>
+      </div>
+      <div class="item-sidebar">
+        <div class="icon"></div>
+        <div class="label">Sync</div>
+      </div>
+      <div class="item-sidebar">
+        <div class="icon"></div>
+        <div class="label">Advanced</div>
+      </div>
+    </div>
+    
+    <div class="layout-column-content">
+      
+      <div class="center-content">
+      <section class="section-header">
+        <div class="section-header-title">General</div>
+      </section>
+      
+      <section class="section-prefs" id="section-startup">
+        <div class="section-prefs-subheader">On Startup:</div>
+        
+        <div class="section-prefs-container">
+          
+          <div class="checkboxItem"><input type="checkbox" id="checkbox01" /><label for="checkbox01">Enable multi-process Nightly</label></div>
+
+          <div class="checkboxItem"><input type="checkbox" id="checkbox02" checked /><label for="checkbox02">Always check if Nightly is your default browser</label></div>
+          <div class="prefs-help-text">
+            <div class="icon"></div> 
+            <div>Nightly is currently your default browser</div>
+          </div>
+
+          <div class="pref-row">
+            <label for="select01">When Nightly Starts:</label>
+            <select id="select01">
+              <option value="value1" selected>Show my windows and tabs from last time</option> 
+              <option value="value2">Show my homepage</option>
+              <option value="value3">Show a blank page</option>
+            </select>
+          </div>
+
+          <div class="pref-row">
+            <label for="field-homepage">Home Page:</label>
+            <input type="text" id="field-homepage" placeholder="Nightly Start Page" />
+          </div>
+          
+          <div class="pref-row relevant-group">
+            <label for=""></label>
+            <div class="button-group">
+               <button name="button01" class="normal">Use Current Pages</button>
+               <button name="button02" class="normal">Use Bookmark…</button>
+               <button name="button03" class="normal">Restore to Default</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-prefs" id="section-downloads">
+        <div class="section-prefs-subheader">Downloading:</div>
+        
+        <div class="section-prefs-container">
+          <div class="radioItem">
+            <input type="radio" id="radio01" name="radio" checked />
+            <label for="radio01">Save files to:</label>
+            <div class="comboWidget-input-button">
+              <input type="text" id="field-downloads-location" class="field-combo" value="Downloads" autocomplete="off" />
+              <button name="button-downloads-choose" class="button-combo">Choose…</button>
+            </div>
+          </div>
+          <div class="radioItem"><input type="radio" id="radio02" name="radio" /><label for="radio02">Always ask me where to save files</label></div>
+        </div>
+      </section>
+
+      <section class="section-prefs" id="section-tabs">
+        <div class="section-prefs-subheader">Tabs:</div>
+        
+        <div class="section-prefs-container">
+          <div class="checkboxItem"><input type="checkbox" id="checkbox03" checked /><label for="checkbox03">Open new windows in a new tab instead</label></div>
+          <div class="checkboxItem"><input type="checkbox" id="checkbox04" checked /><label for="checkbox04">Don't load tabs until selected</label></div>
+          <div class="checkboxItem"><input type="checkbox" id="checkbox05" /><label for="checkbox05">When I open a link in a new tab, switch to it immediately</label></div>
+        </div>
+      </section>
+      </div>
+      
+    </div>
+
+  </body>
+</html>
