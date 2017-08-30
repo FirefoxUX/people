@@ -427,12 +427,12 @@
 /*   background-color: var(--color-teal-lighter-10); */
 }
 
-.toolbar-button:not(.bookmark-item):hover:active .icon {
+/* .toolbar-button:not(.bookmark-item):hover:active .icon {
   transform: scale(1.08);
 }
 .toolbar-button:not(.bookmark-item).pressed .icon {
   animation: 200ms var(--animation-curve) 0s 1 normal both kf-animation-icon-bounce;
-}
+} */
 /*
 .toolbar-button.pressed {
   animation: 200ms var(--animation-curve) 0s 1 normal both kf-animation-toolbar-button-grow;
@@ -654,9 +654,6 @@
 
 .toolbar-field > .toolbar-button .icon {
   opacity: .6;
-}
-.toolbar-field > .toolbar-button:hover .icon {
-  opacity: .8;
 }
 
 .toolbar-button.search-go .icon { background-image: url("../images-general/forward-16.svg"); display: none; }

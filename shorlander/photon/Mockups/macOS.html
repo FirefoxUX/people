@@ -531,11 +531,6 @@
 
 
       /*--- Icon Animation ---*/
-      $(".toolbar-button").mouseup(function() {
-        $(this).addClass("pressed");
-        setTimeout(function(){ $(".toolbar-button").removeClass("pressed");}, 250);
-      });
-      
       $(".toolbar-button.sidebar").mouseup(function() {
         $(this).toggleClass("toggled");
         $(".sidebar-container").toggleClass("hidden");
