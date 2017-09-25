@@ -264,6 +264,11 @@
   border-top: 1px solid transparent;  
 }
 
+.window.drag-space-enabled .tab-separator,
+.window.title-bar-enabled .tab-separator {
+  height: 100%;
+}
+
 .window-container.maximized .content-container {
   margin: -1px 0 0 0;
 }
