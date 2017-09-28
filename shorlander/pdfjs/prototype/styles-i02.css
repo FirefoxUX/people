@@ -1,0 +1,504 @@
+* {
+  padding: 0;
+  margin: 0;
+  -moz-user-select:none;
+  cursor: default;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-color: #404040;
+  background-image: url(images/texture.png);
+  font-family: Segoe UI, Verdana, sans-serif;
+}
+
+#outerContainer {
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  width: 100%;
+  height: 100%;
+  -moz-user-select:none;
+  cursor: default;
+}
+
+#sidebarContainer {
+  width: 200px;
+  height: 100%;
+  background-color: hsla(0,0%,0%,.1);
+  box-shadow: inset -1px 0 0 hsla(0,0%,0%,.25);
+  overflow: auto;
+}
+
+#viewerContainer {
+  -moz-box-flex: 1;
+  height: 100%;
+  box-shadow: inset 1px 0 0 hsla(0,0%,100%,.05);
+}
+
+.toolbar {
+  position: fixed;
+  width: 100%;
+  height: 32px;
+  z-index: 9999;
+  -moz-user-select:none;
+  cursor: default;
+}
+
+#toolbarContainer {
+  display: -moz-box;
+  width: 100%;
+}
+
+#toolbarSidebar {
+  display: -moz-box;
+  width: 200px;
+  height: 32px;
+  background-image: url(images/texture.png),
+                    -moz-linear-gradient(hsla(0,0%,30%,.99), hsla(0,0%,25%,.95));
+  box-shadow: inset -2px 0 0 hsla(0,0%,100%,.08),
+              inset 0 1px 1px hsla(0,0%,0%,.15),
+              inset 0 -1px 0 hsla(0,0%,100%,.05),
+              0 1px 0 hsla(0,0%,0%,.15),
+              0 1px 1px hsla(0,0%,0%,.1);
+}
+
+#toolbarViewer {
+  display: -moz-box;
+  -moz-box-flex: 1;
+  margin-left: -1px;
+  height: 32px;
+  background-image: url(images/texture.png),
+                    -moz-linear-gradient(hsla(0,0%,32%,.99), hsla(0,0%,27%,.95));
+  border-left: 1px solid hsla(0,0%,0%,.5);
+  box-shadow: inset 1px 0 0 hsla(0,0%,100%,.08),
+              inset 0 1px 1px hsla(0,0%,0%,.15),
+              inset 0 -1px 0 hsla(0,0%,100%,.05),
+              0 1px 0 hsla(0,0%,0%,.15),
+              0 1px 1px hsla(0,0%,0%,.1);
+}
+
+.splitToolbarButton {
+  margin: 4px 2px 4px 0;
+  display: -moz-box;
+}
+.splitToolbarButton > .toolbarButton {
+  position: relative;
+  margin: 0 -1px;
+  padding: 3px 6px;
+  border-radius: 0;
+}
+.splitToolbarButton:hover > .toolbarButton,
+.splitToolbarButton.toggled > .toolbarButton {
+  background-color: hsla(0,0%,0%,.12);
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
+  background-clip: padding-box;
+  border: 1px solid hsla(0,0%,0%,.35);
+  border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,
+              0 0 1px hsla(0,0%,100%,.15) inset,
+              0 1px 0 hsla(0,0%,100%,.05);
+  -moz-transition-property: background-color, border-color, box-shadow;
+  -moz-transition-duration: 150ms;
+  -moz-transition-timing-function: ease;
+}
+.splitToolbarButton > .toolbarButton:hover,
+.dropdownToolbarButton:hover {
+  background-color: hsla(0,0%,0%,.2);
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,
+              0 0 1px hsla(0,0%,100%,.15) inset,
+              0 0 1px hsla(0,0%,0%,.05);
+  z-index: 199;
+}
+.splitToolbarButton > .toolbarButton:first-child  {
+  position: relative;
+  margin: 0;
+  margin-right: -1px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-right-color: transparent;
+}
+.splitToolbarButton > .toolbarButton:last-child  {
+  position: relative;
+  margin: 0;
+  margin-left: -1px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-left-color: transparent;
+}
+.splitToolbarButtonSeparator {
+  margin: 4px 0;
+  width: 1px;
+  background-color: hsla(0,0%,00%,.5);
+  z-index: 99;
+  box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);
+}
+.splitToolbarButton:hover > .splitToolbarButtonSeparator,
+.splitToolbarButton.toggled > .splitToolbarButtonSeparator {
+  margin: 1px 0;
+  box-shadow: 0 0 0 1px hsla(0,0%,100%,.03);
+  -moz-transition-property: margin;
+  -moz-transition-duration: 10ms;
+  -moz-transition-timing-function: ease;
+}
+
+.toolbarButton,
+.dropdownToolbarButton {
+  -moz-box-flex: 0;
+  min-width: 16px;
+  padding: 3px 7px;
+  margin: 4px 2px 4px 0;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: hsl(0,0%,95%);
+  font-size: 12px;
+  line-height: 14px;
+  -moz-user-select:none;
+  cursor: default;
+  -moz-transition-property: background-color, border-color, box-shadow;
+  -moz-transition-duration: 150ms;
+  -moz-transition-timing-function: ease;
+}
+
+.toolbarButton:hover,
+.dropdownToolbarButton {
+  background-color: hsla(0,0%,0%,.12);
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
+  background-clip: padding-box;
+  border: 1px solid hsla(0,0%,0%,.35);
+  border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,
+              0 0 1px hsla(0,0%,100%,.15) inset,
+              0 1px 0 hsla(0,0%,100%,.05);
+}
+
+.toolbarButton:hover:active,
+.dropdownToolbarButton:hover:active {
+  background-color: hsla(0,0%,0%,.2);
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
+  border-color: hsla(0,0%,0%,.35) hsla(0,0%,0%,.4) hsla(0,0%,0%,.45);
+  box-shadow: 0 1px 1px hsla(0,0%,0%,.1) inset,
+              0 0 1px hsla(0,0%,0%,.2) inset,
+              0 1px 0 hsla(0,0%,100%,.05);
+  -moz-transition-property: background-color, border-color, box-shadow;
+  -moz-transition-duration: 10ms;
+  -moz-transition-timing-function: linear;
+}
+
+.toolbarButton.toggled,
+.splitToolbarButton.toggled > .toolbarButton.toggled {
+  background-color: hsla(0,0%,0%,.3);
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
+  border-color: hsla(0,0%,0%,.4) hsla(0,0%,0%,.45) hsla(0,0%,0%,.5);
+  box-shadow: 0 1px 1px hsla(0,0%,0%,.1) inset,
+              0 0 1px hsla(0,0%,0%,.2) inset,
+              0 1px 0 hsla(0,0%,100%,.05);
+  -moz-transition-property: background-color, border-color, box-shadow;
+  -moz-transition-duration: 10ms;
+  -moz-transition-timing-function: linear;
+}
+
+.toolbarButton.toggled:hover:active,
+.splitToolbarButton.toggled > .toolbarButton.toggled:hover:active {
+  background-color: hsla(0,0%,0%,.4);
+  border-color: hsla(0,0%,0%,.4) hsla(0,0%,0%,.5) hsla(0,0%,0%,.55);
+  box-shadow: 0 1px 1px hsla(0,0%,0%,.2) inset,
+              0 0 1px hsla(0,0%,0%,.3) inset,
+              0 1px 0 hsla(0,0%,100%,.05);
+}
+
+.dropdownToolbarButton {
+  min-width: 124px;
+}
+.dropdownToolbarButton::after {
+  display: inline-block;
+  float: right;
+  content: url(images/toolbarButton-menuArrows.png);
+}
+
+.splitToolbarButton:first-child,
+.toolbarButton:first-child {
+  margin-left: 4px;
+}
+.splitToolbarButton:last-child,
+.toolbarButton:last-child {
+  margin-right: 4px;
+}
+
+.toolbarButtonSpacer {
+  width: 30px;
+}
+
+.toolbarButtonFlexibleSpacer {
+  -moz-box-flex: 1;
+  min-width: 30px;
+}
+
+.toolbarButton.sidebarToggle::before {
+  display: inline-block;
+  content: url(images/toolbarButton-sidebarToggle.png);
+}
+    
+.toolbarButton.pageUp::before {
+  display: inline-block;
+  content: url(images/toolbarButton-pageUp.png);
+}
+    
+.toolbarButton.pageDown::before {
+  display: inline-block;
+  content: url(images/toolbarButton-pageDown.png);
+}
+
+.toolbarButton.zoomOut::before {
+  display: inline-block;
+  content: url(images/toolbarButton-zoomOut.png);
+}
+    
+.toolbarButton.zoomIn::before {
+  display: inline-block;
+  content: url(images/toolbarButton-zoomIn.png);
+}
+
+.toolbarButton.print::before {
+  display: inline-block;
+  content: url(images/toolbarButton-print.png);
+}
+
+.toolbarButton.download::before {
+  display: inline-block;
+  content: url(images/toolbarButton-download.png);
+}
+
+.toolbarButton.bookmark::before {
+  display: inline-block;
+  content: url(images/toolbarButton-bookmark.png);
+}
+    
+.toolbarButton.viewThumbnail::before {
+  display: inline-block;
+  content: url(images/toolbarButton-viewThumbnail.png);
+}
+    
+.toolbarButton.viewOutline::before {
+  display: inline-block;
+  content: url(images/toolbarButton-viewOutline.png);
+}
+
+.toolbarButton.pageSelector {
+  position: relative;
+}
+
+.toolbarField {
+  min-width: 16px;
+  width: 32px;
+  padding: 3px 6px;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: hsla(0,0%,100%,.09);
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
+  background-clip: padding-box;
+  border: 1px solid hsla(0,0%,0%,.35);
+  border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+  box-shadow: 0 1px 0 hsla(0,0%,0%,.05) inset,
+              0 1px 0 hsla(0,0%,100%,.05);
+  color: hsl(0,0%,95%);
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  outline-style: none;
+  -moz-user-select:none;
+  cursor: default;
+  -moz-transition-property: background-color, border-color, box-shadow;
+  -moz-transition-duration: 150ms;
+  -moz-transition-timing-function: ease;
+}
+
+.toolbarField:hover {
+  background-color: hsla(0,0%,100%,.11);
+  border-color: hsla(0,0%,0%,.4) hsla(0,0%,0%,.43) hsla(0,0%,0%,.45);
+}
+
+.toolbarField:focus {
+  background-color: hsla(0,0%,100%,.15);
+  border-color: hsla(204,100%,65%,.8) hsla(204,100%,65%,.85) hsla(204,100%,65%,.9);
+}
+
+.toolbarLabel {
+  min-width: 16px;
+  padding: 3px 6px 3px 2px;
+  margin: 0 2px 0 0;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: hsl(0,0%,75%);
+  font-size: 12px;
+  line-height: 14px;
+  text-align: left;
+  -moz-user-select:none;
+  cursor: default;
+}
+
+.pageSelectorLabel {
+  color: hsl(0,0%,75%);
+}
+
+.arrowPanelPopup {
+  position: absolute;
+  top: 20px;
+  left: -28px;
+  -moz-transform: scale(0);
+  -moz-transition-duration: 150ms;
+}
+
+.arrowPanelArrowTop {
+  position: relative;
+  height: 15px;
+  width: 100%;
+  background-image: url(images/arrowPanel-arrowTop.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  z-index: 99;
+}
+.arrowPanelBody {
+  padding: 8px;
+  margin-top: -8px;
+  border-width: 8px;
+  border-style: solid;
+  -moz-border-image: url(images/arrowPanel-borderImage.png) 8 fill stretch;
+}
+
+.arrowPanelRow {
+  display: -moz-box;
+}
+
+.arrowPanelPopup.animated {
+  -moz-transform: scale(1);
+}
+
+
+.viewer {
+  width: 100%;
+  height: 100%;
+  margin-top: -27px;
+  -moz-user-select:none;
+  cursor: default;
+}
+
+.viewerImage {
+  margin: 80px 20px 20px;
+  box-shadow: 0 0 0 1px hsla(0,0%,0%,.5),
+              0 2px 8px hsla(0,0%,0%,.3);
+
+}
+
+
+#thumbnailView {
+  position: fixed;
+  width: 120px;
+  height: 100%;
+  padding: 51px 40px 0;
+  overflow: auto;
+}
+
+.thumbnail {
+  position: relative;
+  float: left;
+  width: 120px;
+  height: 150px;
+}
+
+.thumbnailImage {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 98px;
+  height: 128px;
+  background-image: url(images/thumbnail.png);
+  border: 1px solid transparent;
+  box-shadow: 0 0 0 1px hsla(0,0%,0%,.5),
+              0 2px 8px hsla(0,0%,0%,.3);
+  opacity: .8;
+  z-index: 99;
+  -moz-transition-duration: 150ms;
+}
+.thumbnailSelectionRing {
+  position: absolute;
+  width: 112px;
+  height: 142px;
+  margin: 4px;
+  border-radius: 2px;
+  -moz-transition-duration: 150ms;
+}
+    
+.thumbnail:hover > .thumbnailImage {
+  opacity: .9;
+}
+
+.thumbnail:hover > .thumbnailSelectionRing {
+  background-color: hsla(0,0%,100%,.15);
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
+  background-clip: padding-box;
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,
+              0 0 1px hsla(0,0%,100%,.2) inset,
+              0 0 1px hsla(0,0%,0%,.2);
+  color: hsla(0,0%,100%,.9);
+}
+
+.thumbnail.selected > .thumbnailImage {
+  box-shadow: 0 0 0 1px hsla(0,0%,0%,.5);
+  opacity: 1;
+}
+
+.thumbnail.selected > .thumbnailSelectionRing {
+  background-color: hsla(0,0%,100%,.3);
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
+  background-clip: padding-box;
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,
+              0 0 1px hsla(0,0%,100%,.1) inset,
+              0 0 1px hsla(0,0%,0%,.2);
+  color: hsla(0,0%,100%,1);
+}
+
+#outlineView {
+  position: fixed;
+  width: 188px;
+  height: 100%;
+  padding: 52px 4px 0;
+  overflow: auto;
+}
+
+.outlineEntry {
+  width: -moz-calc(100% - 8px);
+  height: 20px;
+  padding: 2px 0 0 10px;
+  margin-bottom: 1px;
+  border-radius: 2px;
+  color: hsla(0,0%,100%,.8);
+  font-size: 13px;
+  line-height: 15px;
+  -moz-user-select:none;
+  cursor: default;
+}
+
+.outlineEntry:hover {
+  background-color: hsla(0,0%,100%,.02);
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
+  background-clip: padding-box;
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,
+              0 0 1px hsla(0,0%,100%,.2) inset,
+              0 0 1px hsla(0,0%,0%,.2);
+  color: hsla(0,0%,100%,.9);
+}
+
+.outlineEntry.selected {
+  background-color: hsla(0,0%,100%,.08);
+  background-image: -moz-linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
+  background-clip: padding-box;
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,
+              0 0 1px hsla(0,0%,100%,.1) inset,
+              0 0 1px hsla(0,0%,0%,.2);
+  color: hsla(0,0%,100%,1);
+}

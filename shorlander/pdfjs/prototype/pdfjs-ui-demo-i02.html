@@ -1,0 +1,163 @@
+<html>
+	<head>
+		<title>PDF - i02</title>
+
+    <link type="text/css" href="styles-i02.css" rel="Stylesheet" />	
+
+    <link type="text/css" href="css/smoothness/jquery-ui-1.8.18.custom.css" rel="Stylesheet" />	
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
+
+	</head>
+	
+	<body>
+    
+    <div id="outerContainer">
+
+      <div class="toolbar">
+        <div id="toolbarContainer">
+          <div id="toolbarSidebar">
+            <div class="splitToolbarButton toggled">
+              <div class="toolbarButton viewThumbnail toggled" title="Show Thumbnails"></div>
+              <div class="splitToolbarButtonSeparator"></div>
+              <div class="toolbarButton viewOutline" title="Show Document Outline"></div>
+            </div>
+          </div>
+          <div id="toolbarViewer">
+            <div class="toolbarButton sidebarToggle toggled" title="Toggle Sidebar"></div>
+            <div class="toolbarButtonSpacer"></div>
+            <div class="splitToolbarButton">
+              <div class="toolbarButton pageUp" title="Previous Page"></div>
+              <div class="splitToolbarButtonSeparator"></div>
+              <div class="toolbarButton pageDown" title="Next Page"></div>
+            </div>
+            <div style="position: relative; display: -moz-box;">
+              <div class="toolbarButton pageSelector"><span class="pageSelectorLabel">Page:</span> 1 of 4</div>
+              <div class="arrowPanelPopup">
+                <div class="arrowPanelArrowTop"></div>
+                <div class="arrowPanelBody">
+                  <div class="arrowPanelRow">
+                    <div class="toolbarLabel">Go to page:</div>
+                    <div class="toolbarField" contentEditable="true">1</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="toolbarButtonFlexibleSpacer"></div>
+            <div class="splitToolbarButton">
+              <div class="toolbarButton zoomOut" title="Zoom Out"></div>
+              <div class="splitToolbarButtonSeparator"></div>
+              <div class="toolbarButton zoomIn" title="Zoom In"></div>
+            </div>
+            <div class="dropdownToolbarButton">Auto</div>
+            <div class="toolbarButtonFlexibleSpacer"></div>
+            <div class="toolbarButton print" title="Print"></div>
+            <div class="toolbarButton download"  title="Download"></div>
+            <div class="toolbarButtonSpacer"></div>
+            <div class="toolbarButton bookmark" title="Bookmark (or copy) current location"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sidebarContainer">
+        <div id="thumbnailView">
+          <div class="thumbnail selected">
+            <div class="thumbnailImage"></div>
+            <div class="thumbnailSelectionRing"></div>
+          </div>
+          <div class="thumbnail">
+            <div class="thumbnailImage"></div>
+            <div class="thumbnailSelectionRing"></div>
+          </div>
+          <div class="thumbnail">
+            <div class="thumbnailImage"></div>
+            <div class="thumbnailSelectionRing"></div>
+          </div>
+          <div class="thumbnail">
+            <div class="thumbnailImage"></div>
+            <div class="thumbnailSelectionRing"></div>
+          </div>
+        </div>
+        <div id="outlineView">
+          <div class="outlineEntry selected">Page 1</div>
+          <div class="outlineEntry">Page 2</div>
+          <div class="outlineEntry">Page 3</div>
+          <div class="outlineEntry">Page 4</div>
+        </div>
+      </div>
+      <div id="viewerContainer">
+        <div class="viewer" style="text-align: center;">
+          <div class="viewerImage"><img src="images/pdf.jpg" width="100%" alt="pdf"/></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $( "#outlineView" ).hide();
+    </script>
+
+    <script>
+      $( "#sidebarContainer" ).resizable({ handles: 'e', maxWidth: 320, minWidth: 200, alsoResize: '#toolbarSidebar, #thumbnailView, #outlineView' });
+    </script>
+    
+    <script>
+      $(".sidebarToggle").mouseup(function() {
+        $(".sidebarToggle").toggleClass("toggled");
+        
+        if ($('#sidebarContainer').is(':visible')) {
+          $('#sidebarContainer').hide('fast');
+            } else {
+          $('#sidebarContainer').show('fast');
+        }
+
+        if ($('#toolbarSidebar').is(':visible')) {
+          $('#toolbarSidebar').hide('fast');
+            } else {
+          $('#toolbarSidebar').show('fast');
+        }
+      });
+    </script>
+    
+    <script>
+      $(".thumbnail").mouseup(function() {
+        $(".thumbnail").removeClass("selected");
+        $(this).addClass("selected");
+      });
+    </script>
+    
+    <script>
+      $('.viewOutline').mouseup(function() {
+        if ($('#thumbnailView').is(':visible')) {
+          $('.viewThumbnail').toggleClass("toggled");
+          $('#thumbnailView').hide();
+          $('#outlineView').show();
+          $('.viewOutline').toggleClass("toggled");          
+        }
+      });
+      
+      $('.viewThumbnail').mouseup(function() {
+        if ($('#outlineView').is(':visible')) {
+          $('.viewOutline').toggleClass("toggled");
+          $('#outlineView').hide();
+          $('#thumbnailView').show();
+          $('.viewThumbnail').toggleClass("toggled");          
+        }
+      });
+
+      $(".outlineEntry").mouseup(function() {
+        $(".outlineEntry").removeClass("selected");
+        $(this).toggleClass("selected");
+      });
+    </script>
+    
+    <script>
+      $('.pageSelector').mouseup(function() {
+        $('.pageSelector').toggleClass('toggled');
+        $('.arrowPanelPopup').toggleClass('animated');
+        $('.toolbarField').focus();
+      });
+    </script>
+
+	</body>
+
+</html>
