@@ -1,0 +1,260 @@
+/* ====================== */
+/* -------Content-------- */
+/* ====================== */
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 200;
+  line-height: 1.25em;
+  margin-bottom: 32px;
+}
+
+h2.label-section {
+  font-size: 1.25em;
+/*   font-size: .9em; */
+  line-height: 1.25em;
+  margin-bottom: 8px;
+}
+
+
+.container-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 0;
+}
+
+.grid-cell {
+  padding: 20px;
+}
+
+
+/* --------Focus-------- */
+
+/*** --------Focus 02-------- ***/
+.focus-style-02 a:link.focus {
+  box-shadow: 0 0 0 1px var(--blue-50) inset,
+              0 0 0 3px var(--blue-50-20) inset,
+              0 0 0 1px var(--blue-50),
+              0 0 0 4px var(--blue-50-30);
+  
+  border-radius: 2px;
+  
+  animation: none;
+/*   animation-name: focus-ring-color-shift-02;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite; */
+}
+
+.focus-style-02 button.focus,
+.focus-style-02 select.focus,
+.focus-style-02 input[type="checkbox"].focus,
+.focus-style-02 input[type="radio"].focus {
+  box-shadow: 0 0 0 1px var(--blue-50) inset,
+              0 0 0 3px var(--blue-50-20) inset,
+              0 0 0 1px var(--blue-50),
+              0 0 0 4px var(--blue-50-30);
+  
+  animation: none;
+/*   animation-name: focus-ring-color-shift-02;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite; */
+}
+
+.focus-style-02 button.button-primary.focus,
+.focus-style-02 input[type="checkbox"]:checked.focus,
+.focus-style-02 input[type="radio"]:checked.focus {
+  box-shadow: 0 0 0 1px white inset,
+              0 0 0 3px var(--blue-50-20) inset,
+              0 0 0 1px white,
+              0 0 0 4px var(--blue-50-30);
+  
+  animation-timing-function: ease;
+}
+
+.focus-style-02 input[type="text"].focus   {
+  border-color: var(--blue-50);
+  box-shadow: 0 0 0 1px var(--blue-50),
+              0 0 0 4px var(--blue-50-30);
+
+  animation: none;
+/*   animation-name: focus-ring-color-shift-field-02;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite; */
+}
+
+
+/*** --------Focus 03-------- ***/
+.focus-style-03 a:link.focus {
+  box-shadow: 0 0 0 2px var(--blue-50-20) inset,
+              0 0 0 2px var(--blue-50),
+              0 0 0 6px var(--blue-50-30);
+
+/*   box-shadow: 0 0 0 0 var(--blue-50-10) inset,
+              0 0 0 4px var(--blue-50-30);
+
+  outline-width: 1px;
+  outline-color: var(--blue-50);
+  outline-offset: 1px;
+  outline-style: dotted;  
+  -moz-outline-radius: 4px; */
+  
+/*   outline: 2px;
+  outline-color: var(--blue-50);
+  outline-offset: 2px;
+  outline-style: dotted; */
+  border-radius: 2px;
+  
+  animation: none;
+/*   animation-name: focus-ring-color-shift-02;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite; */
+}
+
+.focus-style-03 button.focus,
+.focus-style-03 select.focus,
+.focus-style-03 input[type="checkbox"].focus,
+.focus-style-03 input[type="radio"].focus {
+  box-shadow: 0 0 0 1px var(--blue-50) inset,
+              0 0 0 3px var(--blue-50-20) inset,
+              0 0 0 1px var(--blue-50),
+              0 0 0 4px var(--blue-50-30);
+  
+  animation: none;
+/*   animation-name: focus-ring-color-shift-02;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite; */
+}
+
+.focus-style-03 button.button-primary.focus,
+.focus-style-03 input[type="checkbox"]:checked.focus,
+.focus-style-03 input[type="radio"]:checked.focus {
+  box-shadow: 0 0 0 1px white inset,
+              0 0 0 3px var(--blue-50-20) inset,
+              0 0 0 1px white,
+              0 0 0 4px var(--blue-50-30);
+  
+  animation-timing-function: ease;
+}
+
+.focus-style-03 input[type="text"].focus   {
+  border-color: var(--blue-50);
+  box-shadow: 0 0 0 1px var(--blue-50),
+              0 0 0 4px var(--blue-50-30);
+
+  animation: none;
+/*   animation-name: focus-ring-color-shift-field-02;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite; */
+}
+
+
+
+/*** --------Focus 04-------- ***/
+.focus-style-04 a:link.focus {
+  box-shadow: none;
+
+  border-radius: 2px;
+  
+  animation: none;
+}
+
+.focus-style-04 button.focus,
+.focus-style-04 select.focus,
+.focus-style-04 input[type="checkbox"].focus,
+.focus-style-04 input[type="radio"].focus {
+  
+  animation: none;
+}
+
+.focus-style-04 button.button-primary.focus,
+.focus-style-04 input[type="checkbox"]:checked.focus,
+.focus-style-04 input[type="radio"]:checked.focus {
+  box-shadow: 0 0 0 1px white inset,
+              0 0 0 3px var(--blue-50-20) inset,
+              0 0 0 1px white,
+              0 0 0 4px var(--blue-50-30);
+  
+  animation-timing-function: ease;
+}
+
+.focus-style-04 input[type="text"].focus   {
+  border-color: var(--blue-50);
+  box-shadow: 0 0 0 1px var(--blue-50),
+              0 0 0 4px var(--blue-50-30);
+
+  animation: none;
+}
+
+
+
+/* --------Transitions-------- */
+
+@keyframes focus-ring-color-shift-02 { 
+  from { 
+  box-shadow: 0 0 0 1px var(--blue-50) inset,
+              0 0 0 3px var(--blue-50-20) inset,
+              0 0 0 1px var(--blue-50),
+              0 0 0 4px var(--blue-50-30);
+  }
+  to { 
+  box-shadow: 0 0 0 1px var(--teal-60) inset,
+              0 0 0 3px var(--teal-50-20) inset,
+              0 0 0 1px var(--teal-60),
+              0 0 0 4px var(--teal-50-30);
+  }
+}
+
+@keyframes focus-ring-color-shift-solid-02 { 
+  from { 
+    box-shadow: 0 0 0 1px var(--blue-50) inset,
+                0 0 0 4px var(--blue-50-10),
+                0 0 0 2px var(--blue-50-20),
+                0 0 0 2px #fff inset;
+  }
+  to { 
+    box-shadow: 0 0 0 1px var(--teal-60) inset,
+                0 0 0 4px var(--teal-50-10),
+                0 0 0 2px var(--teal-60-20),
+                0 0 0 2px #fff inset;
+  }
+}
+
+@keyframes focus-ring-color-shift-field-02 { 
+  from { 
+    border-color: var(--blue-50);
+    box-shadow: 0 0 0 1px var(--blue-50),
+                0 0 0 4px var(--blue-50-30);
+  }
+  to { 
+    border-color: var(--teal-60);
+    box-shadow: 0 0 0 1px var(--teal-60),
+                0 0 0 4px var(--teal-50-30);
+  }
+}
+
+
+
+/* --------Hide Stuff-------- */
+
+.focus-style-01,
+.focus-style-02,
+.focus-style-04 {
+  display: none;
+}
+
+

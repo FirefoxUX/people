@@ -1,0 +1,46 @@
+/* ====================== */
+/* ---General Styles----- */
+/* ====================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+html {
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  height: 100%;
+  background-color: var(--grey-10);
+  font: -moz-dialog;
+  line-height: 1.5em;        
+}
+
+hr {
+  margin: 0 auto;
+  margin-bottom: 32px;
+  width: 100%;
+  border: none;
+  height: 1px;
+  background-color:var(--grey-90-10);
+}
+
+a:link {
+  color: var(--blue-60);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--blue-70);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--blue-60);
+}
+
+

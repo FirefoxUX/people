@@ -1,83 +1,6 @@
 /* ====================== */
-/* ---General Styles----- */
+/* -----UI Grouping------ */
 /* ====================== */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-  
-html {
-  height: 100%;
-}
-
-body {
-  padding: 0;
-  height: 100%;
-  background-color: var(--grey-10);
-  font: -moz-dialog;
-  line-height: 1.5em;        
-}
-
-button, select, input {
-  -moz-appearance: none;
-  border-radius: var(--border-radius);
-}
-
-hr {
-  margin: 0 auto;
-  margin-bottom: 32px;
-  width: 100%;
-  border: none;
-  height: 1px;
-  background-color:var(--grey-90-10);
-}
-
-a:link {
-  color: var(--blue-60);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--blue-70);
-  text-decoration: underline;
-}
-
-a:visited {
-  color: var(--blue-60);
-}
-
-
-
-
-/* ====================== */
-/* ---Content Styles----- */
-/* ====================== */
-
-h1 {
-  font-size: 2.5em;
-  font-weight: 200;
-  line-height: 1.25em;
-  margin-bottom: 32px;
-}
-
-h2.label-section {
-  font-size: 1.25em;
-/*   font-size: .9em; */
-  line-height: 1.25em;
-  margin-bottom: 8px;
-}
-
-section {
-  margin-bottom: 32px;
-}
-
-.container-content {
-  margin: 0 auto;
-  padding: 40px;
-  width: 640px;
-}
 
 .group-ui-elements {
   margin-bottom: 16px;
@@ -93,7 +16,7 @@ section {
   padding-left: 20px;
 }
 
-.group-ui-elements.item-checkbox + .group-ui-elements.item-checkbox {
+.group-ui-elements.item-radio + .group-ui-elements.item-radio {
   margin-top: -8px;
 }
 
@@ -155,7 +78,6 @@ section {
   font-size: .9em;
   line-height: 1.35em;        
   color: #737373;
-  -moz-user-select: none;
 }
 
 .group-ui-elements.item-link {
@@ -207,8 +129,9 @@ section {
 /* ------UI Styles------- */
 /* ====================== */
 
-label {
-  -moz-user-select: none;
+button, select, input {
+  -moz-appearance: none;
+  border-radius: var(--border-radius);
 }
 
 /* -------Button and Select------- */
@@ -366,7 +289,6 @@ input[type="radio"] {
   background-size: 4px;
   background-repeat: no-repeat;
   background-position: center center;
-  border: 1px solid var(--grey-90-30);
 }
 
 input[type="radio"] {
@@ -375,7 +297,7 @@ input[type="radio"] {
 
 input[type="checkbox"]:hover,
 input[type="radio"]:hover {
-  background-color: var(--grey-90-10);
+  background-color: var(--grey-90-20);
 }
 
 input[type="checkbox"]:hover:active,
@@ -388,8 +310,6 @@ input[type="radio"]:checked {
   background-color: var(--blue-60);
   background-image: url("../images/check-16.svg");
   background-size: 16px;
-  
-  border: none;
 
   animation-name: checked;
   animation-delay: 0;
@@ -397,6 +317,8 @@ input[type="radio"]:checked {
   animation-duration: 500ms;
   animation-iteration-count: 1;
   animation-timing-function:  var(--animation-curve);
+  
+  transition-property: background-size;
 }
 input[type="radio"]:checked {
   background-image: url("../images/radio-16.svg");
@@ -413,46 +335,73 @@ input[type="radio"]:checked:hover:active {
 }
 
 
+/* --------Labels-------- */
+
+label {
+  -moz-user-select: none;
+}
+
+
+
 /* --------Focus-------- */
 
+a:link.focus,
 a:link:focus {
-  box-shadow: 0 0 0 2px var(--blue-50-20) inset,
-              0 0 0 2px var(--blue-50),
-              0 0 0 6px var(--blue-50-30);
+  box-shadow: 0 0 0 1px var(--blue-50) inset,
+              0 0 0 4px var(--blue-50-10),
+              0 0 0 2px var(--blue-50-20);
   border-radius: 2px;
+  
+  animation-name: focus-ring-color-shift;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 
 button:focus,
 select:focus,
 input[type="checkbox"]:focus,
-input[type="radio"]:focus {
+input[type="radio"]:focus,
+button.focus,
+select.focus,
+input[type="checkbox"].focus,
+input[type="radio"].focus {
   box-shadow: 0 0 0 1px var(--blue-50) inset,
-              0 0 0 3px var(--blue-50-20) inset,
-              0 0 0 1px var(--blue-50),
-              0 0 0 4px var(--blue-50-30);
+              0 0 0 4px var(--blue-50-10),
+              0 0 0 2px var(--blue-50-20);
+  
+  animation-name: focus-ring-color-shift;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 
 button.button-primary:focus,
 input[type="checkbox"]:checked:focus,
-input[type="radio"]:checked:focus {
-  box-shadow: 0 0 0 1px white inset,
-              0 0 0 1px white,
-              0 0 0 4px var(--blue-50-30);
+input[type="radio"]:checked:focus,
+button.button-primary.focus,
+input[type="checkbox"]:checked.focus,
+input[type="radio"]:checked.focus {
+  box-shadow: 0 0 0 1px var(--blue-50) inset,
+              0 0 0 4px var(--blue-50-10),
+              0 0 0 2px var(--blue-50-20),
+              0 0 0 2px #fff inset;
+  animation-name: focus-ring-color-shift-solid;
 }
 
-input[type="checkbox"]:focus,
-input[type="radio"]:focus {
+input[type="text"]:focus,
+input[type="text"].focus {
   border-color: var(--blue-50);
-  box-shadow: 0 0 0 3px var(--blue-50-20) inset,
-              0 0 0 1px var(--blue-50),
-              0 0 0 4px var(--blue-50-30);
-}
+  box-shadow: 0 0 0 4px var(--blue-50-10),
+              0 0 0 2px var(--blue-50-20);
 
-
-input[type="text"]:focus   {
-  border-color: var(--blue-50);
-  box-shadow: 0 0 0 1px var(--blue-50),
-              0 0 0 4px var(--blue-50-30);
+  animation-name: focus-ring-color-shift-field;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 
 
@@ -581,6 +530,4 @@ input[type="checkbox"] {
                 0 0 0 2px var(--teal-60-20);
   }
 }
-
-
 

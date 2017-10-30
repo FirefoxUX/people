@@ -16,7 +16,15 @@
 
   --blue-50-10: hsla(var(--blue-50-values), .1);
   --blue-50-20: hsla(var(--blue-50-values), .2);
-  
+  --blue-50-30: hsla(var(--blue-50-values), .3);
+  --blue-50-40: hsla(var(--blue-50-values), .4);
+  --blue-50-50: hsla(var(--blue-50-values), .5);
+
+  --blue-60-10: hsla(var(--blue-60-values), .1);
+  --blue-60-20: hsla(var(--blue-60-values), .2);
+  --blue-60-30: hsla(var(--blue-60-values), .3);
+  --blue-60-40: hsla(var(--blue-60-values), .4);
+  --blue-60-50: hsla(var(--blue-60-values), .5);  
   
   --teal-50-values: 180, 100%, 50%;
   --teal-60-values: 184, 100%, 42%;
@@ -30,6 +38,7 @@
 
   --teal-50-10: hsla(var(--teal-50-values), .1);
   --teal-50-20: hsla(var(--teal-50-values), .2);
+  --teal-50-30: hsla(var(--teal-50-values), .3);
 
   --teal-60-10: hsla(var(--teal-60-values), .1);
   --teal-60-20: hsla(var(--teal-60-values), .2);
@@ -57,6 +66,8 @@
   --grey-90-10: hsla(var(--grey-90-values), .1);
   --grey-90-20: hsla(var(--grey-90-values), .2);
   --grey-90-30: hsla(var(--grey-90-values), .3);
+  --grey-90-40: hsla(var(--grey-90-values), .4);
+  --grey-90-50: hsla(var(--grey-90-values), .5);
 
   /* Animation Curves */
   --animation-curve: cubic-bezier(.07,.95,0,1);
