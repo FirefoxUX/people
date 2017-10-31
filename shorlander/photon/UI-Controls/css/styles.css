@@ -438,15 +438,6 @@ input[type="radio"]:checked:focus {
               0 0 0 4px var(--blue-50-30);
 }
 
-input[type="checkbox"]:focus,
-input[type="radio"]:focus {
-  border-color: var(--blue-50);
-  box-shadow: 0 0 0 3px var(--blue-50-20) inset,
-              0 0 0 1px var(--blue-50),
-              0 0 0 4px var(--blue-50-30);
-}
-
-
 input[type="text"]:focus   {
   border-color: var(--blue-50);
   box-shadow: 0 0 0 1px var(--blue-50),
