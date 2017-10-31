@@ -416,8 +416,7 @@ input[type="radio"]:checked:hover:active {
 /* --------Focus-------- */
 
 a:link:focus {
-  box-shadow: 0 0 0 2px var(--blue-50-20) inset,
-              0 0 0 2px var(--blue-50),
+  box-shadow: 0 0 0 2px var(--blue-50),
               0 0 0 6px var(--blue-50-30);
   border-radius: 2px;
 }
@@ -427,7 +426,6 @@ select:focus,
 input[type="checkbox"]:focus,
 input[type="radio"]:focus {
   box-shadow: 0 0 0 1px var(--blue-50) inset,
-              0 0 0 3px var(--blue-50-20) inset,
               0 0 0 1px var(--blue-50),
               0 0 0 4px var(--blue-50-30);
 }
@@ -435,8 +433,8 @@ input[type="radio"]:focus {
 button.button-primary:focus,
 input[type="checkbox"]:checked:focus,
 input[type="radio"]:checked:focus {
-  box-shadow: 0 0 0 1px white inset,
-              0 0 0 1px white,
+  box-shadow: 0 0 0 1px var(--blue-50) inset,
+              0 0 0 1px var(--blue-50),
               0 0 0 4px var(--blue-50-30);
 }
 
