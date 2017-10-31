@@ -33,6 +33,43 @@ h2.label-section {
 
 /* --------Focus-------- */
 
+/*** --------Focus 01-------- ***/
+.focus-style-01 a:link.focus {
+  box-shadow: 0 0 0 1px var(--blue-50),
+              0 0 0 4px var(--blue-50-30);
+  
+  border-radius: 2px;
+  
+  animation: none;
+}
+
+.focus-style-01 button.focus,
+.focus-style-01 select.focus,
+.focus-style-01 input[type="checkbox"].focus,
+.focus-style-01 input[type="radio"].focus {
+  box-shadow: 0 0 0 1px var(--blue-50),
+              0 0 0 4px var(--blue-50-30);
+  
+  animation: none;
+}
+
+.focus-style-01 button.button-primary.focus,
+.focus-style-01 input[type="checkbox"]:checked.focus,
+.focus-style-01 input[type="radio"]:checked.focus {
+  box-shadow: 0 0 0 1px white,
+              0 0 0 4px var(--blue-50-30);
+  
+  animation-timing-function: ease;
+}
+
+.focus-style-01 input[type="text"].focus   {
+  border-color: var(--blue-50);
+  box-shadow: 0 0 0 3px var(--blue-50-30);
+
+  animation: none;
+}
+
+
 /*** --------Focus 02-------- ***/
 .focus-style-02 a:link.focus {
   box-shadow: 0 0 0 1px var(--blue-50) inset,
@@ -43,11 +80,6 @@ h2.label-section {
   border-radius: 2px;
   
   animation: none;
-/*   animation-name: focus-ring-color-shift-02;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-duration: 2s;
-  animation-iteration-count: infinite; */
 }
 
 .focus-style-02 button.focus,
@@ -60,11 +92,6 @@ h2.label-section {
               0 0 0 4px var(--blue-50-30);
   
   animation: none;
-/*   animation-name: focus-ring-color-shift-02;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-duration: 2s;
-  animation-iteration-count: infinite; */
 }
 
 .focus-style-02 button.button-primary.focus,
@@ -84,41 +111,17 @@ h2.label-section {
               0 0 0 4px var(--blue-50-30);
 
   animation: none;
-/*   animation-name: focus-ring-color-shift-field-02;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-duration: 2s;
-  animation-iteration-count: infinite; */
 }
 
 
 /*** --------Focus 03-------- ***/
 .focus-style-03 a:link.focus {
-  box-shadow: 0 0 0 2px var(--blue-50-20) inset,
-              0 0 0 2px var(--blue-50),
+  box-shadow: 0 0 0 2px var(--blue-50),
               0 0 0 6px var(--blue-50-30);
 
-/*   box-shadow: 0 0 0 0 var(--blue-50-10) inset,
-              0 0 0 4px var(--blue-50-30);
-
-  outline-width: 1px;
-  outline-color: var(--blue-50);
-  outline-offset: 1px;
-  outline-style: dotted;  
-  -moz-outline-radius: 4px; */
-  
-/*   outline: 2px;
-  outline-color: var(--blue-50);
-  outline-offset: 2px;
-  outline-style: dotted; */
   border-radius: 2px;
   
   animation: none;
-/*   animation-name: focus-ring-color-shift-02;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-duration: 2s;
-  animation-iteration-count: infinite; */
 }
 
 .focus-style-03 button.focus,
@@ -126,24 +129,17 @@ h2.label-section {
 .focus-style-03 input[type="checkbox"].focus,
 .focus-style-03 input[type="radio"].focus {
   box-shadow: 0 0 0 1px var(--blue-50) inset,
-              0 0 0 3px var(--blue-50-20) inset,
               0 0 0 1px var(--blue-50),
               0 0 0 4px var(--blue-50-30);
   
   animation: none;
-/*   animation-name: focus-ring-color-shift-02;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-duration: 2s;
-  animation-iteration-count: infinite; */
 }
 
 .focus-style-03 button.button-primary.focus,
 .focus-style-03 input[type="checkbox"]:checked.focus,
 .focus-style-03 input[type="radio"]:checked.focus {
-  box-shadow: 0 0 0 1px white inset,
-              0 0 0 3px var(--blue-50-20) inset,
-              0 0 0 1px white,
+  box-shadow: 0 0 0 1px var(--blue-50) inset,
+              0 0 0 1px var(--blue-50),
               0 0 0 4px var(--blue-50-30);
   
   animation-timing-function: ease;
@@ -155,18 +151,13 @@ h2.label-section {
               0 0 0 4px var(--blue-50-30);
 
   animation: none;
-/*   animation-name: focus-ring-color-shift-field-02;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-duration: 2s;
-  animation-iteration-count: infinite; */
 }
 
 
 
 /*** --------Focus 04-------- ***/
 .focus-style-04 a:link.focus {
-  box-shadow: none;
+  box-shadow: 0 0 0 2px var(--blue-50-80);
 
   border-radius: 2px;
   
@@ -177,6 +168,7 @@ h2.label-section {
 .focus-style-04 select.focus,
 .focus-style-04 input[type="checkbox"].focus,
 .focus-style-04 input[type="radio"].focus {
+  box-shadow: 0 0 0 2px var(--blue-50-80);
   
   animation: none;
 }
@@ -185,17 +177,14 @@ h2.label-section {
 .focus-style-04 input[type="checkbox"]:checked.focus,
 .focus-style-04 input[type="radio"]:checked.focus {
   box-shadow: 0 0 0 1px white inset,
-              0 0 0 3px var(--blue-50-20) inset,
-              0 0 0 1px white,
-              0 0 0 4px var(--blue-50-30);
+              0 0 0 2px var(--blue-50-80);
   
   animation-timing-function: ease;
 }
 
 .focus-style-04 input[type="text"].focus   {
   border-color: var(--blue-50);
-  box-shadow: 0 0 0 1px var(--blue-50),
-              0 0 0 4px var(--blue-50-30);
+  box-shadow: 0 0 0 2px var(--blue-50-50);
 
   animation: none;
 }
@@ -254,7 +243,7 @@ h2.label-section {
 .focus-style-01,
 .focus-style-02,
 .focus-style-04 {
-  display: none;
+/*   display: none; */
 }
 
 

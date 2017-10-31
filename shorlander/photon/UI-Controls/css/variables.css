@@ -19,6 +19,10 @@
   --blue-50-30: hsla(var(--blue-50-values), .3);
   --blue-50-40: hsla(var(--blue-50-values), .4);
   --blue-50-50: hsla(var(--blue-50-values), .5);
+  --blue-50-60: hsla(var(--blue-50-values), .6);
+  --blue-50-70: hsla(var(--blue-50-values), .7);
+  --blue-50-80: hsla(var(--blue-50-values), .8);
+  --blue-50-90: hsla(var(--blue-50-values), .9);
 
   --blue-60-10: hsla(var(--blue-60-values), .1);
   --blue-60-20: hsla(var(--blue-60-values), .2);
