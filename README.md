@@ -7,3 +7,4 @@ Currently containing:
 * [Stephen Horlander](shorlander)
 * [Mark Liang](mliang)
 * [Blake Winton](bwinton)
+* [Amy Lee](amyylee)
