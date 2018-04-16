@@ -1,0 +1,97 @@
+:root {
+  --blue-50: #0a84ff;
+  --blue-50-a30: rgba(10, 132, 255, 0.3);
+  --grey-90-a30: rgba(12, 12, 13, 0.3);
+  --motion: cubic-bezier(.07,.95,0,1);
+}
+
+section {
+  position: relative;
+  width: 280px;
+  height: 32px;
+  margin-bottom: 32px;
+}
+
+input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 28px 0 8px;
+  width: 280px;
+  height: 32px;
+  font-size: 13px;
+  border-radius: 2px;
+  border: 1px solid var(--grey-90-a30);
+  transition: 150ms box-shadow var(--motion);
+}
+
+span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+span:after {
+  content: "";
+  position: absolute;
+  right: -24px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  transition: 0.5s all var(--motion);
+}
+
+input:focus {
+  border-color: var(--blue-50);
+  box-shadow: 0 0 0 1px var(--blue-50), 0 0 0 4px var(--blue-50-a30);
+}
+
+input:focus + span:after {
+  right: 8px;
+  transform: rotate(-90deg);
+}
+
+span.clear-icon-round-12-1:after{
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  background-image: url(clear-icon-round-12-1.svg);
+}
+
+span.clear-icon-round-12-2:after{
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  background-image: url(clear-icon-round-12-2.svg);
+}
+
+span.clear-icon-square-12-1:after {
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  background-image: url(clear-icon-square-12-1.svg);
+}
+
+span.clear-icon-square-12-2:after {
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  background-image: url(clear-icon-square-12-2.svg);
+}
+
+span.clear-icon-round-16-1:after{
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  background-image: url(clear-icon-round-16-1.svg);
+}
+
+span.clear-icon-round-16-2:after{
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  background-image: url(clear-icon-round-16-2.svg);
+}

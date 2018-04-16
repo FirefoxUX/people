@@ -1,0 +1,108 @@
+:root {
+  --blue-50: #0a84ff;
+  --blue-50-a30: rgba(10, 132, 255, 0.3);
+  --grey-90-a30: rgba(12, 12, 13, 0.3);
+  --grey-90-a60: rgba(12, 12, 13, 0.6);
+  --motion: cubic-bezier(.07,.95,0,1);
+}
+
+/* Global text field styles */
+
+input {
+  border-radius: 2px;
+  border: 1px solid var(--grey-90-a30);
+  transition: 150ms box-shadow var(--motion);
+}
+
+input:focus {
+  border-color: var(--blue-50);
+  box-shadow: 0 0 0 1px var(--blue-50), 0 0 0 4px var(--blue-50-a30);
+}
+
+/* Standard text field styles */
+
+.text-field-container {
+  position: relative;
+  width: 280px;
+  height: 32px;
+  margin-bottom: 16px;
+}
+
+.text-field {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 280px;
+  height: 32px;
+  padding: 0 28px 0 8px;
+  font-size: 15px;
+}
+
+.clear-text-field-icon-16 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.clear-text-field-icon-16 > svg {
+  position: absolute;
+  right: -24px;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  fill: var(--grey-90-a60);
+  transition: 0.5s all var(--motion);
+}
+
+.text-field:focus + .clear-text-field-icon-16 > svg {
+  right: 8px;
+  transform: rotate(-90deg);
+}
+
+/* Small text field styles */
+
+.small-text-field-container {
+  position: relative;
+  width: 280px;
+  height: 24px;
+  margin-bottom: 16px;
+}
+
+.small-text-field {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 280px;
+  height: 24px;
+  padding: 0px 24px 0 4px;
+  font-size: 13px;
+}
+
+.clear-text-field-icon-12 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.clear-text-field-icon-12 > svg {
+  position: absolute;
+  right: -24px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  fill: var(--grey-90-a60);
+  transition: 0.5s all var(--motion);
+}
+
+.small-text-field:focus + .clear-text-field-icon-12 > svg {
+  right: 4px;
+  transform: rotate(-90deg);
+}

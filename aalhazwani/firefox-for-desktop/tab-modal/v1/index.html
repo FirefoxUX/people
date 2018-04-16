@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tab Modal</title>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css">
+  <link rel="stylesheet" href="animations.css">
+  <script src="script.js"></script>
+</head>
+<body class="sans-serif">
+  <header class="center mw7 mv5">
+    <h1>Tab Modal v1</h1>
+    <p class="mb4">Click on each image to open the modal. Click again to close it.</p>
+  </header>
+  <section class="mb5">
+    <div class="center mw7">
+      <h2>Compact Modal: Zoom + Opacity</h2>
+      <p class="mb4">The modal zooms from the center and overlays the location bar</p>
+    </div>
+    <div class="center relative" style="max-width: 1366px">
+      <img class="mw-100 pointer" src="win-desktop.jpg" alt="" onclick="showModalOne();">
+      <img class="modal-one" src="win-tab-modal.png" alt="">
+    </div>
+  </section>
+  <section class="mb5">
+    <div class="center mw7">
+      <h2>Compact Modal: Side Zoom</h2>
+      <p class="mb4">The modal zooms out of the location bar menu</p>
+    </div>
+    <div class="center relative" style="max-width: 1366px">
+      <img class="mw-100 pointer" src="win-desktop.jpg" alt="" onclick="showModalThree();">
+      <img class="modal-three" src="win-tab-modal.png" alt="">
+    </div>
+  </section>
+  <section class="mb5">
+    <div class="center mw7">
+      <h2>Large Modal: Height</h2>
+      <p class="mb4">The modal grows out of the location bar</p>
+    </div>
+    <div class="center relative" style="max-width: 1366px">
+      <div class="modal-four-overlay" onclick="showModalFour();"></div>
+      <img class="mw-100 pointer" src="win-desktop.jpg" alt="" onclick="showModalFour();">
+      <div class="box"></div>
+      <div class="modal-four">
+        <div class="modal-four-address">
+          <span class="mr1">🔒</span>
+          <span>Wired.com – Nick Rougeux's Literary Constellations</span>
+        </div>
+        <div class="modal-four-separator"></div>
+        <img class="modal-four-content" src="win-tab-modal-content.png" alt="">
+      </div>
+    </div>
+  </section>
+</body>
+</html>

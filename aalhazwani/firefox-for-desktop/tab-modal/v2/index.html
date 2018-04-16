@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tab Modal</title>
+  <!-- Tachyons CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Load TweenMax for js animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <!-- Load library that converts CSS bezier for TweenMax -->
+  <script src="bezier-easing.js"></script>
+  <!-- Custom animations -->
+  <script src="script.js"></script>
+</head>
+<body class="sans-serif">
+  <header class="center mw7 mv5">
+    <h1>Tab Modal v2</h1>
+    <p>Click on the image to open the modal. Click again to close it.</p>
+  </header>
+  <div class="center relative" style="max-width: 1366px">
+    <div class="window-overlay" onclick="showModal();"></div>
+    <img class="mw-100 pointer" src="win-desktop.jpg" alt="" onclick="showModal();">
+    <div class="tab-modal">
+      <div class="location-bar">
+        <span class="mr1">🔒</span>
+        <span style="color: rgba(0, 0, 0, 0.82)">Wired.com – Nick Rougeux's Literary Constellations</span>
+      </div>
+      <div class="tab-modal-separator"></div>
+      <img class="tab-modal-content" src="win-tab-modal-content.png" alt="">
+    </div>
+  </div>
+  </section>
+</body>
+</html>

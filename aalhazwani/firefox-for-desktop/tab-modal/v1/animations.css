@@ -1,0 +1,161 @@
+/* Animation One */
+
+.modal-one {
+  z-index: 1;
+  position: absolute;
+  top: 120px;
+  left: 478px;
+  height: 207px;
+  width: 367px;
+  opacity: 0
+}
+
+.animation-one {
+  transform-origin: top center;
+  animation-duration: 250ms;
+  animation-name: animation-one;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(.07,.95,0,1);
+}
+
+@keyframes animation-one {
+  0% { 
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation Three */
+
+.modal-three {
+  z-index: 1;
+  position: absolute;
+  top: 120px;
+  left: 635px;
+  height: 207px;
+  width: 367px;
+  visibility: hidden;
+}
+
+.animation-three {
+  transform-origin: top right;
+  animation-duration: 250ms;
+  animation-name: animation-three;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.07, 0.95, 0, 1);
+}
+
+@keyframes animation-three {
+  0% { 
+    visibility: hidden;
+    transform: scale(0);
+  }
+  100% {
+    visibility: visible;
+    transform: scale(1);
+  }
+}
+
+/* Modal Four */
+
+.box {
+  position: absolute;
+  top: 95px;
+  left: 210px;
+  background-color: #f3f3f5;
+  width: 810px;
+  height: 35px;
+}
+
+.modal-four-overlay {
+  position: absolute;
+  top: 133px;
+  left: 45px;
+  width: 1200px;
+  height: 0;
+  background-color: rgba(9, 6, 13, 0.66);
+  transition: height 250ms cubic-bezier(0.07, 0.95, 0, 1);
+  cursor: pointer;
+}
+
+.modal-four {
+  position: absolute;
+  z-index: 1;
+  width: 718px;
+  height: 30px;
+  top: 98px;
+  left: 286px;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 1px 0 0 0 rgba(9, 6, 13, 0.1), -1px 0 0 0 rgba(9, 6, 13, 0.1), 0 1px 0 0 rgba(9, 6, 13, 0.1), 0 -1px 0 0 rgba(9, 6, 13, 0.1);
+}
+
+.modal-four-address {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-weight: 400;
+  font-family: "segoe ui";
+  font-size: 12px;
+}
+
+.modal-four-content {
+  position: absolute;
+  top: 24px;
+  left: 16px;
+  width: 686px;
+  height: auto;
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.07, 0.95, 0, 1), top 250ms cubic-bezier(0.07, 0.95, 0, 1);
+}
+
+.transition-four-overlay {
+  height: 557px;
+}
+
+.transition-four-content {
+  top: 48px;
+  opacity: 1;
+}
+
+.modal-four-separator {
+  position: absolute;
+  z-index: 2;
+  top: 34px;
+  left: 16px;
+  width: 686px;
+  height: 1px;
+  background-color: rgba(9, 6, 13, 0.1);
+  transform: scaleX(0);
+  transform-origin: center;
+  visibility: hidden;
+  transition: all 250ms cubic-bezier(0.07, 0.95, 0, 1);
+}
+
+.transition-four-separator {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.animation-four {
+  transform-origin: top center;
+  animation-duration: 250ms;
+  animation-name: animation-four;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.07, 0.95, 0, 1);
+}
+
+@keyframes animation-four {
+  0% { 
+    height: 30px;
+  }
+  100% {
+    height: 206px;
+  }
+}
+
+

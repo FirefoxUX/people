@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tab Modal</title>
+  <!-- Tachyons CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Load TweenMax for js animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <!-- Load library that converts CSS bezier for TweenMax -->
+  <script src="bezier-easing.js"></script>
+  <!-- Custom animations -->
+  <script src="script.js"></script>
+</head>
+<body class="sans-serif ph3">
+  <header class="center mw7 mv5">
+    <h1>Tab Modal v4</h1>
+    <p>Click on the image to open the modal. Click again to close it.</p>
+  </header>
+  <section class="mb5">
+    <div class="center mw7">
+      <h2>Large Location Bar</h2>
+      <p>Location bar decreases width and increases height. Chrome UI disables*.</p>
+      <p><small>*not reflected in this quick and hacky mock.</small></p>
+    </div>
+    <div class="center relative" style="width: 1366px">
+      <div class="window-overlay" onclick="showModal('tab-modal-psw-no-help-text', 'tab-modal-separator-psw-no-help-text', 'tab-modal-content-psw-no-help-text', 'window-overlay-psw-no-help-text', 188);" window-overlay-psw-no-help-text></div>
+      <img class="pointer" src="win-desktop.jpg" alt="" style="width: 1366px" onclick="showModal('tab-modal-psw-no-help-text', 'tab-modal-separator-psw-no-help-text', 'tab-modal-content-psw-no-help-text', 'window-overlay-psw-no-help-text', 188);">
+      <div class="tab-modal" tab-modal-psw-no-help-text>
+        <div class="location-bar">
+          <span class="mr1">🔒</span>
+          <span style="color: rgba(0, 0, 0, 0.82)">Wired.com – Nick Rougeux's Literary Constellations</span>
+        </div>
+        <div class="tab-modal-separator" tab-modal-separator-psw-no-help-text></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb5">
+    <div class="center mw7">
+      <h2>Small Browser Window</h2>
+      <p>Location bar increases width, increases height, centers in browser window, and overlaps the disabled* chrome UI.</p>
+      <p><small>*not reflected in this quick and hacky mock.</small></p>
+    </div>
+    <div class="center relative" style="width: 1366px">
+      <div class="window-overlay window-overlay-small" onclick="showSmallModal('tab-modal-http', 'tab-modal-separator-http', 'tab-modal-content-http', 'window-overlay-http', 220);" window-overlay-http></div>
+      <img class="pointer" src="win-desktop-small.jpg" alt="" style="width: 1366px" onclick="showSmallModal('tab-modal-http', 'tab-modal-separator-http', 'tab-modal-content-http', 'window-overlay-http', 220);">
+      <div class="tab-modal tab-modal-small overflow-hidden" tab-modal-http>
+        <div class="location-bar">
+          <span class="mr1">🔒</span>
+          <p class="ma0 truncate" style="color: rgba(0, 0, 0, 0.82);">Wired.com – Nick Rougeux's Literary Constellations</p>
+        </div>
+        <div class="tab-modal-separator tab-modal-separator-small" tab-modal-separator-http></div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
