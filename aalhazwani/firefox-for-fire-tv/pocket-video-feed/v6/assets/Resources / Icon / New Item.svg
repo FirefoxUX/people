@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Resources / Icon / New Item</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M12,19.9999995 L8.90983006,21.5105652 L7.29771826,18.4721356 L3.90983006,17.8778525 L4.39154832,14.4721358 L2,12 L4.39154832,9.52786419 L3.90983006,6.12214748 L7.29771826,5.52786443 L8.90983006,2.48943484 L12,4.00000048 L15.0901699,2.48943484 L16.7022817,5.52786443 L20.0901699,6.12214748 L19.6084517,9.52786419 L22,12 L19.6084517,14.4721358 L20.0901699,17.8778525 L16.7022817,18.4721356 L15.0901699,21.5105652 L12,19.9999995 Z M12,17 C12.5522847,17 13,16.5522847 13,16 C13,15.4477153 12.5522847,15 12,15 C11.4477153,15 11,15.4477153 11,16 C11,16.5522847 11.4477153,17 12,17 Z M12,13 C12.5522847,13 13,12.5522847 13,12 L13,8 C13,7.44771525 12.5522847,7 12,7 C11.4477153,7 11,7.44771525 11,8 L11,12 C11,12.5522847 11.4477153,13 12,13 Z" id="path-1"></path>
+    </defs>
+    <g id="Resources-/-Icon-/-New-Item" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="Shape" fill-rule="nonzero"></g>
+        <g id="Resources-/-Color-/-Icon-Fill-/-Light-Background-/-Primary---Grey-90-80%" mask="url(#mask-2)" fill="#0C0C0D" fill-opacity="0.8">
+            <rect id="Rectangle-2" x="0" y="0" width="24" height="24"></rect>
+        </g>
+    </g>
+</svg>
