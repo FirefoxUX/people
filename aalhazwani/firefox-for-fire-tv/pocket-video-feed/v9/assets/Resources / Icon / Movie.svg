@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Resources / Icon / Movie</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M19,5 L20,5 C21.1045695,5 22,5.8954305 22,7 L22,17 C22,18.1045695 21.1045695,19 20,19 L4,19 C2.8954305,19 2,18.1045695 2,17 L2,7 C2,5.8954305 2.8954305,5 4,5 L5,5 L6,8 L8,8 L7,5 L9,5 L10,8 L12,8 L11,5 L13,5 L14,8 L16,8 L15,5 L17,5 L18,8 L20,8 L19,5 Z" id="path-1"></path>
+    </defs>
+    <g id="Resources-/-Icon-/-Movie" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="Shape"></g>
+        <g id="Resources-/-Color-/-Icon-Fill-/-Light-Background-/-Primary---Grey-90-80%" mask="url(#mask-2)" fill="#0C0C0D" fill-opacity="0.8">
+            <rect id="Rectangle-2" x="0" y="0" width="24" height="24"></rect>
+        </g>
+    </g>
+</svg>
