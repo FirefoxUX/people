@@ -1,0 +1,126 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>FFTV Placeholder Animation v1</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .pocket {
+        position: relative;
+        width: 100vw;
+        height: 90vh;
+        background-color: #ef4056;
+      }
+      .feed {
+        position: relative;
+        width: 100vw;
+        height: 90vh;
+        background-color: #38383d;
+      }
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .a {
+        width: 528px;
+        height: 580px;
+      }
+      .b {
+        width: 300px;
+        height: 200px;
+      }
+      .c {
+        width: 480px;
+        height: 580px;
+      }
+      .above {
+        z-index: 2;
+      }
+      .mid {
+        z-index: 1;
+      }
+      .below {
+        z-index: 0;
+      }
+      .above {
+        animation-duration: 4s;
+        animation-name: above;
+        animation-iteration-count: infinite;
+      }
+      .mid {
+        animation-duration: 4s;
+        animation-name: mid;
+        animation-iteration-count: infinite;
+      }
+      @keyframes above {
+        /* 0 sec */
+        0% {
+          opacity: 0;
+        }
+        /* 1 sec */
+        25% {
+          opacity: 1;
+        }
+        /* 2 sec */
+        50% {
+          opacity: 0;
+        }
+        /* 3 sec */
+        75% {
+          opacity: 0;
+        }
+        /* 4 sec */
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes mid {
+        /* 0 sec */
+        0% {
+          opacity: 0;
+        }
+        /* 1 sec */
+        25% {
+          opacity: 0;
+        }
+        /* 2 sec */
+        50% {
+          opacity: 1;
+        }
+        /* 3 sec */
+        75% {
+          opacity: 0;
+        }
+        /* 4 sec */
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="feed">
+      <img class="a above" src="pocket-feed-highlight-card-placeholder-above.png" alt="">
+      <img class="a mid" src="pocket-feed-highlight-card-placeholder-mid.png" alt="">
+      <img class="a below" src="pocket-feed-highlight-card-placeholder-below.png" alt="">
+    </div>
+    <div class="pocket">
+      <img class="b above" src="pocket-megatile-placeholder-above.png" alt="">
+      <img class="b mid" src="pocket-megatile-placeholder-mid.png" alt="">
+      <img class="b below" src="pocket-megatile-placeholder-below.png" alt="">
+    </div>
+    <div class="feed">
+      <img class="c above" src="pocket-feed-card-placeholder-above.png" alt="">
+      <img class="c mid" src="pocket-feed-card-placeholder-mid.png" alt="">
+      <img class="c below" src="pocket-feed-card-placeholder-below.png" alt="">
+    </div>
+  </body>
+</html>
