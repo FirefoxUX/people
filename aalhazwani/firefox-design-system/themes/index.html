@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Dark and Light Theme v1</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css"/>
+  <link rel="stylesheet" href="colors.css">
+  <style>
+    :root {
+      --blue-40-a30: rgba(69, 161, 255, .3);
+    }
+    .focus-light { box-shadow: 0 0 0 1px var(--blue-50) inset, 0 0 0 1px var(--blue-50), 0 0 0 4px var(--blue-50-a30); }
+    .focus-dark { box-shadow: 0 0 0 1px var(--blue-40) inset, 0 0 0 1px var(--blue-40), 0 0 0 4px var(--blue-40-a30); }
+  </style>
+</head>
+<body class="sans-serif">
+  <div class="cf">
+    <div class="fl-ns w-50-ns pa3 bg-grey-10 grey-90">
+      <h1 class="mb4">Firefox Light Theme</h1>
+      <!-- Typography -->
+      <section class="mb4">
+        <h2 class="f4 grey-50 mb3 fw4">Typography</h2>
+        <p class="mt0 mb2 grey-90">Primary Text Grey 90 #0c0c0d 100%</p>
+        <p class="mt0 mb2 grey-50">Secondary Text Grey 50 #737373 100%</p>
+        <p class="mt0 mb2 grey-90 o-40">Inactive Text Grey 90 #0c0c0d 100% at 40%</p>
+      </section>
+      <!-- Typography States -->
+      <section class="mb4">
+        <h2 class="f4 grey-50 mb3 fw4">Typography States</h2>
+        <p class="mt0 mb2 grey-90 bg-grey-90-a10 pa2">Hover Grey 90 #0c0c0d 10%</p>
+        <p class="mt0 mb2 grey-90 bg-grey-90-a20 pa2">Pressed Grey 90 #0c0c0d 20%</p>
+      </section>
+      <!-- Icons -->
+      <section class="mb4">
+        <h2 class="f4 grey-50 mb3 fw4">Icons</h2>
+        <div class="mb2">
+          <svg class="v-mid mr1 fill-grey-90-a80" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid grey-90-a80">Primary Icon Grey 90 a80 #0c0c0d 80%</label>
+        </div>
+        <div class="mb2">
+          <svg class="v-mid mr1 fill-grey-90-a60" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid grey-90-a60">Secondary Icon Grey 90 a60 #0c0c0d 60%</label>
+        </div>
+        <div class="mb2 o-40">
+          <svg class="v-mid mr1 fill-grey-90-a80" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid grey-90-a80">Inactive Icon Grey 90 a80 #0c0c0d 80% at 40%</label>
+        </div>
+        <div class="mb2">
+          <svg class="v-mid mr1 fill-blue-50" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid blue-50">Active Icon Blue 50 #0a84ff</label>
+        </div>
+        <div class="mb2">
+          <svg class="v-mid mr1 fill-red-60" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid red-60">Error Icon Red 60 #d70022</label>
+        </div>
+        <div class="mb2">
+          <svg class="v-mid mr1 fill-yellow-60" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid yellow-60">Warning Icon Yellow 60 #d7b600</label>
+        </div>
+        <div class="mb2">
+          <svg class="v-mid mr1 fill-green-60" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid green-60">Success Icon Green 60 #12bc00</label>
+        </div>
+      </section>
+      <!-- Icons States -->
+      <section class="mb4">
+        <h2 class="f4 grey-50 mb3 fw4">Icons States</h2>
+        <div class="mb2">
+          <span class="dib w2 h2 bg-grey-90-a10 br2 v-mid mr1">
+            <svg class="fill-grey-90-a80 pa2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+            </svg>
+          </span>
+          <label class="v-mid grey-90-a80">Hover Grey 90 a10 #0c0c0d 10%</label>
+        </div>
+        <div class="mb2">
+          <span class="dib w2 h2 bg-grey-90-a20 br2 v-mid mr1">
+            <svg class="fill-grey-90-a80 pa2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+            </svg>
+          </span>
+          <label class="v-mid grey-90-a80">Pressed Grey 90 a20 #0c0c0d 20%</label>
+        </div>
+        <div class="mb2">
+          <span class="dib w2 h2 br2 v-mid mr1 focus-light">
+            <svg class="fill-grey-90-a80 pa2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+            </svg>
+          </span>
+          <label class="v-mid grey-90-a80">Focus Blue 50 #0a84ff 100% and 30%</label>
+        </div>
+      </section>
+    </div>
+    <div class="fl-ns w-50-ns pa3 bg-grey-70 grey-10">
+      <h1 class="mb4">Firefox Dark Theme</h1>
+      <!-- Typography -->
+      <section class="mb4">
+        <h2 class="f4 grey-40 mb3 fw4">Typography</h2>
+        <p class="mt0 mb2 grey-10">Primary Text Grey 10 #f9f9fa 100%</p>
+        <p class="mt0 mb2 grey-40">Secondary Text Grey 40 #b1b1b3 100%</p>
+        <p class="mt0 mb2 grey-10 o-40">Inactive Text Grey 10 #f9f9fa 100% at 40%</p>
+      </section>
+      <!-- Typography States -->
+      <section class="mb4">
+        <h2 class="f4 grey-40 mb3 fw4">Typography States</h2>
+        <p class="mt0 mb2 grey-10 bg-grey-10-a10 pa2">Hover Grey 10 #f9f9fa 10%</p>
+        <p class="mt0 mb2 grey-10 bg-grey-10-a20 pa2">Pressed Grey 10 #f9f9fa 20%</p>
+      </section>
+      <!-- Icons -->
+      <section class="mb4">
+        <h2 class="f4 grey-40 mb3 fw4">Icons</h2>
+        <div class="mb2">
+          <svg class="v-mid mr1 fill-grey-10-a80" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid grey-10-a80">Primary Icon Grey 10 a80 #f9f9fa 80%</label>
+        </div>
+        <div class="mb2">
+          <svg class="v-mid mr1 fill-grey-10-a60" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid grey-10-a60">Secondary Icon Grey 10 a60 #f9f9fa 60%</label>
+        </div>
+        <div class="mb2 o-40">
+          <svg class="v-mid mr1 fill-grey-10-a80" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid grey-10-a80">Inactive Icon Grey 10 a80 #f9f9fa 80% at 40%</label>
+        </div>
+        <div class="mb2">
+          <svg class="v-mid mr1 fill-blue-40" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid blue-40">Active Icon Blue 40 #45a1ff</label>
+        </div>
+        <div class="mb2">
+          <svg class="v-mid mr1 fill-red-50" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid red-50">Error Icon Red 50 #ff0039</label>
+        </div>
+        <div class="mb2">
+          <svg class="v-mid mr1 fill-yellow-50" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid yellow-50">Warning Icon Yellow 50 #ffe900</label>
+        </div>
+        <div class="mb2">
+          <svg class="v-mid mr1 fill-green-50" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+          </svg>
+          <label class="v-mid green-50">Success Icon Green 50 #30e60b</label>
+        </div>
+      </section>
+      <!-- Icons States -->
+      <section class="mb4">
+        <h2 class="f4 grey-40 mb3 fw4">Icons States</h2>
+        <div class="mb2">
+          <span class="dib w2 h2 bg-grey-10-a10 br2 v-mid mr1">
+            <svg class="fill-grey-10-a80 pa2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+            </svg>
+          </span>
+          <label class="v-mid grey-10">Hover Grey 10 a10 #f9f9fa 10%</label>
+        </div>
+        <div class="mb2">
+          <span class="dib w2 h2 bg-grey-10-a20 br2 v-mid mr1">
+            <svg class="fill-grey-10-a80 pa2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+            </svg>
+          </span>
+          <label class="v-mid grey-10">Pressed Grey 10 a20 #f9f9fa 20%</label>
+        </div>
+        <div class="mb2">
+          <span class="dib w2 h2 br2 v-mid mr1 focus-dark">
+            <svg class="fill-grey-10-a80 pa2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
+            </svg>
+          </span>
+          <label class="v-mid grey-10">Focus Blue 50 #0a84ff 100% and 30%</label>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
