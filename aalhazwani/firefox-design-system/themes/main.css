@@ -1,0 +1,46 @@
+:root {
+  --blue-40-a30: rgba(69, 161, 255, .3);
+}
+
+.focus-light { 
+  box-shadow: 0 0 0 1px var(--blue-50) inset, 0 0 0 1px var(--blue-50), 0 0 0 4px var(--blue-50-a30);
+}
+
+.focus-dark {
+  box-shadow: 0 0 0 1px var(--blue-40) inset, 0 0 0 1px var(--blue-40), 0 0 0 4px var(--blue-40-a30);
+}
+
+span[data-contrast] {
+  font-size: small;
+}
+
+span[data-contrast]:after {
+  border-radius: 2px;
+  font-weight: 700;
+  margin: 0 4px;
+  padding: 2px;
+}
+
+span[data-contrast="AA"]:after {
+  background-color: var(--red-50);
+  color: var(--white-100);
+  content: attr(data-contrast);
+}
+
+span[data-contrast="AA+"]:after {
+  background-color: var(--yellow-50);
+  color: var(--yellow-90);
+  content: attr(data-contrast);
+}
+
+span[data-contrast="AAA"]:after {
+  background-color: var(--green-50);
+  color: var(--green-90);
+  content: attr(data-contrast);
+}
+
+span[data-contrast="Fails"]:after {
+  background-color: var(--grey-90);
+  color: var(--white-100);
+  content: attr(data-contrast);
+}
