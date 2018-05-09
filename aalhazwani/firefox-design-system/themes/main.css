@@ -44,3 +44,13 @@ span[data-contrast="Fails"]:after {
   color: var(--white-100);
   content: attr(data-contrast);
 }
+
+.checkbox {
+  background-image: url("icons/check-16.svg");
+  background-size: 16px;
+}
+
+.radio {
+  background-image: url("icons/radio-16.svg");
+  background-size: 16px;
+}

@@ -1,4 +1,4 @@
-@import url('https://cdn.rawgit.com/FirefoxUX/design-tokens/master/photon-colors/photon-colors.css');
+@import url("https://cdn.rawgit.com/FirefoxUX/design-tokens/master/photon-colors/photon-colors.css");
 
 /* Teal */
 
@@ -170,6 +170,8 @@
 
 .fill-grey-10-a80 { fill: var(--grey-10-a80); }
 .fill-grey-10-a60 { fill: var(--grey-10-a60); }
+
+.b--grey-90-a30 { border-color: var(--grey-90-a30); }
 
 /* Blue */
 
