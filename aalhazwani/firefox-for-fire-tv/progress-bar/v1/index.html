@@ -31,11 +31,10 @@
       left: 0;
       background-color: #5ba1f8;
       height: 56px;
-      animation-name: progress-bar-in, progress-bar-out;
-      animation-duration: 8s, .2s;
-      animation-delay: .2s, 8s;
+      animation-name: progress;
+      animation-duration: 7s;
       animation-timing-function: ease-in-out;
-      animation-iteration-count: 1, 1;
+      animation-iteration-count: infinite;
     }
     p {
       position: absolute;
@@ -51,31 +50,26 @@
       -moz-osx-font-smoothing: grayscale;
       -webkit-font-smoothing: antialiased;
     }
-    @keyframes progress-bar-in {
+    @keyframes progress {
       0% {
-        padding-left: 0;
+        width: 0;
       }
       40% {
-        padding-left: 200px;
+        width: 200px;
       }
       50% {
-        padding-left: 220px;
+        width: 220px;
       }
       60% {
-        padding-left: 300px;
+        widows: 300px;
       }
-      100% {
-        padding-left: 400px;
-      }
-    }
-    @keyframes progress-bar-out {
-      0% {
+      95% {
+        width: 400px;
         margin-left: 0;
-        padding-left: 400px;
         opacity: 1;
       }
       100% {
-        margin-left: 400px;
+        margin-left: 1000px;
         opacity: 0;
       }
     }
