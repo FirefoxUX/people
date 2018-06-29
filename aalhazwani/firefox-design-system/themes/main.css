@@ -75,12 +75,6 @@ span[data-contrast="UI:AA"]:before {
   content: attr(data-contrast);
 }
 
-span[data-contrast="UI:AA+"]:before {
-  background-color: var(--yellow-50);
-  color: var(--yellow-90);
-  content: attr(data-contrast);
-}
-
 span[data-contrast="UI:AAA"]:before {
   background-color: var(--green-50);
   color: var(--green-90);

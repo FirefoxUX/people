@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Progress bar</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+  <style>
+    body {
+      background-color: #38383d;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .url-bar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #2a2a2e;
+      width: 400px;
+      height: 56px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #5ba1f8;
+      height: 56px;
+      animation-name: progress;
+      animation-duration: 7s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+    p {
+      position: absolute;
+      letter-spacing: 0.04rem;
+      font-size: 16px;
+      line-height: 24px;
+      top: 16px;
+      left: 16px;
+      font-family: "Roboto", sans-serif;
+      color: rgba(249, 249, 250, 0.8);
+      margin: 0;
+      white-space: nowrap;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+    }
+    @keyframes progress {
+      0% {
+        width: 0;
+      }
+      40% {
+        width: 200px;
+      }
+      50% {
+        width: 220px;
+      }
+      60% {
+        widows: 300px;
+      }
+      95% {
+        width: 400px;
+        margin-left: 0;
+        opacity: 1;
+      }
+      100% {
+        margin-left: 1000px;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="url-bar">
+    <div class="progress-bar"></div>
+    <p>https://www.nytimes.com/video</p>
+  </div>
+</body>
+</html>

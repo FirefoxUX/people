@@ -12,7 +12,7 @@
 </head>
 <body class="sans-serif">
   <div class="pa3 bg-grey-30 grey-90">
-    <h2 class="f4 grey-50 mb3 fw4">Text</h2>
+    <h2 class="f4 grey-50 mb3 fw4">Text <a href="https://www.w3.org/TR/WCAG/#contrast-minimum">WCAG 2.0</a></h2>
     <p class="mv0 nl1">
       <span data-contrast="Text:AA"></span>
       Passes AA for large text (above 18pt or bold above 14pt)
@@ -29,14 +29,10 @@
       <span data-contrast="Text:Fails"></span>
       Fails WCAG 2.0 :-(
     </p>
-    <h2 class="f4 grey-50 mb3 fw4">User Interface</h2>
+    <h2 class="f4 grey-50 mb3 fw4">User Interface <a href="https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Informational_Graphic_Contrast_(Minimum)">W3C</a></h2>
     <p class="mv0 nl1">
       <span data-contrast="UI:AA"></span>
       Passes AA for thicker size (3px or more)
-    </p>
-    <p class="mv0 nl1">
-      <span data-contrast="UI:AA+"></span>
-      Passes AAA level for any size
     </p>
     <p class="mv0 nl1">
       <span data-contrast="UI:AAA"></span>
@@ -104,7 +100,7 @@
             <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
           </svg>
           <label class="v-mid grey-90-a60">Secondary Icon Grey 90 a60 #0c0c0d 60%</label>
-          <span data-contrast="UI:AA+"></span>
+          <span data-contrast="UI:AAA"></span>
         </div>
         <div class="mb2 o-40">
           <svg class="v-mid mr1 fill-grey-90-a80" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -124,7 +120,7 @@
             <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
           </svg>
           <label class="v-mid red-60">Error Icon Red 60 #d70022 100%</label>
-          <span data-contrast="UI:AA+"></span>
+          <span data-contrast="UI:AAA"></span>
         </div>
         <div class="mb2">
           <svg class="v-mid mr1 fill-yellow-60" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -202,7 +198,7 @@
             Primary Button Blue 60 #0060df 100%
           </label>
           <span data-contrast="Text:AA+"></span>
-          <span data-contrast="UI:AA+"></span>
+          <span data-contrast="UI:AAA"></span>
         </div>
         <div class="mb3">
           <span class="dib pa2 bg-blue-60 grey-10 br2 mr1 o-40">Button</span>
@@ -290,7 +286,7 @@
           </label>
           <p class="nl1 mv2">
             <span data-contrast="UI:AAA">Icon/Control</span>
-            <span data-contrast="UI:AA+">Control/Background</span>
+            <span data-contrast="UI:AAA">Control/Background</span>
           </p>
         </div>
         <div class="mb2">
@@ -397,7 +393,7 @@
           <label class="dib v-top pv2">
             Modal White 100 #ffffff 100%
           </label>
-          <!-- <span class="v-top" data-contrast="UI:AA+"></span> -->
+          <!-- <span class="v-top" data-contrast="UI:AAA"></span> -->
         </div>
         <h3 class="f5 grey-50 mb3 fw4">Modals states</h3>
       </section>
@@ -432,13 +428,13 @@
       <!-- Typography states -->
       <section class="mb4">
         <h2 class="f5 grey-40 mb3 fw4">Typography states</h2>
-        <p class="mt0 mb2 grey-10 bg-grey-10-a20 pa2">
-          Hover Grey 10 #f9f9fa 20%
-          <span data-contrast="Text:AA+"></span>
-        </p>
         <p class="mt0 mb2 grey-10 bg-grey-10-a10 pa2">
-          Pressed Grey 10 #f9f9fa 10%
+          Hover Grey 10 #f9f9fa 10%
           <span data-contrast="Text:AAA"></span>
+        </p>
+        <p class="mt0 mb2 grey-10 bg-grey-10-a20 pa2">
+          Pressed Grey 10 #f9f9fa 20%
+          <span data-contrast="Text:AA+"></span>
         </p>
       </section>
       <!-- Icons -->
@@ -456,7 +452,7 @@
             <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
           </svg>
           <label class="v-mid grey-10-a60">Secondary Icon Grey 10 a60 #f9f9fa 60%</label>
-          <span data-contrast="UI:AA+"></span>
+          <span data-contrast="UI:AAA"></span>
         </div>
         <div class="mb2 o-40">
           <svg class="v-mid mr1 fill-grey-10-a80" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -490,7 +486,7 @@
             <path d="M7.293 12.707a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L9 9.586V1a1 1 0 1 0-2 0v8.586L3.707 6.293a1 1 0 0 0-1.414 1.414zM13 14H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"/>
           </svg>
           <label class="v-mid green-50">Success Icon Green 50 #30e60b 100%</label>
-          <span data-contrast="UI:AA+"></span>
+          <span data-contrast="UI:AAA"></span>
         </div>
       </section>
       <!-- Icons states -->
@@ -503,7 +499,7 @@
             </svg>
           </span>
           <label class="v-mid grey-10">Hover Grey 10 a20 #f9f9fa 20%</label>
-          <span data-contrast="UI:AA+"></span>
+          <span data-contrast="UI:AAA"></span>
         </div>
         <div class="mb2">
           <span class="dib w2 h2 bg-grey-10-a10 br2 v-mid mr1">
@@ -512,7 +508,7 @@
             </svg>
           </span>
           <label class="v-mid grey-10">Pressed Grey 10 a10 #f9f9fa 10%</label>
-          <span data-contrast="UI:AA+"></span>
+          <span data-contrast="UI:AAA"></span>
         </div>
         <div class="mb2">
           <span class="dib w2 h2 br2 v-mid mr1 focus-dark">
@@ -599,8 +595,43 @@
     </div>
     <div class="fl-l w-third-l pa3 bg-purple-90 grey-10">
       <h1 class="mb4">Firefox Private Theme</h1>
-      <h2 class="f4 grey-40 mb3 fw4">Typography</h2>
-      <h3 class="f5 grey-40 mb3 fw4">Typography states</h3>
+      <!-- Typography -->
+      <section class="mb4">
+        <h2 class="f4 grey-40 mb3 fw4">Typography</h2>
+        <p class="mt0 mb2 grey-10">
+          Primary Text Grey 10 #f9f9fa 100%
+          <span data-contrast="Text:AAA"></span>
+        </p>
+        <p class="mt0 mb2 grey-40">
+          Secondary Text Grey 40 #b1b1b3 100%
+          <span data-contrast="Text:AAA"></span>
+        </p>
+        <p class="mt0 mb2 grey-10 o-40">Inactive Text Grey 10 #f9f9fa 100% at 40%</p>
+        <p class="mt0 mb2 red-50">
+          Error Text Red 50 #ff0039 100%
+          <span data-contrast="Text:AA+"></span>
+        </p>
+        <p class="mt0 mb2 yellow-50">
+          Warning Text Yellow 50 #ffe900 100%
+          <span data-contrast="Text:AAA"></span>
+        </p>
+        <p class="mt0 mb2 green-50">
+          Success Text Green 50 #30e60b 100%
+          <span data-contrast="Text:AAA"></span>
+        </p>
+      </section>
+      <!-- Typography states -->
+      <section class="mb4">
+        <h2 class="f5 grey-40 mb3 fw4">Typography states</h2>
+        <p class="mt0 mb2 grey-10 bg-grey-10-a10 pa2">
+          Hover Grey 10 #f9f9fa 10%
+          <span data-contrast="Text:AAA"></span>
+        </p>
+        <p class="mt0 mb2 grey-10 bg-grey-10-a20 pa2">
+          Pressed Grey 10 #f9f9fa 20%
+          <span data-contrast="Text:AAA"></span>
+        </p>
+      </section>
       <h2 class="f4 grey-40 mb3 fw4">Icons</h2>
       <h3 class="f5 grey-40 mb3 fw4">Icons states</h3>
       <h2 class="f4 grey-40 mb3 fw4">Links</h2>
