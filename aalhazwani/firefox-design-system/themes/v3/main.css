@@ -1,5 +1,8 @@
 :root {
   --blue-40-a30: rgba(69, 161, 255, .3);
+  --bronze: #cd7f32;
+  --silver: silver;
+  --gold: gold;
 }
 
 .focus-light { 
@@ -46,20 +49,20 @@ span[data-todo="⚠️"]:after {
 }
 
 span[data-contrast="Text:AA"]:before {
-  background-color: var(--red-50);
-  color: var(--white-100);
+  background-color: var(--bronze);
+  color: var(--grey-90);
   content: attr(data-contrast);
 }
 
 span[data-contrast="Text:AA+"]:before {
-  background-color: var(--yellow-50);
-  color: var(--yellow-90);
+  background-color: var(--silver);
+  color: var(--grey-90);
   content: attr(data-contrast);
 }
 
 span[data-contrast="Text:AAA"]:before {
-  background-color: var(--green-50);
-  color: var(--green-90);
+  background-color: var(--gold);
+  color: var(--grey-90);
   content: attr(data-contrast);
 }
 
@@ -70,20 +73,14 @@ span[data-contrast="Text:Fails"]:before {
 }
 
 span[data-contrast="UI:AA"]:before {
-  background-color: var(--red-50);
-  color: var(--white-100);
-  content: attr(data-contrast);
-}
-
-span[data-contrast="UI:AA+"]:before {
-  background-color: var(--yellow-50);
-  color: var(--yellow-90);
+  background-color: var(--silver);
+  color: var(--grey-90);
   content: attr(data-contrast);
 }
 
 span[data-contrast="UI:AAA"]:before {
-  background-color: var(--green-50);
-  color: var(--green-90);
+  background-color: var(--gold);
+  color: var(--grey-90);
   content: attr(data-contrast);
 }
 
