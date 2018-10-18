@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M17.207,15.793 L12.914,11.5 L15.957,8.457 C16.3473819,8.06650015 16.3473819,7.43349985 15.957,7.043 C14.9712078,6.05186506 13.6298987,5.49625699 12.232,5.5 L12.018,5.5 C10.2133621,5.49944804 8.75055196,4.03663788 8.75,2.232 L8.75,1.5 C8.74991365,1.0956041 8.5062725,0.73106595 8.13265456,0.576322022 C7.75903662,0.421578094 7.32899425,0.507092084 7.043,0.793 L0.793,7.043 C0.507092084,7.32899425 0.421578094,7.75903662 0.576322022,8.13265456 C0.73106595,8.5062725 1.0956041,8.74991365 1.5,8.75 L2.232,8.75 C4.03663788,8.75055196 5.49944804,10.2133621 5.5,12.018 L5.5,12.229 C5.43998291,13.6598016 6.02195511,15.0426732 7.087,16 C7.48270033,16.3506473 8.0829767,16.3326828 8.457,15.959 L11.5,12.914 L15.793,17.207 C16.1853789,17.5859722 16.8090848,17.5805524 17.1948186,17.1948186 C17.5805524,16.8090848 17.5859722,16.1853789 17.207,15.793 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Open-menu,-request-desktop-website" transform="translate(-264.000000, -39.000000)">
+            <g id="#Screens-/-TV-/-Homescreen-/-Pocket-Tile">
+                <g id="Homescreen-/-Navigation-/-Default">
+                    <g id="Pin-Button" transform="translate(249.000000, 24.000000)">
+                        <g id="Icon" transform="translate(15.000000, 15.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Shape" fill-opacity="0.8" fill="#F9F9FA" transform="translate(8.993948, 8.993948) rotate(90.000000) translate(-8.993948, -8.993948) " xlink:href="#path-1"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
