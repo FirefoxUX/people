@@ -16,6 +16,7 @@
   padding-left: 20px;
 }
 
+.group-ui-elements.item-checkbox + .group-ui-elements.item-checkbox,
 .group-ui-elements.item-radio + .group-ui-elements.item-radio {
   margin-top: -8px;
 }

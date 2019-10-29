@@ -4,15 +4,27 @@
 
 :root {
   /* Colors */
+  --blue-40-values: 210, 100%, 64%;
   --blue-50-values: 210, 100%, 52%;
   --blue-60-values: 214, 100%, 44%;
   --blue-70-values: 218, 100%, 33%;
   --blue-80-values: 223, 100%, 23%;
 
+  --blue-40: hsl(var(--blue-40-values));
   --blue-50: hsl(var(--blue-50-values));
   --blue-60: hsl(var(--blue-60-values));
   --blue-70: hsl(var(--blue-70-values));
   --blue-80: hsl(var(--blue-80-values));
+
+  --blue-40-10: hsla(var(--blue-40-values), .1);
+  --blue-40-20: hsla(var(--blue-40-values), .2);
+  --blue-40-30: hsla(var(--blue-40-values), .3);
+  --blue-40-40: hsla(var(--blue-40-values), .4);
+  --blue-40-50: hsla(var(--blue-40-values), .5);
+  --blue-40-60: hsla(var(--blue-40-values), .6);
+  --blue-40-70: hsla(var(--blue-40-values), .7);
+  --blue-40-80: hsla(var(--blue-40-values), .8);
+  --blue-40-90: hsla(var(--blue-40-values), .9);
 
   --blue-50-10: hsla(var(--blue-50-values), .1);
   --blue-50-20: hsla(var(--blue-50-values), .2);
@@ -50,11 +62,13 @@
 
   --grey-10-values: 240, 9%, 98%;
   --grey-30-values: 240, 5%, 85%;
-  --grey-80-values: 240, 3%, 30%;
+  --grey-70-values: 240, 4%, 23%;
+  --grey-80-values: 240, 5%, 17%;
   --grey-90-values: 240, 5%, 5%;
 
   --grey-10: hsl(var(--grey-10-values));
   --grey-30: hsl(var(--grey-30-values));
+  --grey-70: hsl(var(--grey-70-values));
   --grey-80: hsl(var(--grey-80-values));
   --grey-90: hsl(var(--grey-90-values));
  
@@ -78,7 +92,7 @@
 
 
   /* Border Radii */
-  --border-radius: 2px;
-  --border-radius-inner: 3px;
-  --border-radius-outer: 4px;
+  --border-radius: 4px;
+  --border-radius-inner: 2px;
+  --border-radius-outer: 8px;
 }

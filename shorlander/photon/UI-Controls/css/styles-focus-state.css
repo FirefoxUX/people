@@ -21,54 +21,55 @@ h2.label-section {
   display: grid;
   width: 100%;
   height: 100%;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-gap: 0;
 }
 
 .grid-cell {
-  padding: 20px;
+  padding: 32px;
+}
+
+.theme-light {
+  background-color: white;
+}
+
+.theme-dark {
+  --blue-50: var(--blue-40);  
+  background-color: var(--grey-80);
+  color: white;
+}
+
+.theme-private {
+  background-color: #25003e;
+  color: white;
+}
+
+.theme-dark input[type="text"],
+.theme-private input[type="text"] {
+  background-color: var(--grey-70);
+}
+
+.theme-dark input[type="text"]::placeholder,
+.theme-private input[type="text"]::placeholder {
+  color: #fff;
+  
+}
+
+.theme-dark button,
+.theme-dark select,
+.theme-private button,
+.theme-private select {
+  color: white;
+}
+
+.theme-dark select,
+.theme-private select {
+  background-image: url("../images/dropdown-white-16.svg");
 }
 
 
 /* --------Focus-------- */
-
-/*** --------Focus 01-------- ***/
-.focus-style-01 a:link.focus {
-  box-shadow: 0 0 0 1px var(--blue-50),
-              0 0 0 4px var(--blue-50-30);
-  
-  border-radius: 2px;
-  
-  animation: none;
-}
-
-.focus-style-01 button.focus,
-.focus-style-01 select.focus,
-.focus-style-01 input[type="checkbox"].focus,
-.focus-style-01 input[type="radio"].focus {
-  box-shadow: 0 0 0 1px var(--blue-50),
-              0 0 0 4px var(--blue-50-30);
-  
-  animation: none;
-}
-
-.focus-style-01 button.button-primary.focus,
-.focus-style-01 input[type="checkbox"]:checked.focus,
-.focus-style-01 input[type="radio"]:checked.focus {
-  box-shadow: 0 0 0 1px white,
-              0 0 0 4px var(--blue-50-30);
-  
-  animation-timing-function: ease;
-}
-
-.focus-style-01 input[type="text"].focus   {
-  border-color: var(--blue-50);
-  box-shadow: 0 0 0 3px var(--blue-50-30);
-
-  animation: none;
-}
-
 
 /*** --------Focus 02-------- ***/
 .focus-style-02 a:link.focus {
@@ -97,11 +98,15 @@ h2.label-section {
 .focus-style-02 button.button-primary.focus,
 .focus-style-02 input[type="checkbox"]:checked.focus,
 .focus-style-02 input[type="radio"]:checked.focus {
+/*   box-shadow: 0 0 0 1px white inset,
+              0 0 0 1px var(--blue-50) inset,
+              0 0 0 3px var(--blue-50-20) inset,
+              0 0 0 4px var(--blue-50-30); */
+  
   box-shadow: 0 0 0 1px white inset,
               0 0 0 3px var(--blue-50-20) inset,
-              0 0 0 1px white,
-              0 0 0 4px var(--blue-50-30);
-  
+              0 0 0 1px var(--blue-50),
+              0 0 0 4px var(--blue-50-30);  
   animation-timing-function: ease;
 }
 
@@ -109,82 +114,6 @@ h2.label-section {
   border-color: var(--blue-50);
   box-shadow: 0 0 0 1px var(--blue-50),
               0 0 0 4px var(--blue-50-30);
-
-  animation: none;
-}
-
-
-/*** --------Focus 03-------- ***/
-.focus-style-03 a:link.focus {
-  box-shadow: 0 0 0 2px var(--blue-50),
-              0 0 0 6px var(--blue-50-30);
-
-  border-radius: 2px;
-  
-  animation: none;
-}
-
-.focus-style-03 button.focus,
-.focus-style-03 select.focus,
-.focus-style-03 input[type="checkbox"].focus,
-.focus-style-03 input[type="radio"].focus {
-  box-shadow: 0 0 0 1px var(--blue-50) inset,
-              0 0 0 1px var(--blue-50),
-              0 0 0 4px var(--blue-50-30);
-  
-  animation: none;
-}
-
-.focus-style-03 button.button-primary.focus,
-.focus-style-03 input[type="checkbox"]:checked.focus,
-.focus-style-03 input[type="radio"]:checked.focus {
-  box-shadow: 0 0 0 1px var(--blue-50) inset,
-              0 0 0 1px var(--blue-50),
-              0 0 0 4px var(--blue-50-30);
-  
-  animation-timing-function: ease;
-}
-
-.focus-style-03 input[type="text"].focus   {
-  border-color: var(--blue-50);
-  box-shadow: 0 0 0 1px var(--blue-50),
-              0 0 0 4px var(--blue-50-30);
-
-  animation: none;
-}
-
-
-
-/*** --------Focus 04-------- ***/
-.focus-style-04 a:link.focus {
-  box-shadow: 0 0 0 2px var(--blue-50-80);
-
-  border-radius: 2px;
-  
-  animation: none;
-}
-
-.focus-style-04 button.focus,
-.focus-style-04 select.focus,
-.focus-style-04 input[type="checkbox"].focus,
-.focus-style-04 input[type="radio"].focus {
-  box-shadow: 0 0 0 2px var(--blue-50-80);
-  
-  animation: none;
-}
-
-.focus-style-04 button.button-primary.focus,
-.focus-style-04 input[type="checkbox"]:checked.focus,
-.focus-style-04 input[type="radio"]:checked.focus {
-  box-shadow: 0 0 0 1px white inset,
-              0 0 0 2px var(--blue-50-80);
-  
-  animation-timing-function: ease;
-}
-
-.focus-style-04 input[type="text"].focus   {
-  border-color: var(--blue-50);
-  box-shadow: 0 0 0 2px var(--blue-50-50);
 
   animation: none;
 }
